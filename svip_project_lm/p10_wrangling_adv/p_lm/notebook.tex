@@ -1,0 +1,1882 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{wrangle\_act\_full}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{ux6536ux96c6}{%
+\subsection{收集}\label{ux6536ux96c6}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}340}]:} \PY{c+c1}{\PYZsh{} import libs}
+          \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+          \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+          
+          \PY{k+kn}{import} \PY{n+nn}{pprint}  \PY{k}{as} \PY{n+nn}{pp}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}227}]:} \PY{c+c1}{\PYZsh{} load df}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} read\PYZus{}jason 有很多参数,可以参考官方文档}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} 此处要加 lines=True}
+          \PY{n}{tweetdf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}json}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tweet\PYZus{}json.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lines}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          \PY{c+c1}{\PYZsh{} https://pandas.pydata.org/pandas\PYZhy{}docs/stable/reference/api/pandas.read\PYZus{}json.html}
+\end{Verbatim}
+
+
+    \hypertarget{ux8bc4ux4f30}{%
+\subsection{评估}\label{ux8bc4ux4f30}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}228}]:} \PY{c+c1}{\PYZsh{} snip 3 sample}
+          \PY{n}{tweetdf}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}228}]:}       contributors  coordinates          created\_at display\_text\_range  \textbackslash{}
+          1313           NaN          NaN 2016-03-06 21:31:22           [0, 102]   
+          139            NaN          NaN 2017-05-17 16:00:15           [0, 117]   
+          1248           NaN          NaN 2016-03-18 15:05:29           [0, 102]   
+          
+                                                         entities  \textbackslash{}
+          1313  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+          139   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+          1248  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+          
+                                                extended\_entities  favorite\_count  \textbackslash{}
+          1313  \{'media': [\{'id': 706593029277294592, 'id\_str'{\ldots}            2350   
+          139   \{'media': [\{'id': 864873202618687489, 'id\_str'{\ldots}           33537   
+          1248  \{'media': [\{'id': 710844577050206208, 'id\_str'{\ldots}            2765   
+          
+                favorited                                          full\_text  geo  \textbackslash{}
+          1313      False  Here's a sneak peek of me on spring break. 10/{\ldots}  NaN   
+          139       False  We only rate dogs. Please don't send in Jesus{\ldots}  NaN   
+          1248      False  This is Staniel. His selfie game is strong af{\ldots}  NaN   
+          
+                                      {\ldots}                          \textbackslash{}
+          1313                        {\ldots}                           
+          139                         {\ldots}                           
+          1248                        {\ldots}                           
+          
+                possibly\_sensitive\_appealable  quoted\_status quoted\_status\_id  \textbackslash{}
+          1313                            0.0            NaN              NaN   
+          139                             0.0            NaN              NaN   
+          1248                            0.0            NaN              NaN   
+          
+                quoted\_status\_id\_str  retweet\_count  retweeted  retweeted\_status  \textbackslash{}
+          1313                   NaN            716      False               NaN   
+          139                    NaN           9320      False               NaN   
+          1248                   NaN            775      False               NaN   
+          
+                                                           source truncated  \textbackslash{}
+          1313  <a href="http://twitter.com/download/iphone" r{\ldots}     False   
+          139   <a href="http://twitter.com/download/iphone" r{\ldots}     False   
+          1248  <a href="http://twitter.com/download/iphone" r{\ldots}     False   
+          
+                                                             user  
+          1313  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+          139   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+          1248  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+          
+          [3 rows x 31 columns]
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}229}]:} \PY{c+c1}{\PYZsh{} check random content}
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{} solutions1 (col loop pass)}
+          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+          \PY{l+s+sd}{sample = tweetdf.sample()}
+          \PY{l+s+sd}{p(\PYZsq{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking sample index: \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(sample.index[0]))}
+          
+          \PY{l+s+sd}{i = 1}
+          \PY{l+s+sd}{for col in list(tweetdf.columns):}
+          \PY{l+s+sd}{    print(\PYZsq{}\PYZbs{}n\PYZhy{} columns check \PYZob{}\PYZcb{} : \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(i,col))}
+          \PY{l+s+sd}{    print(sample[col].values)}
+          \PY{l+s+sd}{    i+=1}
+          \PY{l+s+sd}{\PYZsh{}\PYZsh{} 参考 https://thispointer.com/pandas\PYZhy{}loop\PYZhy{}or\PYZhy{}iterate\PYZhy{}over\PYZhy{}all\PYZhy{}or\PYZhy{}certain\PYZhy{}columns\PYZhy{}of\PYZhy{}a\PYZhy{}dataframe/}
+          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{} solutuion2 (iteritem pass)}
+          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+          \PY{l+s+sd}{sample = tweetdf.sample()}
+          \PY{l+s+sd}{p(\PYZsq{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking sample index: \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(sample.index[0]))}
+          
+          
+          \PY{l+s+sd}{for (colname, coldata) in sample.iteritems():}
+          \PY{l+s+sd}{    print(\PYZsq{}\PYZbs{}n\PYZhy{} columns check \PYZob{}\PYZcb{} : \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(i,colname))}
+          \PY{l+s+sd}{    print(coldata.values)}
+          \PY{l+s+sd}{    i += 1}
+          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}229}]:} "\textbackslash{}n\#\# solutions1 使用 col loop\textbackslash{}nsample = tweetdf.sample()\textbackslash{}np('----checking sample index: \{:-<8\}'.format(sample.index[0]))\textbackslash{}n\textbackslash{}ni = 1\textbackslash{}nfor col in list(tweetdf.columns):\textbackslash{}n    print('\textbackslash{}n- columns check \{\} : \{:-<8\}'.format(i,col))\textbackslash{}n    print(sample[col].values)\textbackslash{}n    i+=1\textbackslash{}n\#\# 参考 https://thispointer.com/pandas-loop-or-iterate-over-all-or-certain-columns-of-a-dataframe/\textbackslash{}n"
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}341}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} build function (base on solution2)}
+          \PY{k}{def} \PY{n+nf}{check\PYZus{}sample}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
+              \PY{n}{sample} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking sample index: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{sample}\PY{o}{.}\PY{n}{index}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+              \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} sometimes pp is uncaptible with .format}
+              \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{1}
+              \PY{k}{for} \PY{p}{(}\PY{n}{colname}\PY{p}{,} \PY{n}{coldata}\PY{p}{)} \PY{o+ow}{in} \PY{n}{sample}\PY{o}{.}\PY{n}{iteritems}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZhy{} columns \PYZsh{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ : }\PY{l+s+si}{\PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{colname}\PY{p}{)}\PY{p}{)}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{n}{coldata}\PY{o}{.}\PY{n}{values}\PY{p}{)}
+                  \PY{n}{i} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+              \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking complete\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}342}]:} \PY{c+c1}{\PYZsh{} check1 }
+          \PY{c+c1}{\PYZsh{}\PYZsh{} check \PYZhy{} all columns}
+          \PY{n}{check\PYZus{}sample}\PY{p}{(}\PY{n}{tweetdf}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+----checking sample index: 380
+
+- columns \#1 : contributors
+[nan]
+
+- columns \#2 : coordinates
+[nan]
+
+- columns \#3 : created\_at
+['2017-02-02T17:00:17.000000000']
+
+- columns \#4 : display\_text\_range
+[list([0, 129])]
+
+- columns \#5 : entities
+[\{'hashtags': [], 'symbols': [], 'user\_mentions': [], 'urls': [], 'media': [\{'id': 827199955093843969, 'id\_str': '827199955093843969', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-fmWcAEUZFp.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-fmWcAEUZFp.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}\}\}]\}]
+
+- columns \#6 : extended\_entities
+[\{'media': [\{'id': 827199955093843969, 'id\_str': '827199955093843969', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-fmWcAEUZFp.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-fmWcAEUZFp.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}\}\}, \{'id': 827199955169341440, 'id\_str': '827199955169341440', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-f4WcAAmsuc.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-f4WcAAmsuc.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}\}\}, \{'id': 827199955488083968, 'id\_str': '827199955488083968', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-hEWEAAdOyR.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-hEWEAAdOyR.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}\}\}, \{'id': 827199956662489088, 'id\_str': '827199956662489088', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-lcWEAA9CmR.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-lcWEAA9CmR.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}\}\}]\}]
+
+- columns \#7 : favorite\_count
+[11609]
+
+- columns \#8 : favorited
+[False]
+
+- columns \#9 : full\_text
+["This is Charlie. He wins every game of chess he plays. Won't let opponent pet him until they forfeit. 13/10 you win again Charlie https://t.co/UkyQibIBzZ"]
+
+- columns \#10 : geo-----
+[nan]
+
+- columns \#11 : id------
+[827199976799354881]
+
+- columns \#12 : id\_str--
+[827199976799354880]
+
+- columns \#13 : in\_reply\_to\_screen\_name
+[None]
+
+- columns \#14 : in\_reply\_to\_status\_id
+[nan]
+
+- columns \#15 : in\_reply\_to\_status\_id\_str
+[nan]
+
+- columns \#16 : in\_reply\_to\_user\_id
+[nan]
+
+- columns \#17 : in\_reply\_to\_user\_id\_str
+[nan]
+
+- columns \#18 : is\_quote\_status
+[False]
+
+- columns \#19 : lang----
+['en']
+
+- columns \#20 : place---
+[None]
+
+- columns \#21 : possibly\_sensitive
+[0.]
+
+- columns \#22 : possibly\_sensitive\_appealable
+[0.]
+
+- columns \#23 : quoted\_status
+[nan]
+
+- columns \#24 : quoted\_status\_id
+[nan]
+
+- columns \#25 : quoted\_status\_id\_str
+[nan]
+
+- columns \#26 : retweet\_count
+[2566]
+
+- columns \#27 : retweeted
+[False]
+
+- columns \#28 : retweeted\_status
+[nan]
+
+- columns \#29 : source--
+['<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>']
+
+- columns \#30 : truncated
+[False]
+
+- columns \#31 : user----
+[\{'id': 4196983835, 'id\_str': '4196983835', 'name': 'SpookyWeRateDogs™', 'screen\_name': 'dog\_rates', 'location': 'MERCH↴  DM DOGS. WE WILL RATE', 'description': 'Only Legit Source for Professional Dog Ratings STORE: @ShopWeRateDogs | IG, FB \& SC: WeRateDogs | MOBILE APP: @GoodDogsGame Business: dogratingtwitter@gmail.com', 'url': 'https://t.co/N7sNNHAEXS', 'entities': \{'url': \{'urls': [\{'url': 'https://t.co/N7sNNHAEXS', 'expanded\_url': 'http://weratedogs.com', 'display\_url': 'weratedogs.com', 'indices': [0, 23]\}]\}, 'description': \{'urls': []\}\}, 'protected': False, 'followers\_count': 3768851, 'friends\_count': 107, 'listed\_count': 3199, 'created\_at': 'Sun Nov 15 21:41:29 +0000 2015', 'favourites\_count': 120161, 'utc\_offset': None, 'time\_zone': None, 'geo\_enabled': True, 'verified': True, 'statuses\_count': 5749, 'lang': 'en', 'contributors\_enabled': False, 'is\_translator': False, 'is\_translation\_enabled': False, 'profile\_background\_color': '000000', 'profile\_background\_image\_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_image\_url\_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_tile': False, 'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/4196983835/1506888628', 'profile\_link\_color': 'F5ABB5', 'profile\_sidebar\_border\_color': '000000', 'profile\_sidebar\_fill\_color': '000000', 'profile\_text\_color': '000000', 'profile\_use\_background\_image': False, 'has\_extended\_profile': True, 'default\_profile': False, 'default\_profile\_image': False, 'following': False, 'follow\_request\_sent': False, 'notifications': False, 'translator\_type': 'none'\}]
+'----checking complete----'
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}327}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} check \PYZhy{} info}
+          \PY{n}{tweetdf}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2352 entries, 0 to 2351
+Data columns (total 31 columns):
+contributors                     0 non-null float64
+coordinates                      0 non-null float64
+created\_at                       2352 non-null datetime64[ns]
+display\_text\_range               2352 non-null object
+entities                         2352 non-null object
+extended\_entities                2073 non-null object
+favorite\_count                   2352 non-null int64
+favorited                        2352 non-null bool
+full\_text                        2352 non-null object
+geo                              0 non-null float64
+id                               2352 non-null int64
+id\_str                           2352 non-null int64
+in\_reply\_to\_screen\_name          78 non-null object
+in\_reply\_to\_status\_id            78 non-null float64
+in\_reply\_to\_status\_id\_str        78 non-null float64
+in\_reply\_to\_user\_id              78 non-null float64
+in\_reply\_to\_user\_id\_str          78 non-null float64
+is\_quote\_status                  2352 non-null bool
+lang                             2352 non-null object
+place                            1 non-null object
+possibly\_sensitive               2211 non-null float64
+possibly\_sensitive\_appealable    2211 non-null float64
+quoted\_status                    28 non-null object
+quoted\_status\_id                 29 non-null float64
+quoted\_status\_id\_str             29 non-null float64
+retweet\_count                    2352 non-null int64
+retweeted                        2352 non-null bool
+retweeted\_status                 177 non-null object
+source                           2352 non-null object
+truncated                        2352 non-null bool
+user                             2352 non-null object
+dtypes: bool(4), datetime64[ns](1), float64(11), int64(4), object(11)
+memory usage: 505.4+ KB
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}343}]:} \PY{c+c1}{\PYZsh{} drop cols}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} df prepare}
+          \PY{n}{tweetclean} \PY{o}{=} \PY{n}{tweetdf}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{} build fuction}
+          \PY{k}{def} \PY{n+nf}{drop\PYZus{}column}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n+nb}{list}\PY{p}{)}\PY{p}{:}
+              \PY{c+c1}{\PYZsh{}\PYZsh{} proceed}
+              \PY{n}{dflen} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{columns}\PY{p}{)}
+              \PY{n}{df}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n+nb}{list}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+              \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} 在函数中要用 inplace=True 而不是赋值来作用于df}
+              \PY{c+c1}{\PYZsh{}\PYZsh{} check}
+              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{} proceding \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{} drop }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ columns: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{list}\PY{p}{)}\PY{p}{,} \PY{n+nb}{list}\PY{p}{)}\PY{p}{)}
+              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{} remain }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ columns}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{columns}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{} success : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{list}\PY{p}{)} \PY{o}{+} \PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{columns}\PY{p}{)} \PY{o}{==} \PY{n}{dflen}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}344}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} drop1 list}
+          \PY{n}{droplist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{contributors}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{coordinates}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{geo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{place}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}status\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}user\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}345}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} drop1 excute}
+          \PY{n}{drop\PYZus{}column}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{droplist1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+---- proceding ----
+- drop 8 columns: ['contributors', 'coordinates', 'geo', 'place', 'id\_str', 'in\_reply\_to\_status\_id\_str', 'in\_reply\_to\_user\_id\_str', 'quoted\_status\_id\_str'] 
+- remain 23 columns
+- success : True
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}346}]:} \PY{c+c1}{\PYZsh{} check2}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} check \PYZhy{} not clear value columns}
+          \PY{n}{check\PYZus{}sample}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+----checking sample index: 690
+
+- columns \#1 : created\_at
+['2016-10-14T16:13:10.000000000']
+
+- columns \#2 : display\_text\_range
+[list([0, 110])]
+
+- columns \#3 : entities
+[\{'hashtags': [], 'symbols': [], 'user\_mentions': [], 'urls': [], 'media': [\{'id': 786963058530906112, 'id\_str': '786963058530906112', 'indices': [111, 134], 'media\_url': 'http://pbs.twimg.com/media/Cuvau3MW8AAxaRv.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/Cuvau3MW8AAxaRv.jpg', 'url': 'https://t.co/ibj5g6xaAj', 'display\_url': 'pic.twitter.com/ibj5g6xaAj', 'expanded\_url': 'https://twitter.com/dog\_rates/status/786963064373534720/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}\}\}]\}]
+
+- columns \#4 : extended\_entities
+[\{'media': [\{'id': 786963058530906112, 'id\_str': '786963058530906112', 'indices': [111, 134], 'media\_url': 'http://pbs.twimg.com/media/Cuvau3MW8AAxaRv.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/Cuvau3MW8AAxaRv.jpg', 'url': 'https://t.co/ibj5g6xaAj', 'display\_url': 'pic.twitter.com/ibj5g6xaAj', 'expanded\_url': 'https://twitter.com/dog\_rates/status/786963064373534720/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}\}\}]\}]
+
+- columns \#5 : favorite\_count
+[29595]
+
+- columns \#6 : favorited
+[False]
+
+- columns \#7 : full\_text
+["This is Rory. He's got an interview in a few minutes. Looking spiffy af. Nervous as h*ck tho. 12/10 would hire https://t.co/ibj5g6xaAj"]
+
+- columns \#8 : id------
+[786963064373534720]
+
+- columns \#9 : in\_reply\_to\_screen\_name
+[None]
+
+- columns \#10 : in\_reply\_to\_status\_id
+[nan]
+
+- columns \#11 : in\_reply\_to\_user\_id
+[nan]
+
+- columns \#12 : is\_quote\_status
+[False]
+
+- columns \#13 : lang----
+['en']
+
+- columns \#14 : possibly\_sensitive
+[0.]
+
+- columns \#15 : possibly\_sensitive\_appealable
+[0.]
+
+- columns \#16 : quoted\_status
+[nan]
+
+- columns \#17 : quoted\_status\_id
+[nan]
+
+- columns \#18 : retweet\_count
+[9272]
+
+- columns \#19 : retweeted
+[False]
+
+- columns \#20 : retweeted\_status
+[nan]
+
+- columns \#21 : source--
+['<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>']
+
+- columns \#22 : truncated
+[False]
+
+- columns \#23 : user----
+[\{'id': 4196983835, 'id\_str': '4196983835', 'name': 'SpookyWeRateDogs™', 'screen\_name': 'dog\_rates', 'location': 'MERCH↴  DM DOGS. WE WILL RATE', 'description': 'Only Legit Source for Professional Dog Ratings STORE: @ShopWeRateDogs | IG, FB \& SC: WeRateDogs | MOBILE APP: @GoodDogsGame Business: dogratingtwitter@gmail.com', 'url': 'https://t.co/N7sNNHAEXS', 'entities': \{'url': \{'urls': [\{'url': 'https://t.co/N7sNNHAEXS', 'expanded\_url': 'http://weratedogs.com', 'display\_url': 'weratedogs.com', 'indices': [0, 23]\}]\}, 'description': \{'urls': []\}\}, 'protected': False, 'followers\_count': 3768903, 'friends\_count': 107, 'listed\_count': 3225, 'created\_at': 'Sun Nov 15 21:41:29 +0000 2015', 'favourites\_count': 120161, 'utc\_offset': None, 'time\_zone': None, 'geo\_enabled': True, 'verified': True, 'statuses\_count': 5749, 'lang': 'en', 'contributors\_enabled': False, 'is\_translator': False, 'is\_translation\_enabled': False, 'profile\_background\_color': '000000', 'profile\_background\_image\_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_image\_url\_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_tile': False, 'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/4196983835/1506888628', 'profile\_link\_color': 'F5ABB5', 'profile\_sidebar\_border\_color': '000000', 'profile\_sidebar\_fill\_color': '000000', 'profile\_text\_color': '000000', 'profile\_use\_background\_image': False, 'has\_extended\_profile': True, 'default\_profile': False, 'default\_profile\_image': False, 'following': False, 'follow\_request\_sent': False, 'notifications': False, 'translator\_type': 'none'\}]
+'----checking complete----'
+
+    \end{Verbatim}
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}376}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} not much meaning entities record many info for runing page, not data for}
+          \PY{n}{checklist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{favorited}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}screen\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}status\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}user\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{is\PYZus{}quote\PYZus{}status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lang}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive\PYZus{}appealable}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{retweeted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{truncated}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}429}]:} \PY{c+c1}{\PYZsh{} build function}
+          \PY{k}{def} \PY{n+nf}{check\PYZus{}info}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{checklist}\PY{p}{)}\PY{p}{:}
+              \PY{n}{c} \PY{o}{=} \PY{l+m+mi}{1}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{checklist}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZhy{} columns \PYZsh{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ : }\PY{l+s+si}{\PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{i}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{nlargest}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                  \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} nlargest 非常好用}
+                  \PY{n}{c} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+              \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking complete\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}430}]:} \PY{n}{check\PYZus{}info}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{checklist1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+- columns \#1 : favorited
+False    2352
+Name: favorited, dtype: int64
+
+- columns \#2 : in\_reply\_to\_screen\_name
+dog\_rates          47
+markhoppus          2
+Jack\_Septic\_Eye     1
+NBCSports           1
+Marc\_IRL            1
+Name: in\_reply\_to\_screen\_name, dtype: int64
+
+- columns \#3 : in\_reply\_to\_status\_id
+6.671522e+17    2
+8.562860e+17    1
+8.131273e+17    1
+6.754971e+17    1
+6.827884e+17    1
+Name: in\_reply\_to\_status\_id, dtype: int64
+
+- columns \#4 : in\_reply\_to\_user\_id
+4.196984e+09    47
+2.195506e+07     2
+7.305050e+17     1
+2.916630e+07     1
+3.105441e+09     1
+Name: in\_reply\_to\_user\_id, dtype: int64
+
+- columns \#5 : is\_quote\_status
+False    2321
+True       31
+Name: is\_quote\_status, dtype: int64
+
+- columns \#6 : lang----
+en     2334
+und       7
+nl        3
+in        3
+et        1
+Name: lang, dtype: int64
+
+- columns \#7 : possibly\_sensitive
+0.0    2211
+Name: possibly\_sensitive, dtype: int64
+
+- columns \#8 : possibly\_sensitive\_appealable
+0.0    2211
+Name: possibly\_sensitive\_appealable, dtype: int64
+
+- columns \#9 : quoted\_status\_id
+8.340867e+17    1
+8.413114e+17    1
+7.061659e+17    1
+8.860534e+17    1
+8.464848e+17    1
+Name: quoted\_status\_id, dtype: int64
+
+- columns \#10 : retweeted
+False    2352
+Name: retweeted, dtype: int64
+
+- columns \#11 : truncated
+False    2352
+Name: truncated, dtype: int64
+'----checking complete----'
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}405}]:} \PY{c+c1}{\PYZsh{} special1 quoted\PYZus{}status is a dict, move it to detlist}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} check values (almost is null)}
+          \PY{n}{tweetdf}\PY{o}{.}\PY{n}{quoted\PYZus{}status}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}405}]:} True     2324
+          False      28
+          Name: quoted\_status, dtype: int64
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}431}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} check samples}
+          \PY{n}{tweetdf}\PY{p}{[}\PY{n}{tweetdf}\PY{o}{.}\PY{n}{quoted\PYZus{}status}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{quoted\PYZus{}status}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} 从结果看 status 是对用户转发 tweet 的一些记录,可以不进行研究}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}431}]:} \{'created\_at': 'Tue Nov 08 22:54:11 +0000 2016',
+           'id': 796123679771897856,
+           'id\_str': '796123679771897856',
+           'full\_text': 'This is Thor, leader of the Vacuum Cleaner Defense League. "Say NO to vacuums. They\textbackslash{}'re loud and they freak him out." https://t.co/yB7BOKunli https://t.co/eG8v8b12xM',
+           'truncated': False,
+           'display\_text\_range': [0, 140],
+           'entities': \{'hashtags': [],
+            'symbols': [],
+            'user\_mentions': [],
+            'urls': [\{'url': 'https://t.co/yB7BOKunli',
+              'expanded\_url': 'http://kng5.tv/VCDL',
+              'display\_url': 'kng5.tv/VCDL',
+              'indices': [117, 140]\}],
+            'media': [\{'id': 796123648415432708,
+              'id\_str': '796123648415432708',
+              'indices': [141, 164],
+              'media\_url': 'http://pbs.twimg.com/media/CwxmPX0XAAQDYuk.jpg',
+              'media\_url\_https': 'https://pbs.twimg.com/media/CwxmPX0XAAQDYuk.jpg',
+              'url': 'https://t.co/eG8v8b12xM',
+              'display\_url': 'pic.twitter.com/eG8v8b12xM',
+              'expanded\_url': 'https://twitter.com/KING5Seattle/status/796123679771897856/photo/1',
+              'type': 'photo',
+              'sizes': \{'medium': \{'w': 960, 'h': 720, 'resize': 'fit'\},
+               'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\},
+               'small': \{'w': 680, 'h': 510, 'resize': 'fit'\},
+               'large': \{'w': 960, 'h': 720, 'resize': 'fit'\}\}\}]\},
+           'extended\_entities': \{'media': [\{'id': 796123648415432708,
+              'id\_str': '796123648415432708',
+              'indices': [141, 164],
+              'media\_url': 'http://pbs.twimg.com/media/CwxmPX0XAAQDYuk.jpg',
+              'media\_url\_https': 'https://pbs.twimg.com/media/CwxmPX0XAAQDYuk.jpg',
+              'url': 'https://t.co/eG8v8b12xM',
+              'display\_url': 'pic.twitter.com/eG8v8b12xM',
+              'expanded\_url': 'https://twitter.com/KING5Seattle/status/796123679771897856/photo/1',
+              'type': 'photo',
+              'sizes': \{'medium': \{'w': 960, 'h': 720, 'resize': 'fit'\},
+               'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\},
+               'small': \{'w': 680, 'h': 510, 'resize': 'fit'\},
+               'large': \{'w': 960, 'h': 720, 'resize': 'fit'\}\}\}]\},
+           'source': '<a href="https://about.twitter.com/products/tweetdeck" rel="nofollow">TweetDeck</a>',
+           'in\_reply\_to\_status\_id': None,
+           'in\_reply\_to\_status\_id\_str': None,
+           'in\_reply\_to\_user\_id': None,
+           'in\_reply\_to\_user\_id\_str': None,
+           'in\_reply\_to\_screen\_name': None,
+           'user': \{'id': 19430999,
+            'id\_str': '19430999',
+            'name': 'KING 5 News',
+            'screen\_name': 'KING5Seattle',
+            'location': 'Seattle, Washington, USA',
+            'description': 'News, weather, traffic \& more for Seattle / Western Washington. NBC affiliate. Email newstips@king5.com',
+            'url': 'https://t.co/DTGVWWcuRo',
+            'entities': \{'url': \{'urls': [\{'url': 'https://t.co/DTGVWWcuRo',
+                'expanded\_url': 'http://www.king5.com',
+                'display\_url': 'king5.com',
+                'indices': [0, 23]\}]\},
+             'description': \{'urls': []\}\},
+            'protected': False,
+            'followers\_count': 622607,
+            'friends\_count': 7997,
+            'listed\_count': 4733,
+            'created\_at': 'Sat Jan 24 04:03:33 +0000 2009',
+            'favourites\_count': 27058,
+            'utc\_offset': -25200,
+            'time\_zone': 'Pacific Time (US \& Canada)',
+            'geo\_enabled': True,
+            'verified': True,
+            'statuses\_count': 246426,
+            'lang': 'en',
+            'contributors\_enabled': False,
+            'is\_translator': False,
+            'is\_translation\_enabled': False,
+            'profile\_background\_color': '000033',
+            'profile\_background\_image\_url': 'http://pbs.twimg.com/profile\_background\_images/5401596/newsbackgroundhd-lg4.jpg',
+            'profile\_background\_image\_url\_https': 'https://pbs.twimg.com/profile\_background\_images/5401596/newsbackgroundhd-lg4.jpg',
+            'profile\_background\_tile': False,
+            'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/786718413838127104/1-AHEPaH\_normal.jpg',
+            'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/786718413838127104/1-AHEPaH\_normal.jpg',
+            'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/19430999/1401391712',
+            'profile\_link\_color': '0084B4',
+            'profile\_sidebar\_border\_color': 'FFFFFF',
+            'profile\_sidebar\_fill\_color': 'FEFCF5',
+            'profile\_text\_color': '333333',
+            'profile\_use\_background\_image': True,
+            'has\_extended\_profile': False,
+            'default\_profile': False,
+            'default\_profile\_image': False,
+            'following': False,
+            'follow\_request\_sent': False,
+            'notifications': False,
+            'translator\_type': 'none'\},
+           'geo': None,
+           'coordinates': None,
+           'place': None,
+           'contributors': None,
+           'is\_quote\_status': False,
+           'retweet\_count': 1832,
+           'favorite\_count': 2654,
+           'favorited': False,
+           'retweeted': False,
+           'possibly\_sensitive': False,
+           'possibly\_sensitive\_appealable': False,
+           'lang': 'en'\}
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} special2 in\PYZus{}reply\PYZus{}to\PYZus{}screen\PYZus{}name}
+        \PY{c+c1}{\PYZsh{}\PYZsh{} have value dog\PYZus{}rates for 47 times}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}\PYZsh{} droplist2}
+        \PY{n}{droplist2} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{truncated}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{retweeted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive\PYZus{}appealable}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lang}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{is\PYZus{}quote\PYZus{}status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{favorited}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}392}]:} \PY{c+c1}{\PYZsh{} check a det sample}
+          \PY{c+c1}{\PYZsh{} build function}
+          \PY{k}{def} \PY{n+nf}{check\PYZus{}detail}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n+nb}{list}\PY{p}{)}\PY{p}{:}
+              \PY{n}{sampe} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{detlist1}\PY{p}{:}
+                  \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                  \PY{c+c1}{\PYZsh{}\PYZsh{} 使用 pprint 优化 dict 显示}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}\PYZsh{} long message columns}
+        \PY{n}{detlist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{entities}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{extended\PYZus{}entities}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{user}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}416}]:} \PY{n}{tweetclean}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{[}\PY{n}{detlist1}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}416}]:}                                                entities  \textbackslash{}
+          1597  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+          
+                                                extended\_entities  \textbackslash{}
+          1597  \{'media': [\{'id': 686003200739115008, 'id\_str'{\ldots}   
+          
+                                                             user quoted\_status  
+          1597  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}           NaN  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}423}]:} \PY{k}{def} \PY{n+nf}{check\PYZus{}detail}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n+nb}{list}\PY{p}{)}\PY{p}{:}
+              \PY{n}{sampe} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{detlist1}\PY{p}{:}
+                  \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                  \PY{c+c1}{\PYZsh{}\PYZsh{} 使用 pprint 优化 dict 显示}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}424}]:} \PY{n}{check\PYZus{}detail}\PY{p}{(}\PY{n}{tweetdf}\PY{p}{,}\PY{n}{detlist1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\{'hashtags': [],
+ 'media': [\{'display\_url': 'pic.twitter.com/MgUWQ76dJU',
+            'expanded\_url': 'https://twitter.com/dog\_rates/status/892420643555336193/photo/1',
+            'id': 892420639486877696,
+            'id\_str': '892420639486877696',
+            'indices': [86, 109],
+            'media\_url': 'http://pbs.twimg.com/media/DGKD1-bXoAAIAUK.jpg',
+            'media\_url\_https': 'https://pbs.twimg.com/media/DGKD1-bXoAAIAUK.jpg',
+            'sizes': \{'large': \{'h': 528, 'resize': 'fit', 'w': 540\},
+                      'medium': \{'h': 528, 'resize': 'fit', 'w': 540\},
+                      'small': \{'h': 528, 'resize': 'fit', 'w': 540\},
+                      'thumb': \{'h': 150, 'resize': 'crop', 'w': 150\}\},
+            'type': 'photo',
+            'url': 'https://t.co/MgUWQ76dJU'\}],
+ 'symbols': [],
+ 'urls': [],
+ 'user\_mentions': []\}
+\{'media': [\{'display\_url': 'pic.twitter.com/MgUWQ76dJU',
+            'expanded\_url': 'https://twitter.com/dog\_rates/status/892420643555336193/photo/1',
+            'id': 892420639486877696,
+            'id\_str': '892420639486877696',
+            'indices': [86, 109],
+            'media\_url': 'http://pbs.twimg.com/media/DGKD1-bXoAAIAUK.jpg',
+            'media\_url\_https': 'https://pbs.twimg.com/media/DGKD1-bXoAAIAUK.jpg',
+            'sizes': \{'large': \{'h': 528, 'resize': 'fit', 'w': 540\},
+                      'medium': \{'h': 528, 'resize': 'fit', 'w': 540\},
+                      'small': \{'h': 528, 'resize': 'fit', 'w': 540\},
+                      'thumb': \{'h': 150, 'resize': 'crop', 'w': 150\}\},
+            'type': 'photo',
+            'url': 'https://t.co/MgUWQ76dJU'\}]\}
+\{'contributors\_enabled': False,
+ 'created\_at': 'Sun Nov 15 21:41:29 +0000 2015',
+ 'default\_profile': False,
+ 'default\_profile\_image': False,
+ 'description': 'Only Legit Source for Professional Dog Ratings STORE: '
+                '@ShopWeRateDogs | IG, FB \& SC: WeRateDogs | MOBILE APP: '
+                '@GoodDogsGame Business: dogratingtwitter@gmail.com',
+ 'entities': \{'description': \{'urls': []\},
+              'url': \{'urls': [\{'display\_url': 'weratedogs.com',
+                                'expanded\_url': 'http://weratedogs.com',
+                                'indices': [0, 23],
+                                'url': 'https://t.co/N7sNNHAEXS'\}]\}\},
+ 'favourites\_count': 120162,
+ 'follow\_request\_sent': False,
+ 'followers\_count': 3768791,
+ 'following': False,
+ 'friends\_count': 107,
+ 'geo\_enabled': True,
+ 'has\_extended\_profile': True,
+ 'id': 4196983835,
+ 'id\_str': '4196983835',
+ 'is\_translation\_enabled': False,
+ 'is\_translator': False,
+ 'lang': 'en',
+ 'listed\_count': 3169,
+ 'location': 'MERCH↴  DM DOGS. WE WILL RATE',
+ 'name': 'SpookyWeRateDogs™',
+ 'notifications': False,
+ 'profile\_background\_color': '000000',
+ 'profile\_background\_image\_url': 'http://abs.twimg.com/images/themes/theme1/bg.png',
+ 'profile\_background\_image\_url\_https': 'https://abs.twimg.com/images/themes/theme1/bg.png',
+ 'profile\_background\_tile': False,
+ 'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/4196983835/1506888628',
+ 'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg',
+ 'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg',
+ 'profile\_link\_color': 'F5ABB5',
+ 'profile\_sidebar\_border\_color': '000000',
+ 'profile\_sidebar\_fill\_color': '000000',
+ 'profile\_text\_color': '000000',
+ 'profile\_use\_background\_image': False,
+ 'protected': False,
+ 'screen\_name': 'dog\_rates',
+ 'statuses\_count': 5749,
+ 'time\_zone': None,
+ 'translator\_type': 'none',
+ 'url': 'https://t.co/N7sNNHAEXS',
+ 'utc\_offset': None,
+ 'verified': True\}
+nan
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}388}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} build function}
+          \PY{k}{def} \PY{n+nf}{check\PYZus{}describe}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{checklist}\PY{p}{)}\PY{p}{:}
+              \PY{n}{c} \PY{o}{=} \PY{l+m+mi}{1}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{checklist}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZhy{} columns \PYZsh{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ : }\PY{l+s+si}{\PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{i}\PY{p}{)}\PY{p}{)}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                  \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} nlargest 非常好用}
+                  \PY{n}{c} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+              \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking complete\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}389}]:} \PY{n}{check\PYZus{}describe}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{detaillist1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+- columns \#1 : entities
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ------------------------------------------------
+
+        TypeError      Traceback (most recent call last)
+
+        <ipython-input-389-874a8e2b1fe8> in <module>
+    ----> 1 check\_describe(tweetclean,detaillist1)
+    
+
+        <ipython-input-388-71f4c7c0f152> in check\_describe(df, checklist)
+          4     for i in checklist:
+          5         print('\textbackslash{}n- columns \#\{\} : \{:-<8\}'.format(c,i))
+    ----> 6         print(df[i].describe())
+          7         \#\#\# nlargest 非常好用
+          8         c += 1
+
+
+        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/generic.py in describe(self, percentiles, include, exclude)
+       8560 
+       8561         if self.ndim == 1:
+    -> 8562             return describe\_1d(self)
+       8563         elif (include is None) and (exclude is None):
+       8564             \# when some numerics are found, keep only numerics
+
+
+        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/generic.py in describe\_1d(data)
+       8557                 return describe\_numeric\_1d(data)
+       8558             else:
+    -> 8559                 return describe\_categorical\_1d(data)
+       8560 
+       8561         if self.ndim == 1:
+
+
+        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/generic.py in describe\_categorical\_1d(data)
+       8531         def describe\_categorical\_1d(data):
+       8532             names = ['count', 'unique']
+    -> 8533             objcounts = data.value\_counts()
+       8534             count\_unique = len(objcounts[objcounts != 0])
+       8535             result = [data.count(), count\_unique]
+
+
+        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/base.py in value\_counts(self, normalize, sort, ascending, bins, dropna)
+       1036         from pandas.core.algorithms import value\_counts
+       1037         result = value\_counts(self, sort=sort, ascending=ascending,
+    -> 1038                               normalize=normalize, bins=bins, dropna=dropna)
+       1039         return result
+       1040 
+
+
+        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/algorithms.py in value\_counts(values, sort, ascending, normalize, bins, dropna)
+        714 
+        715         else:
+    --> 716             keys, counts = \_value\_counts\_arraylike(values, dropna)
+        717 
+        718             if not isinstance(keys, Index):
+
+
+        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/algorithms.py in \_value\_counts\_arraylike(values, dropna)
+        759         \# TODO: handle uint8
+        760         f = getattr(htable, "value\_count\_\{dtype\}".format(dtype=ndtype))
+    --> 761         keys, counts = f(values, dropna)
+        762 
+        763         mask = isna(values)
+
+
+        pandas/\_libs/hashtable\_func\_helper.pxi in pandas.\_libs.hashtable.value\_count\_object()
+
+
+        pandas/\_libs/hashtable\_func\_helper.pxi in pandas.\_libs.hashtable.value\_count\_object()
+
+
+        TypeError: unhashable type: 'dict'
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients}\PY{p}{[}\PY{n}{patients}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients}\PY{o}{.}\PY{n}{weight}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{weight\PYZus{}lbs} \PY{o}{=} \PY{n}{patients}\PY{p}{[}\PY{n}{patients}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Zaitseva}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{weight} \PY{o}{*} \PY{l+m+mf}{2.20462}
+        \PY{n}{height\PYZus{}in} \PY{o}{=} \PY{n}{patients}\PY{p}{[}\PY{n}{patients}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Zaitseva}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{height}
+        \PY{n}{bmi\PYZus{}check} \PY{o}{=} \PY{l+m+mi}{703} \PY{o}{*} \PY{n}{weight\PYZus{}lbs} \PY{o}{/} \PY{p}{(}\PY{n}{height\PYZus{}in} \PY{o}{*} \PY{n}{height\PYZus{}in}\PY{p}{)}
+        \PY{n}{bmi\PYZus{}check}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients}\PY{p}{[}\PY{n}{patients}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Zaitseva}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{bmi}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{treatments}\PY{o}{.}\PY{n}{auralin}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{treatments}\PY{o}{.}\PY{n}{novodra}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux8d28ux91cf}{%
+\paragraph{质量}\label{ux8d28ux91cf}}
+
+\hypertarget{patients-ux8868ux683c}{%
+\subparagraph{\texorpdfstring{\texttt{patients}
+表格}{patients 表格}}\label{patients-ux8868ux683c}}
+
+\begin{itemize}
+\tightlist
+\item
+  邮编是浮点，而不是字符串
+\item
+  邮编有时是四位数
+\item
+  Tim Neudorf 的身高是 27 英尺，而不是 72 英尺
+\item
+  有时使用州的全称，其他用简称
+\item
+  Dsvid Gustafsson
+\item
+  缺少人口统计信息 (地址列至联系方式列) \textbf{\emph{(无法清理)}}
+\item
+  错误的数据类型 (指定性别、州、邮编和出生日期列)
+\item
+  多个手机号格式
+\item
+  John Doe 的默认数据
+\item
+  Jakobsen、Gersten、Taylor 多条记录
+\item
+  Zaitseva 体重单位是 kgs，不是 lbs
+\end{itemize}
+
+\hypertarget{treatments-ux8868ux683c}{%
+\subparagraph{\texorpdfstring{\texttt{treatments}
+表格}{treatments 表格}}\label{treatments-ux8868ux683c}}
+
+\begin{itemize}
+\tightlist
+\item
+  缺少 HbA1c 变化
+\item
+  Auralin 和 Novodra 初始剂量和最终剂量中的字母 `u'
+\item
+  小写形式的姓和名
+\item
+  缺少记录 (280 而不是 350)
+\item
+  错误的数据类型 (auralin 和 novodra 列)
+\item
+  HbA1c 变化不准确 (首个 4s 误写为 9s)
+\item
+  auralin 和 novodra 列中空值用破折号 (-) 表示
+\end{itemize}
+
+\hypertarget{adverse_reactions-ux8868ux683c}{%
+\subparagraph{\texorpdfstring{\texttt{adverse\_reactions}
+表格}{adverse\_reactions 表格}}\label{adverse_reactions-ux8868ux683c}}
+
+\begin{itemize}
+\tightlist
+\item
+  小写形式的姓和名
+\end{itemize}
+
+\hypertarget{ux6e05ux6d01ux5ea6}{%
+\paragraph{清洁度}\label{ux6e05ux6d01ux5ea6}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{patients} 表格中的联系方式一列应该拆分为两个变量：手机号和邮箱
+\item
+  \texttt{treatments} 表格两列中的三个变量 (治疗、初始剂量和最终剂量)
+\item
+  不良反应应是 \texttt{treatments} 表格的一部分
+\item
+  \texttt{patients} 表格中的姓和名两列复制到 \texttt{treatments} 和
+  \texttt{adverse\_reactions} 表格中
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean} \PY{o}{=} \PY{n}{patients}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{treatments}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+        \PY{n}{adverse\PYZus{}reactions\PYZus{}clean} \PY{o}{=} \PY{n}{adverse\PYZus{}reactions}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux6e05ux7406}{%
+\subsection{清理}\label{ux6e05ux7406}}
+
+\hypertarget{ux7f3aux5931ux6570ux636e}{%
+\subsubsection{缺失数据}\label{ux7f3aux5931ux6570ux636e}}
+
+\hypertarget{treatmentsux7f3aux5c11ux8bb0ux5f55-280-ux800cux4e0dux662f-350}{%
+\paragraph{\texorpdfstring{\texttt{treatments}：缺少记录 (280 而不是
+350)}{treatments：缺少记录 (280 而不是 350)}}\label{treatmentsux7f3aux5c11ux8bb0ux5f55-280-ux800cux4e0dux662f-350}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+把切割过的 treatments 数据导入到 DataFrame 中，并将它和原始的 treatments
+DataFrame 拼接到一起。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{n}{treatments\PYZus{}cut} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{treatments\PYZus{}cut.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{concat}\PY{p}{(}\PY{p}{[}\PY{n}{treatments\PYZus{}clean}\PY{p}{,} \PY{n}{treatments\PYZus{}cut}\PY{p}{]}\PY{p}{,}
+                                     \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+
+        NameError                                 Traceback (most recent call last)
+
+        <ipython-input-1-1a2b77c8c29b> in <module>
+    ----> 1 treatments\_cut = pd.read\_csv('treatments\_cut.csv')
+          2 treatments\_clean = pd.concat([treatments\_clean, treatments\_cut],
+          3                              ignore\_index=True)
+
+
+        NameError: name 'pd' is not defined
+
+    \end{Verbatim}
+
+    \hypertarget{ux6d4bux8bd5}{%
+\subparagraph{测试}\label{ux6d4bux8bd5}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+
+        NameError                                 Traceback (most recent call last)
+
+        <ipython-input-2-f47ee6b77dd4> in <module>
+    ----> 1 treatments\_clean.head()
+    
+
+        NameError: name 'treatments\_clean' is not defined
+
+    \end{Verbatim}
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{tail}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \hypertarget{treatments-ux7f3aux5c11-hba1c-ux53d8ux5316ux548c-hba1c-ux53d8ux5316ux4e0dux51c6ux786e-ux9996ux4e2a-4s-ux8befux5199ux4e3a-9s}{%
+\paragraph{\texorpdfstring{\texttt{treatments}: 缺少 HbA1c 变化和 HbA1c
+变化不准确 (首个 4s 误写为
+9s)}{treatments: 缺少 HbA1c 变化和 HbA1c 变化不准确 (首个 4s 误写为 9s)}}\label{treatments-ux7f3aux5c11-hba1c-ux53d8ux5316ux548c-hba1c-ux53d8ux5316ux4e0dux51c6ux786e-ux9996ux4e2a-4s-ux8befux5199ux4e3a-9s}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+重新计算 \texttt{hba1c\_change} 一列： \texttt{hba1c\_start} 减去
+\texttt{hba1c\_end}。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{hba1c\PYZus{}change} \PY{o}{=} \PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{hba1c\PYZus{}start} \PY{o}{\PYZhy{}} 
+                                         \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{hba1c\PYZus{}end}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{test}{%
+\subparagraph{Test}\label{test}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{hba1c\PYZus{}change}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux6e05ux6d01ux5ea6}{%
+\subsubsection{清洁度}\label{ux6e05ux6d01ux5ea6}}
+
+\hypertarget{patients-ux8868ux683cux4e2dux7684ux8054ux7cfbux65b9ux5f0fux4e00ux5217ux5305ux62ecux4e24ux4e2aux53d8ux91cfux624bux673aux53f7ux548cux90aeux7bb1}{%
+\paragraph{\texorpdfstring{\texttt{patients}
+表格中的联系方式一列包括两个变量：手机号和邮箱}{patients 表格中的联系方式一列包括两个变量：手机号和邮箱}}\label{patients-ux8868ux683cux4e2dux7684ux8054ux7cfbux65b9ux5f0fux4e00ux5217ux5305ux62ecux4e24ux4e2aux53d8ux91cfux624bux673aux53f7ux548cux90aeux7bb1}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+使用正则表达式和 pandas 的 \texttt{str.extract} 方法，从 \emph{联系方式}
+一列提取变量\emph{手机号} 和 \emph{邮箱} 。完成后删除 \emph{联系方式}
+一列。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{phone\PYZus{}number}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{contact}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{extract}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{((?:}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{+}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{1,2\PYZcb{}}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{s)?}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{(?}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{d}\PY{l+s+si}{\PYZob{}3\PYZcb{}}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{)?[}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{s.\PYZhy{}]?}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{d}\PY{l+s+si}{\PYZob{}3\PYZcb{}}\PY{l+s+s1}{[}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{s.\PYZhy{}]?}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{d}\PY{l+s+si}{\PYZob{}4\PYZcb{}}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{expand}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+        \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{email}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{contact}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{extract}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{([a\PYZhy{}zA\PYZhy{}Z][a\PYZhy{}zA\PYZhy{}Z0\PYZhy{}9\PYZus{}.+\PYZhy{}]+@[a\PYZhy{}zA\PYZhy{}Z0\PYZhy{}9\PYZhy{}]+}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{.[a\PYZhy{}zA\PYZhy{}Z0\PYZhy{}9\PYZhy{}.][a\PYZhy{}zA\PYZhy{}Z]+)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{expand}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} Note: axis=1 表明我们参考的是一列，而不是一行}
+        \PY{n}{patients\PYZus{}clean} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{contact}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux6d4bux8bd5}{%
+\subparagraph{测试}\label{ux6d4bux8bd5}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 确认联系方式一列可以运行}
+        \PY{n+nb}{list}\PY{p}{(}\PY{n}{patients\PYZus{}clean}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{phone\PYZus{}number}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{25}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 确认没有邮箱以整数开头 (正则表达式不能匹配整数)}
+        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{email}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{treatments-ux8868ux683cux4e24ux5217ux4e2dux7684ux4e09ux4e2aux53d8ux91cf-ux6cbbux7597ux521dux59cbux5242ux91cfux548cux6700ux7ec8ux5242ux91cf}{%
+\paragraph{\texorpdfstring{\texttt{treatments} 表格两列中的三个变量
+(治疗、初始剂量和最终剂量)}{treatments 表格两列中的三个变量 (治疗、初始剂量和最终剂量)}}\label{treatments-ux8868ux683cux4e24ux5217ux4e2dux7684ux4e09ux4e2aux53d8ux91cf-ux6cbbux7597ux521dux59cbux5242ux91cfux548cux6700ux7ec8ux5242ux91cf}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+在 \emph{auralin} 和 \emph{novodra} 两列中加入 \emph{治疗} 和
+\emph{剂量} 列 (这时剂量仍然包含初始剂量和最终剂量)。然后使用破折号 ' -
+' 把剂量列切分，得到 \emph{初始剂量} 和 \emph{最终剂量}
+两列。删除中间使用的 \emph{剂量} 一列。
+
+\hypertarget{code}{%
+\subparagraph{Code}\label{code}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{melt}\PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{p}{,} \PY{n}{id\PYZus{}vars}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hba1c\PYZus{}start}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hba1c\PYZus{}end}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hba1c\PYZus{}change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
+                                   \PY{n}{var\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{treatment}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{value\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{p}{[}\PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose} \PY{o}{!=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
+        \PY{n}{treatments\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose\PYZus{}start}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{treatments\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose\PYZus{}end}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ \PYZhy{} }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{str}
+        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{test}{%
+\subparagraph{Test}\label{test}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \hypertarget{ux4e0dux826fux53cdux5e94ux5e94ux662f-treatments-ux8868ux683cux7684ux4e00ux90e8ux5206}{%
+\paragraph{\texorpdfstring{不良反应应是 \texttt{treatments}
+表格的一部分}{不良反应应是 treatments 表格的一部分}}\label{ux4e0dux826fux53cdux5e94ux5e94ux662f-treatments-ux8868ux683cux7684ux4e00ux90e8ux5206}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+将 \emph{不良反应} 一列合并到 \texttt{treatments} 表格中，按照 \emph{名}
+和 \emph{姓}进行合并。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{merge}\PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{p}{,} \PY{n}{adverse\PYZus{}reactions\PYZus{}clean}\PY{p}{,}
+                                    \PY{n}{on}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{how}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{left}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{test}{%
+\subparagraph{Test}\label{test}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \hypertarget{patients-ux8868ux683cux4e2dux7684ux59d3ux548cux540dux4e24ux5217ux590dux5236ux5230-treatments-ux548c-adverse_reactions-ux8868ux683cux4e2dux4ee5ux53caux5c0fux5199ux5f62ux5f0fux7684ux59d3ux548cux540d}{%
+\paragraph{\texorpdfstring{\texttt{patients} 表格中的姓和名两列复制到
+\texttt{treatments} 和 \texttt{adverse\_reactions}
+表格中，以及小写形式的姓和名}{patients 表格中的姓和名两列复制到 treatments 和 adverse\_reactions 表格中，以及小写形式的姓和名}}\label{patients-ux8868ux683cux4e2dux7684ux59d3ux548cux540dux4e24ux5217ux590dux5236ux5230-treatments-ux548c-adverse_reactions-ux8868ux683cux4e2dux4ee5ux53caux5c0fux5199ux5f62ux5f0fux7684ux59d3ux548cux540d}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+我们不再需要不良反应表格，所以忽略这部分内容。在 \texttt{patients}
+表格中，提取病人编号和姓名，然后把这些名字改为小写形式，加入到
+\texttt{treatments} 表格中。然后删除治疗表格中的姓和名两列
+(这样小写形式不再是问题了)。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{id\PYZus{}names} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{patient\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+        \PY{n}{id\PYZus{}names}\PY{o}{.}\PY{n}{given\PYZus{}name} \PY{o}{=} \PY{n}{id\PYZus{}names}\PY{o}{.}\PY{n}{given\PYZus{}name}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}
+        \PY{n}{id\PYZus{}names}\PY{o}{.}\PY{n}{surname} \PY{o}{=} \PY{n}{id\PYZus{}names}\PY{o}{.}\PY{n}{surname}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}
+        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{merge}\PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{p}{,} \PY{n}{id\PYZus{}names}\PY{p}{,} \PY{n}{on}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux6d4bux8bd5}{%
+\subparagraph{测试}\label{ux6d4bux8bd5}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 确认进行了正确融合}
+        \PY{n}{treatments\PYZus{}clean}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Patient ID should be the only duplicate column}
+        \PY{n}{all\PYZus{}columns} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{patients\PYZus{}clean}\PY{p}{)} \PY{o}{+} \PY{n+nb}{list}\PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{p}{)}\PY{p}{)}
+        \PY{n}{all\PYZus{}columns}\PY{p}{[}\PY{n}{all\PYZus{}columns}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+    \hypertarget{ux8d28ux91cf}{%
+\subsubsection{质量}\label{ux8d28ux91cf}}
+
+\hypertarget{ux90aeux7f16ux662fux6d6eux70b9ux800cux4e0dux662fux5b57ux7b26ux4e32ux6709ux65f6ux662fux56dbux4f4dux6570}{%
+\paragraph{邮编是浮点，而不是字符串，有时是四位数}\label{ux90aeux7f16ux662fux6d6eux70b9ux800cux4e0dux662fux5b57ux7b26ux4e32ux6709ux65f6ux662fux56dbux4f4dux6570}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+Convert the zip code column's data type from a float to a string 使用
+\texttt{astype}
+把邮件一列的数据类型从浮点转换为字符串，使用字符串分割删除
+`.0'。在四位数邮编前面加上 0。
+
+\hypertarget{code}{%
+\subparagraph{Code}\label{code}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{str}\PY{p}{)}\PY{o}{.}\PY{n}{str}\PY{p}{[}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{pad}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{fillchar}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{0}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} 对于上面代码转化后的\PYZsq{}0000n\PYZsq{}非数字条目，进行再次转化}
+        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{0000n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux6d4bux8bd5}{%
+\subparagraph{测试}\label{ux6d4bux8bd5}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{tim-neudorf-ux7684ux8eabux9ad8ux662f-27-ux82f1ux5c3aux800cux4e0dux662f-72-ux82f1ux5c3a}{%
+\paragraph{Tim Neudorf 的身高是 27 英尺，而不是 72
+英尺}\label{tim-neudorf-ux7684ux8eabux9ad8ux662f-27-ux82f1ux5c3aux800cux4e0dux662f-72-ux82f1ux5c3a}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+在 \texttt{patients} 表格中身高为 27 英尺 (仅有一个)
+的一行身高，替换为72英尺。
+
+\hypertarget{code}{%
+\subparagraph{Code}\label{code}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{height} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{height}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+m+mi}{27}\PY{p}{,} \PY{l+m+mi}{72}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{test}{%
+\subparagraph{Test}\label{test}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 应为空}
+        \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{height} \PY{o}{==} \PY{l+m+mi}{27}\PY{p}{]}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 确认完成替换}
+        \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Neudorf}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \hypertarget{ux6709ux65f6ux4f7fux7528ux5ddeux7684ux5168ux79f0ux5176ux4ed6ux7528ux7b80ux79f0}{%
+\paragraph{有时使用州的全称，其他用简称}\label{ux6709ux65f6ux4f7fux7528ux5ddeux7684ux5168ux79f0ux5176ux4ed6ux7528ux7b80ux79f0}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+使用函数，将 California (加利福尼亚)、New York (纽约)、Illinois
+(伊利诺伊)、Florida (佛罗里达) 和 Nebrask (内布拉斯加)
+等州的全称转变为简称。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 从州的全称映射到简称}
+        \PY{n}{state\PYZus{}abbrev} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{California}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{New York}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{NY}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Illinois}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{IL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Florida}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{FL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nebraska}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{NE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{\PYZcb{}}
+        
+        \PY{c+c1}{\PYZsh{} 使用的函数}
+        \PY{k}{def} \PY{n+nf}{abbreviate\PYZus{}state}\PY{p}{(}\PY{n}{patient}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{n}{patient}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{state}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o+ow}{in} \PY{n}{state\PYZus{}abbrev}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                \PY{n}{abbrev} \PY{o}{=} \PY{n}{state\PYZus{}abbrev}\PY{p}{[}\PY{n}{patient}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{state}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+                \PY{k}{return} \PY{n}{abbrev}
+            \PY{k}{else}\PY{p}{:}
+                \PY{k}{return} \PY{n}{patient}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{state}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+            
+        \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{state}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{n}{abbreviate\PYZus{}state}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{test}{%
+\subparagraph{Test}\label{test}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{state}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{dsvid-gustafsson}{%
+\paragraph{Dsvid Gustafsson}\label{dsvid-gustafsson}}
+
+\hypertarget{define}{%
+\subparagraph{Define}\label{define}}
+
+在 \texttt{patients} 表格中含有名 `Dsvid' 的一行里替换为'David'。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{given\PYZus{}name} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{given\PYZus{}name}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Dsvid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{David}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux6d4bux8bd5}{%
+\subparagraph{测试}\label{ux6d4bux8bd5}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gustafsson}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \hypertarget{ux9519ux8befux7684ux6570ux636eux7c7bux578b-ux6307ux5b9aux6027ux522bux5ddeux90aeux7f16ux548cux51faux751fux65e5ux671fux5217-ux548cux9519ux8befux7684ux6570ux636eux7c7bux578b-auralin-ux548c-novodra-ux5217ux4ee5ux53ca-auralin-ux548c-novodra-ux521dux59cbux5242ux91cfux548cux6700ux7ec8ux5242ux91cfux4e2dux7684ux5b57ux6bcd-u}{%
+\paragraph{错误的数据类型 (指定性别、州、邮编和出生日期列)
+和错误的数据类型 (auralin 和 novodra 列)，以及 Auralin 和 Novodra
+初始剂量和最终剂量中的字母
+`u'}\label{ux9519ux8befux7684ux6570ux636eux7c7bux578b-ux6307ux5b9aux6027ux522bux5ddeux90aeux7f16ux548cux51faux751fux65e5ux671fux5217-ux548cux9519ux8befux7684ux6570ux636eux7c7bux578b-auralin-ux548c-novodra-ux5217ux4ee5ux53ca-auralin-ux548c-novodra-ux521dux59cbux5242ux91cfux548cux6700ux7ec8ux5242ux91cfux4e2dux7684ux5b57ux6bcd-u}}
+
+\hypertarget{define}{%
+\subparagraph{Define}\label{define}}
+
+将指定性别和州转化为分类数据类型。上面已经解决了邮编的数据类型。把出生日期转化为
+datetime 数据类型。在初始剂量和最终剂量中添加字母
+`u'，并把这些列转化为整数数据类型。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 转为分类数据类型}
+        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{assigned\PYZus{}sex} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{assigned\PYZus{}sex}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{category}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{state} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{state}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{category}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} 转为 datetime 类型}
+        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{birthdate} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}datetime}\PY{p}{(}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{birthdate}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} 添加 u 并转为整数类型}
+        \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose\PYZus{}start} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose\PYZus{}start}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{u}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+        \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose\PYZus{}end} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose\PYZus{}end}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{u}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{test}{%
+\subparagraph{Test}\label{test}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux591aux4e2aux624bux673aux53f7ux683cux5f0f}{%
+\paragraph{多个手机号格式}\label{ux591aux4e2aux624bux673aux53f7ux683cux5f0f}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+增加所有的 " ``、''-``、''(``,'')" 和
+``+''，存储所有没有格式的数字。如果手机号只有 10 位数，在手机号前添加 1
+(我们需要国家编号)。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{phone\PYZus{}number} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{phone\PYZus{}number}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{D+}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{pad}\PY{p}{(}\PY{l+m+mi}{11}\PY{p}{,} \PY{n}{fillchar}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux6d4bux8bd5}{%
+\subparagraph{测试}\label{ux6d4bux8bd5}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{phone\PYZus{}number}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{john-doe-ux7684ux9ed8ux8ba4ux6570ux636e}{%
+\paragraph{John Doe
+的默认数据}\label{john-doe-ux7684ux9ed8ux8ba4ux6570ux636e}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+从 \texttt{patients} 表格中删除不可恢复的 John Doe 记录。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{!=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Doe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    \hypertarget{ux6d4bux8bd5}{%
+\subparagraph{测试}\label{ux6d4bux8bd5}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 应该没有 Doe 记录}
+        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 应该没有 123 Main Street 记录}
+        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{jakobsengerstentaylor-ux591aux6761ux8bb0ux5f55}{%
+\paragraph{Jakobsen、Gersten、Taylor
+多条记录}\label{jakobsengerstentaylor-ux591aux6761ux8bb0ux5f55}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+从 \texttt{patients} 表格中删除 Jake Jakobsen、Pat Gersten 和 Sandy
+Taylor。这些是昵称，不应该出现在 \texttt{treatments} 表格中
+(删除错误名字可以保证 \texttt{patients} 和 \texttt{treatments}
+表格的一致性问题)。这些是复制后第二次出现。这些是唯一出现的非空值复制地址。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 波浪符号表示否： http://pandas.pydata.org/pandas\PYZhy{}docs/stable/indexing.html\PYZsh{}boolean\PYZhy{}indexing}
+        \PY{n}{patients\PYZus{}clean} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{o}{\PYZti{}}\PY{p}{(}\PY{p}{(}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZam{}} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+    \hypertarget{test}{%
+\subparagraph{Test}\label{test}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Jakobsen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gersten}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Taylor}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    .dataframe thead tr:only-child th \{ text-align: right; \}
+
+    \hypertarget{zaitseva-ux4f53ux91cdux5355ux4f4dux662f-kgsux4e0dux662f-lbs}{%
+\paragraph{Zaitseva 体重单位是 kgs，不是
+lbs}\label{zaitseva-ux4f53ux91cdux5355ux4f4dux662f-kgsux4e0dux662f-lbs}}
+
+\hypertarget{ux5b9aux4e49}{%
+\subparagraph{定义}\label{ux5b9aux4e49}}
+
+使用 \href{https://stackoverflow.com/a/44913631}{高级索引} 把姓是
+Zaitseva 的行隔离出来，并把体重单元格中的 kg 改为 lbs。
+
+\hypertarget{ux4ee3ux7801}{%
+\subparagraph{代码}\label{ux4ee3ux7801}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{weight\PYZus{}kg} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{weight}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{210}\PY{p}{]}
+        \PY{n}{mask} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Zaitseva}\PY{l+s+s1}{\PYZsq{}}
+        \PY{n}{column\PYZus{}name} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weight}\PY{l+s+s1}{\PYZsq{}}
+        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{mask}\PY{p}{,} \PY{n}{column\PYZus{}name}\PY{p}{]} \PY{o}{=} \PY{n}{weight\PYZus{}kg} \PY{o}{*} \PY{l+m+mf}{2.20462}
+\end{Verbatim}
+
+
+    \hypertarget{ux6d4bux8bd5}{%
+\subparagraph{测试}\label{ux6d4bux8bd5}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 48.8 不应该是最低的}
+        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{weight}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} bokeh (drop)}
+        \PY{c+c1}{\PYZsh{}\PYZsh{} https://github.com/bokeh/bokeh\PYZhy{}notebooks}
+        \PY{c+c1}{\PYZsh{}\PYZsh{} 工具栏设置 https://www.cnblogs.com/shengyang17/p/9739571.html}
+        \PY{c+c1}{\PYZsh{}\PYZsh{} 对比了一下,决定使用 plotly 并且以后扩展 dash}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}260}]:} \PY{c+c1}{\PYZsh{} plotly}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} 如果使用账号,可以将图存到网上,也可本地使用}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} https://blog.csdn.net/u012897374/article/details/77857980}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} https://zhuanlan.zhihu.com/p/32793153}
+          \PY{c+c1}{\PYZsh{}\PYZsh{} https://plot.ly/python/getting\PYZhy{}started/\PYZsh{}jupyter\PYZhy{}setup}
+          
+          \PY{k+kn}{import} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{offline} \PY{k}{as} \PY{n+nn}{py}
+          \PY{k+kn}{from} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{graph\PYZus{}objs} \PY{k}{import} \PY{n}{Scatter}\PY{p}{,} \PY{n}{Layout}
+          \PY{k+kn}{import} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{graph\PYZus{}objs} \PY{k}{as} \PY{n+nn}{go}
+          
+          \PY{n}{py}\PY{o}{.}\PY{n}{init\PYZus{}notebook\PYZus{}mode}\PY{p}{(}\PY{n}{connected}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          
+          \PY{n}{trace1}\PY{o}{=}\PY{n}{go}\PY{o}{.}\PY{n}{Scatter}\PY{p}{(}
+              \PY{n}{x}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
+              \PY{n}{y}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}
+          \PY{p}{)}
+          \PY{n}{trace2}\PY{o}{=}\PY{n}{go}\PY{o}{.}\PY{n}{Scatter}\PY{p}{(}
+              \PY{n}{x}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
+              \PY{n}{y}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}
+          \PY{p}{)}
+          \PY{n}{py}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{p}{[}\PY{n}{trace1}\PY{p}{,} \PY{n}{trace2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    
+    
+    
+    
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
