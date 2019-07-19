@@ -280,143 +280,161 @@
     
 
     
+    \begin{quote}
+jupyter 使用 toc 扩展进行编辑,建议开启,比较方便阅读和查找
+\end{quote}
+
     \hypertarget{ux6536ux96c6}{%
 \subsection{收集}\label{ux6536ux96c6}}
 
+\hypertarget{import-lib}{%
+\subsubsection{/ import lib}\label{import-lib}}
+
+\hypertarget{load-df}{%
+\subsubsection{/ load df}\label{load-df}}
+
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}340}]:} \PY{c+c1}{\PYZsh{} import libs}
-          \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
-          \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
-          
-          \PY{k+kn}{import} \PY{n+nn}{pprint}  \PY{k}{as} \PY{n+nn}{pp}
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} import libs}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        
+        \PY{k+kn}{import} \PY{n+nn}{pprint}  \PY{k}{as} \PY{n+nn}{pp}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}227}]:} \PY{c+c1}{\PYZsh{} load df}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} read\PYZus{}jason 有很多参数,可以参考官方文档}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} 此处要加 lines=True}
-          \PY{n}{tweetdf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}json}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tweet\PYZus{}json.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lines}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
-          \PY{c+c1}{\PYZsh{} https://pandas.pydata.org/pandas\PYZhy{}docs/stable/reference/api/pandas.read\PYZus{}json.html}
+{\color{incolor}In [{\color{incolor}7}]:} \PY{c+c1}{\PYZsh{} load df}
+        \PY{c+c1}{\PYZsh{}\PYZsh{} read\PYZus{}jason 有很多参数,可以参考官方文档}
+        \PY{c+c1}{\PYZsh{}\PYZsh{} 此处要加 lines=True}
+        \PY{n}{tweetdf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}json}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tweet\PYZus{}json.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lines}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} https://pandas.pydata.org/pandas\PYZhy{}docs/stable/reference/api/pandas.read\PYZus{}json.html}
+\end{Verbatim}
+
+
+    \hypertarget{copy-df}{%
+\subsubsection{/ copy df}\label{copy-df}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} df copy for assesment}
+        \PY{n}{tweetclean} \PY{o}{=} \PY{n}{tweetdf}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{functions}{%
+\subsubsection{/ functions}\label{functions}}
+
+\hypertarget{check_sampledf}{%
+\paragraph{// check\_sample(df)}\label{check_sampledf}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{} build function (base on solution2)}
+        \PY{k}{def} \PY{n+nf}{check\PYZus{}sample}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
+            \PY{n}{sample} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking sample index: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{sample}\PY{o}{.}\PY{n}{index}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} sometimes pp is uncaptible with .format}
+            \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{1}
+            \PY{k}{for} \PY{p}{(}\PY{n}{colname}\PY{p}{,} \PY{n}{coldata}\PY{p}{)} \PY{o+ow}{in} \PY{n}{sample}\PY{o}{.}\PY{n}{iteritems}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZhy{} columns \PYZsh{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ : }\PY{l+s+si}{\PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{colname}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb}{print}\PY{p}{(}\PY{n}{coldata}\PY{o}{.}\PY{n}{values}\PY{p}{)}
+                \PY{n}{i} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+            \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking complete\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} archive test}
+        \PY{c+c1}{\PYZsh{}\PYZsh{} solutions1 (col loop pass)}
+        \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+        \PY{l+s+sd}{sample = tweetdf.sample()}
+        \PY{l+s+sd}{p(\PYZsq{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking sample index: \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(sample.index[0]))}
+        
+        \PY{l+s+sd}{i = 1}
+        \PY{l+s+sd}{for col in list(tweetdf.columns):}
+        \PY{l+s+sd}{    print(\PYZsq{}\PYZbs{}n\PYZhy{} columns check \PYZob{}\PYZcb{} : \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(i,col))}
+        \PY{l+s+sd}{    print(sample[col].values)}
+        \PY{l+s+sd}{    i+=1}
+        \PY{l+s+sd}{\PYZsh{}\PYZsh{} 参考 https://thispointer.com/pandas\PYZhy{}loop\PYZhy{}or\PYZhy{}iterate\PYZhy{}over\PYZhy{}all\PYZhy{}or\PYZhy{}certain\PYZhy{}columns\PYZhy{}of\PYZhy{}a\PYZhy{}dataframe/}
+        \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+        
+        \PY{c+c1}{\PYZsh{}\PYZsh{} solutuion2 (iteritem pass)}
+        \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+        \PY{l+s+sd}{sample = tweetdf.sample()}
+        \PY{l+s+sd}{p(\PYZsq{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking sample index: \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(sample.index[0]))}
+        
+        
+        \PY{l+s+sd}{for (colname, coldata) in sample.iteritems():}
+        \PY{l+s+sd}{    print(\PYZsq{}\PYZbs{}n\PYZhy{} columns check \PYZob{}\PYZcb{} : \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(i,colname))}
+        \PY{l+s+sd}{    print(coldata.values)}
+        \PY{l+s+sd}{    i += 1}
+        \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{p}{;}
+\end{Verbatim}
+
+
+    \hypertarget{check_infodflist}{%
+\paragraph{// check\_info(df,list)}\label{check_infodflist}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{} build function}
+         \PY{k}{def} \PY{n+nf}{check\PYZus{}info}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n+nb}{list}\PY{p}{)}\PY{p}{:}
+             \PY{n}{c} \PY{o}{=} \PY{l+m+mi}{1}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{list}\PY{p}{:}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZhy{} columns \PYZsh{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ : }\PY{l+s+si}{\PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{i}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{nlargest}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                 \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} nlargest 非常好用}
+                 \PY{n}{c} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+             \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking complete\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{check_detaildflist}{%
+\paragraph{// check\_detail(df,list)}\label{check_detaildflist}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{c+c1}{\PYZsh{} build function}
+         \PY{k}{def} \PY{n+nf}{check\PYZus{}detail}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n+nb}{list}\PY{p}{)}\PY{p}{:}
+             \PY{n}{sampe} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+             \PY{n}{c} \PY{o}{=} \PY{l+m+mi}{1}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{list}\PY{p}{:}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZhy{} columns \PYZsh{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ : }\PY{l+s+si}{\PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{i}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                 \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{c} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{c+c1}{\PYZsh{}\PYZsh{} 使用 pprint 优化 dict 显示}
+\end{Verbatim}
+
+
+    \hypertarget{drop_column}{%
+\paragraph{// drop\_column}\label{drop_column}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} build fuction}
+         \PY{k}{def} \PY{n+nf}{drop\PYZus{}column}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n+nb}{list}\PY{p}{)}\PY{p}{:}
+             \PY{c+c1}{\PYZsh{}\PYZsh{} proceed}
+             \PY{n}{dflen} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{columns}\PY{p}{)}
+             \PY{n}{df}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n+nb}{list}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+             \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} 在函数中要用 inplace=True 而不是赋值来作用于df}
+             \PY{c+c1}{\PYZsh{}\PYZsh{} check}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{} proceding \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{} drop }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ columns: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{list}\PY{p}{)}\PY{p}{,} \PY{n+nb}{list}\PY{p}{)}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{} remain }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ columns}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{columns}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{} success : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{list}\PY{p}{)} \PY{o}{+} \PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{columns}\PY{p}{)} \PY{o}{==} \PY{n}{dflen}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
 
     \hypertarget{ux8bc4ux4f30}{%
 \subsection{评估}\label{ux8bc4ux4f30}}
 
+\hypertarget{quanlity}{%
+\subsubsection{/ quanlity}\label{quanlity}}
+
+\hypertarget{check1---init-drop}{%
+\paragraph{// check1 - init drop}\label{check1---init-drop}}
+
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}228}]:} \PY{c+c1}{\PYZsh{} snip 3 sample}
-          \PY{n}{tweetdf}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
-\end{Verbatim}
-
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}228}]:}       contributors  coordinates          created\_at display\_text\_range  \textbackslash{}
-          1313           NaN          NaN 2016-03-06 21:31:22           [0, 102]   
-          139            NaN          NaN 2017-05-17 16:00:15           [0, 117]   
-          1248           NaN          NaN 2016-03-18 15:05:29           [0, 102]   
-          
-                                                         entities  \textbackslash{}
-          1313  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
-          139   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
-          1248  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
-          
-                                                extended\_entities  favorite\_count  \textbackslash{}
-          1313  \{'media': [\{'id': 706593029277294592, 'id\_str'{\ldots}            2350   
-          139   \{'media': [\{'id': 864873202618687489, 'id\_str'{\ldots}           33537   
-          1248  \{'media': [\{'id': 710844577050206208, 'id\_str'{\ldots}            2765   
-          
-                favorited                                          full\_text  geo  \textbackslash{}
-          1313      False  Here's a sneak peek of me on spring break. 10/{\ldots}  NaN   
-          139       False  We only rate dogs. Please don't send in Jesus{\ldots}  NaN   
-          1248      False  This is Staniel. His selfie game is strong af{\ldots}  NaN   
-          
-                                      {\ldots}                          \textbackslash{}
-          1313                        {\ldots}                           
-          139                         {\ldots}                           
-          1248                        {\ldots}                           
-          
-                possibly\_sensitive\_appealable  quoted\_status quoted\_status\_id  \textbackslash{}
-          1313                            0.0            NaN              NaN   
-          139                             0.0            NaN              NaN   
-          1248                            0.0            NaN              NaN   
-          
-                quoted\_status\_id\_str  retweet\_count  retweeted  retweeted\_status  \textbackslash{}
-          1313                   NaN            716      False               NaN   
-          139                    NaN           9320      False               NaN   
-          1248                   NaN            775      False               NaN   
-          
-                                                           source truncated  \textbackslash{}
-          1313  <a href="http://twitter.com/download/iphone" r{\ldots}     False   
-          139   <a href="http://twitter.com/download/iphone" r{\ldots}     False   
-          1248  <a href="http://twitter.com/download/iphone" r{\ldots}     False   
-          
-                                                             user  
-          1313  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
-          139   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
-          1248  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
-          
-          [3 rows x 31 columns]
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}229}]:} \PY{c+c1}{\PYZsh{} check random content}
-          
-          \PY{c+c1}{\PYZsh{}\PYZsh{} solutions1 (col loop pass)}
-          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-          \PY{l+s+sd}{sample = tweetdf.sample()}
-          \PY{l+s+sd}{p(\PYZsq{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking sample index: \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(sample.index[0]))}
-          
-          \PY{l+s+sd}{i = 1}
-          \PY{l+s+sd}{for col in list(tweetdf.columns):}
-          \PY{l+s+sd}{    print(\PYZsq{}\PYZbs{}n\PYZhy{} columns check \PYZob{}\PYZcb{} : \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(i,col))}
-          \PY{l+s+sd}{    print(sample[col].values)}
-          \PY{l+s+sd}{    i+=1}
-          \PY{l+s+sd}{\PYZsh{}\PYZsh{} 参考 https://thispointer.com/pandas\PYZhy{}loop\PYZhy{}or\PYZhy{}iterate\PYZhy{}over\PYZhy{}all\PYZhy{}or\PYZhy{}certain\PYZhy{}columns\PYZhy{}of\PYZhy{}a\PYZhy{}dataframe/}
-          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-          
-          \PY{c+c1}{\PYZsh{}\PYZsh{} solutuion2 (iteritem pass)}
-          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-          \PY{l+s+sd}{sample = tweetdf.sample()}
-          \PY{l+s+sd}{p(\PYZsq{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking sample index: \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(sample.index[0]))}
-          
-          
-          \PY{l+s+sd}{for (colname, coldata) in sample.iteritems():}
-          \PY{l+s+sd}{    print(\PYZsq{}\PYZbs{}n\PYZhy{} columns check \PYZob{}\PYZcb{} : \PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}\PYZsq{}.format(i,colname))}
-          \PY{l+s+sd}{    print(coldata.values)}
-          \PY{l+s+sd}{    i += 1}
-          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-\end{Verbatim}
-
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}229}]:} "\textbackslash{}n\#\# solutions1 使用 col loop\textbackslash{}nsample = tweetdf.sample()\textbackslash{}np('----checking sample index: \{:-<8\}'.format(sample.index[0]))\textbackslash{}n\textbackslash{}ni = 1\textbackslash{}nfor col in list(tweetdf.columns):\textbackslash{}n    print('\textbackslash{}n- columns check \{\} : \{:-<8\}'.format(i,col))\textbackslash{}n    print(sample[col].values)\textbackslash{}n    i+=1\textbackslash{}n\#\# 参考 https://thispointer.com/pandas-loop-or-iterate-over-all-or-certain-columns-of-a-dataframe/\textbackslash{}n"
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}341}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} build function (base on solution2)}
-          \PY{k}{def} \PY{n+nf}{check\PYZus{}sample}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
-              \PY{n}{sample} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
-              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking sample index: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{sample}\PY{o}{.}\PY{n}{index}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
-              \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} sometimes pp is uncaptible with .format}
-              \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{1}
-              \PY{k}{for} \PY{p}{(}\PY{n}{colname}\PY{p}{,} \PY{n}{coldata}\PY{p}{)} \PY{o+ow}{in} \PY{n}{sample}\PY{o}{.}\PY{n}{iteritems}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZhy{} columns \PYZsh{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ : }\PY{l+s+si}{\PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{colname}\PY{p}{)}\PY{p}{)}
-                  \PY{n+nb}{print}\PY{p}{(}\PY{n}{coldata}\PY{o}{.}\PY{n}{values}\PY{p}{)}
-                  \PY{n}{i} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
-              \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking complete\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}73}]:} \PY{c+c1}{\PYZsh{} check1 }
+         \PY{c+c1}{\PYZsh{}\PYZsh{} snip all columns}
+         \PY{n}{check\PYZus{}sample}\PY{p}{(}\PY{n}{tweetdf}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}342}]:} \PY{c+c1}{\PYZsh{} check1 }
-          \PY{c+c1}{\PYZsh{}\PYZsh{} check \PYZhy{} all columns}
-          \PY{n}{check\PYZus{}sample}\PY{p}{(}\PY{n}{tweetdf}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-----checking sample index: 380
+----checking sample index: 405
 
 - columns \#1 : contributors
 [nan]
@@ -425,34 +443,34 @@
 [nan]
 
 - columns \#3 : created\_at
-['2017-02-02T17:00:17.000000000']
+['2017-01-23T17:20:14.000000000']
 
 - columns \#4 : display\_text\_range
-[list([0, 129])]
+[list([0, 106])]
 
 - columns \#5 : entities
-[\{'hashtags': [], 'symbols': [], 'user\_mentions': [], 'urls': [], 'media': [\{'id': 827199955093843969, 'id\_str': '827199955093843969', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-fmWcAEUZFp.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-fmWcAEUZFp.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}\}\}]\}]
+[\{'hashtags': [], 'symbols': [], 'user\_mentions': [], 'urls': [], 'media': [\{'id': 823581103512436736, 'id\_str': '823581103512436736', 'indices': [107, 130], 'media\_url': 'http://pbs.twimg.com/media/C23ypm6VQAAO31l.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C23ypm6VQAAO31l.jpg', 'url': 'https://t.co/6F5Rrp472U', 'display\_url': 'pic.twitter.com/6F5Rrp472U', 'expanded\_url': 'https://twitter.com/dog\_rates/status/823581115634085888/photo/1', 'type': 'photo', 'sizes': \{'medium': \{'w': 900, 'h': 1200, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'large': \{'w': 1536, 'h': 2048, 'resize': 'fit'\}, 'small': \{'w': 510, 'h': 680, 'resize': 'fit'\}\}\}]\}]
 
 - columns \#6 : extended\_entities
-[\{'media': [\{'id': 827199955093843969, 'id\_str': '827199955093843969', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-fmWcAEUZFp.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-fmWcAEUZFp.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}\}\}, \{'id': 827199955169341440, 'id\_str': '827199955169341440', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-f4WcAAmsuc.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-f4WcAAmsuc.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}\}\}, \{'id': 827199955488083968, 'id\_str': '827199955488083968', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-hEWEAAdOyR.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-hEWEAAdOyR.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}\}\}, \{'id': 827199956662489088, 'id\_str': '827199956662489088', 'indices': [130, 153], 'media\_url': 'http://pbs.twimg.com/media/C3rN-lcWEAA9CmR.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C3rN-lcWEAA9CmR.jpg', 'url': 'https://t.co/UkyQibIBzZ', 'display\_url': 'pic.twitter.com/UkyQibIBzZ', 'expanded\_url': 'https://twitter.com/dog\_rates/status/827199976799354881/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}\}\}]\}]
+[\{'media': [\{'id': 823581103512436736, 'id\_str': '823581103512436736', 'indices': [107, 130], 'media\_url': 'http://pbs.twimg.com/media/C23ypm6VQAAO31l.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/C23ypm6VQAAO31l.jpg', 'url': 'https://t.co/6F5Rrp472U', 'display\_url': 'pic.twitter.com/6F5Rrp472U', 'expanded\_url': 'https://twitter.com/dog\_rates/status/823581115634085888/photo/1', 'type': 'photo', 'sizes': \{'medium': \{'w': 900, 'h': 1200, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'large': \{'w': 1536, 'h': 2048, 'resize': 'fit'\}, 'small': \{'w': 510, 'h': 680, 'resize': 'fit'\}\}\}]\}]
 
 - columns \#7 : favorite\_count
-[11609]
+[14336]
 
 - columns \#8 : favorited
 [False]
 
 - columns \#9 : full\_text
-["This is Charlie. He wins every game of chess he plays. Won't let opponent pet him until they forfeit. 13/10 you win again Charlie https://t.co/UkyQibIBzZ"]
+["This is Crawford. He's quite h*ckin good at the selfies. Nose is incredibly boopable. 11/10 would snapchat https://t.co/6F5Rrp472U"]
 
 - columns \#10 : geo-----
 [nan]
 
 - columns \#11 : id------
-[827199976799354881]
+[823581115634085888]
 
 - columns \#12 : id\_str--
-[827199976799354880]
+[823581115634085888]
 
 - columns \#13 : in\_reply\_to\_screen\_name
 [None]
@@ -494,7 +512,7 @@
 [nan]
 
 - columns \#26 : retweet\_count
-[2566]
+[3020]
 
 - columns \#27 : retweeted
 [False]
@@ -509,14 +527,14 @@
 [False]
 
 - columns \#31 : user----
-[\{'id': 4196983835, 'id\_str': '4196983835', 'name': 'SpookyWeRateDogs™', 'screen\_name': 'dog\_rates', 'location': 'MERCH↴  DM DOGS. WE WILL RATE', 'description': 'Only Legit Source for Professional Dog Ratings STORE: @ShopWeRateDogs | IG, FB \& SC: WeRateDogs | MOBILE APP: @GoodDogsGame Business: dogratingtwitter@gmail.com', 'url': 'https://t.co/N7sNNHAEXS', 'entities': \{'url': \{'urls': [\{'url': 'https://t.co/N7sNNHAEXS', 'expanded\_url': 'http://weratedogs.com', 'display\_url': 'weratedogs.com', 'indices': [0, 23]\}]\}, 'description': \{'urls': []\}\}, 'protected': False, 'followers\_count': 3768851, 'friends\_count': 107, 'listed\_count': 3199, 'created\_at': 'Sun Nov 15 21:41:29 +0000 2015', 'favourites\_count': 120161, 'utc\_offset': None, 'time\_zone': None, 'geo\_enabled': True, 'verified': True, 'statuses\_count': 5749, 'lang': 'en', 'contributors\_enabled': False, 'is\_translator': False, 'is\_translation\_enabled': False, 'profile\_background\_color': '000000', 'profile\_background\_image\_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_image\_url\_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_tile': False, 'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/4196983835/1506888628', 'profile\_link\_color': 'F5ABB5', 'profile\_sidebar\_border\_color': '000000', 'profile\_sidebar\_fill\_color': '000000', 'profile\_text\_color': '000000', 'profile\_use\_background\_image': False, 'has\_extended\_profile': True, 'default\_profile': False, 'default\_profile\_image': False, 'following': False, 'follow\_request\_sent': False, 'notifications': False, 'translator\_type': 'none'\}]
+[\{'id': 4196983835, 'id\_str': '4196983835', 'name': 'SpookyWeRateDogs™', 'screen\_name': 'dog\_rates', 'location': 'MERCH↴  DM DOGS. WE WILL RATE', 'description': 'Only Legit Source for Professional Dog Ratings STORE: @ShopWeRateDogs | IG, FB \& SC: WeRateDogs | MOBILE APP: @GoodDogsGame Business: dogratingtwitter@gmail.com', 'url': 'https://t.co/N7sNNHAEXS', 'entities': \{'url': \{'urls': [\{'url': 'https://t.co/N7sNNHAEXS', 'expanded\_url': 'http://weratedogs.com', 'display\_url': 'weratedogs.com', 'indices': [0, 23]\}]\}, 'description': \{'urls': []\}\}, 'protected': False, 'followers\_count': 3768855, 'friends\_count': 107, 'listed\_count': 3200, 'created\_at': 'Sun Nov 15 21:41:29 +0000 2015', 'favourites\_count': 120161, 'utc\_offset': None, 'time\_zone': None, 'geo\_enabled': True, 'verified': True, 'statuses\_count': 5749, 'lang': 'en', 'contributors\_enabled': False, 'is\_translator': False, 'is\_translation\_enabled': False, 'profile\_background\_color': '000000', 'profile\_background\_image\_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_image\_url\_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_tile': False, 'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/4196983835/1506888628', 'profile\_link\_color': 'F5ABB5', 'profile\_sidebar\_border\_color': '000000', 'profile\_sidebar\_fill\_color': '000000', 'profile\_text\_color': '000000', 'profile\_use\_background\_image': False, 'has\_extended\_profile': True, 'default\_profile': False, 'default\_profile\_image': False, 'following': False, 'follow\_request\_sent': False, 'notifications': False, 'translator\_type': 'none'\}]
 '----checking complete----'
 
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}327}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} check \PYZhy{} info}
-          \PY{n}{tweetdf}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}14}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} snip info}
+         \PY{n}{tweetdf}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -561,33 +579,20 @@ memory usage: 505.4+ KB
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}343}]:} \PY{c+c1}{\PYZsh{} drop cols}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} df prepare}
-          \PY{n}{tweetclean} \PY{o}{=} \PY{n}{tweetdf}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
-          
-          \PY{c+c1}{\PYZsh{}\PYZsh{} build fuction}
-          \PY{k}{def} \PY{n+nf}{drop\PYZus{}column}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n+nb}{list}\PY{p}{)}\PY{p}{:}
-              \PY{c+c1}{\PYZsh{}\PYZsh{} proceed}
-              \PY{n}{dflen} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{columns}\PY{p}{)}
-              \PY{n}{df}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n+nb}{list}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
-              \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} 在函数中要用 inplace=True 而不是赋值来作用于df}
-              \PY{c+c1}{\PYZsh{}\PYZsh{} check}
-              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{} proceding \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{} drop }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ columns: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{list}\PY{p}{)}\PY{p}{,} \PY{n+nb}{list}\PY{p}{)}\PY{p}{)}
-              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{} remain }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ columns}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{columns}\PY{p}{)}\PY{p}{)}\PY{p}{)}
-              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{} success : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{list}\PY{p}{)} \PY{o}{+} \PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{columns}\PY{p}{)} \PY{o}{==} \PY{n}{dflen}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}15}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} define drop list}
+         \PY{n}{droplist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{contributors}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{coordinates}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{geo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{place}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}status\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}user\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}344}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} drop1 list}
-          \PY{n}{droplist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{contributors}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{coordinates}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{geo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{place}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}status\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}user\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}16}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} droplist1}
+         \PY{n}{droplist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{contributors}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{coordinates}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{geo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{place}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}status\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}user\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status\PYZus{}id\PYZus{}str}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}345}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} drop1 excute}
-          \PY{n}{drop\PYZus{}column}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{droplist1}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}17}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} drop1 excute}
+         \PY{n}{drop\PYZus{}column}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{droplist1}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -599,111 +604,53 @@ memory usage: 505.4+ KB
 
     \end{Verbatim}
 
+    \hypertarget{check2---inspect-drop}{%
+\paragraph{// check2 - inspect drop}\label{check2---inspect-drop}}
+
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}346}]:} \PY{c+c1}{\PYZsh{} check2}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} check \PYZhy{} not clear value columns}
-          \PY{n}{check\PYZus{}sample}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}77}]:} \PY{c+c1}{\PYZsh{} check2}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} snip remained columns}
+         \PY{n}{check\PYZus{}sample}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-----checking sample index: 690
+----checking sample index: 893
 
 - columns \#1 : created\_at
-['2016-10-14T16:13:10.000000000']
+['2016-07-29T15:27:55.000000000']
 
 - columns \#2 : display\_text\_range
-[list([0, 110])]
+[list([0, 84])]
 
-- columns \#3 : entities
-[\{'hashtags': [], 'symbols': [], 'user\_mentions': [], 'urls': [], 'media': [\{'id': 786963058530906112, 'id\_str': '786963058530906112', 'indices': [111, 134], 'media\_url': 'http://pbs.twimg.com/media/Cuvau3MW8AAxaRv.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/Cuvau3MW8AAxaRv.jpg', 'url': 'https://t.co/ibj5g6xaAj', 'display\_url': 'pic.twitter.com/ibj5g6xaAj', 'expanded\_url': 'https://twitter.com/dog\_rates/status/786963064373534720/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}\}\}]\}]
+- columns \#3 : favorite\_count
+[7201]
 
-- columns \#4 : extended\_entities
-[\{'media': [\{'id': 786963058530906112, 'id\_str': '786963058530906112', 'indices': [111, 134], 'media\_url': 'http://pbs.twimg.com/media/Cuvau3MW8AAxaRv.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/Cuvau3MW8AAxaRv.jpg', 'url': 'https://t.co/ibj5g6xaAj', 'display\_url': 'pic.twitter.com/ibj5g6xaAj', 'expanded\_url': 'https://twitter.com/dog\_rates/status/786963064373534720/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 680, 'h': 680, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}, 'large': \{'w': 1024, 'h': 1024, 'resize': 'fit'\}\}\}]\}]
+- columns \#4 : full\_text
+["This is Spencer. He's part of the Queen's Guard. Takes his job very seriously. 11/10 https://t.co/8W5iSOgXfx"]
 
-- columns \#5 : favorite\_count
-[29595]
+- columns \#5 : id------
+[759047813560868866]
 
-- columns \#6 : favorited
-[False]
+- columns \#6 : retweet\_count
+[2291]
 
-- columns \#7 : full\_text
-["This is Rory. He's got an interview in a few minutes. Looking spiffy af. Nervous as h*ck tho. 12/10 would hire https://t.co/ibj5g6xaAj"]
-
-- columns \#8 : id------
-[786963064373534720]
-
-- columns \#9 : in\_reply\_to\_screen\_name
-[None]
-
-- columns \#10 : in\_reply\_to\_status\_id
-[nan]
-
-- columns \#11 : in\_reply\_to\_user\_id
-[nan]
-
-- columns \#12 : is\_quote\_status
-[False]
-
-- columns \#13 : lang----
-['en']
-
-- columns \#14 : possibly\_sensitive
-[0.]
-
-- columns \#15 : possibly\_sensitive\_appealable
-[0.]
-
-- columns \#16 : quoted\_status
-[nan]
-
-- columns \#17 : quoted\_status\_id
-[nan]
-
-- columns \#18 : retweet\_count
-[9272]
-
-- columns \#19 : retweeted
-[False]
-
-- columns \#20 : retweeted\_status
-[nan]
-
-- columns \#21 : source--
+- columns \#7 : source--
 ['<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>']
-
-- columns \#22 : truncated
-[False]
-
-- columns \#23 : user----
-[\{'id': 4196983835, 'id\_str': '4196983835', 'name': 'SpookyWeRateDogs™', 'screen\_name': 'dog\_rates', 'location': 'MERCH↴  DM DOGS. WE WILL RATE', 'description': 'Only Legit Source for Professional Dog Ratings STORE: @ShopWeRateDogs | IG, FB \& SC: WeRateDogs | MOBILE APP: @GoodDogsGame Business: dogratingtwitter@gmail.com', 'url': 'https://t.co/N7sNNHAEXS', 'entities': \{'url': \{'urls': [\{'url': 'https://t.co/N7sNNHAEXS', 'expanded\_url': 'http://weratedogs.com', 'display\_url': 'weratedogs.com', 'indices': [0, 23]\}]\}, 'description': \{'urls': []\}\}, 'protected': False, 'followers\_count': 3768903, 'friends\_count': 107, 'listed\_count': 3225, 'created\_at': 'Sun Nov 15 21:41:29 +0000 2015', 'favourites\_count': 120161, 'utc\_offset': None, 'time\_zone': None, 'geo\_enabled': True, 'verified': True, 'statuses\_count': 5749, 'lang': 'en', 'contributors\_enabled': False, 'is\_translator': False, 'is\_translation\_enabled': False, 'profile\_background\_color': '000000', 'profile\_background\_image\_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_image\_url\_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'profile\_background\_tile': False, 'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg', 'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/4196983835/1506888628', 'profile\_link\_color': 'F5ABB5', 'profile\_sidebar\_border\_color': '000000', 'profile\_sidebar\_fill\_color': '000000', 'profile\_text\_color': '000000', 'profile\_use\_background\_image': False, 'has\_extended\_profile': True, 'default\_profile': False, 'default\_profile\_image': False, 'following': False, 'follow\_request\_sent': False, 'notifications': False, 'translator\_type': 'none'\}]
 '----checking complete----'
 
     \end{Verbatim}
 
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}376}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} not much meaning entities record many info for runing page, not data for}
-          \PY{n}{checklist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{favorited}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}screen\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}status\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}user\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{is\PYZus{}quote\PYZus{}status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lang}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive\PYZus{}appealable}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{retweeted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{truncated}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}19}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} define inspect list}
+         \PY{n}{inslist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{favorited}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}screen\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}status\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}user\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{is\PYZus{}quote\PYZus{}status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lang}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive\PYZus{}appealable}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{retweeted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{truncated}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} special action below is altered}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}429}]:} \PY{c+c1}{\PYZsh{} build function}
-          \PY{k}{def} \PY{n+nf}{check\PYZus{}info}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{checklist}\PY{p}{)}\PY{p}{:}
-              \PY{n}{c} \PY{o}{=} \PY{l+m+mi}{1}
-              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{checklist}\PY{p}{:}
-                  \PY{n+nb}{print}\PY{p}{(}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZhy{} columns \PYZsh{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ : }\PY{l+s+si}{\PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{i}\PY{p}{)}\PY{p}{)}\PY{p}{)}
-                  \PY{n+nb}{print}\PY{p}{(}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{nlargest}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}\PY{p}{)}
-                  \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} nlargest 非常好用}
-                  \PY{n}{c} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
-              \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking complete\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}430}]:} \PY{n}{check\PYZus{}info}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{checklist1}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}20}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} inspect1 excute}
+         \PY{n}{check\PYZus{}info}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{inslist1}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -716,8 +663,8 @@ Name: favorited, dtype: int64
 - columns \#2 : in\_reply\_to\_screen\_name
 dog\_rates          47
 markhoppus          2
-Jack\_Septic\_Eye     1
-NBCSports           1
+ABC                 1
+CommonWhiteGirI     1
 Marc\_IRL            1
 Name: in\_reply\_to\_screen\_name, dtype: int64
 
@@ -778,191 +725,776 @@ Name: truncated, dtype: int64
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}405}]:} \PY{c+c1}{\PYZsh{} special1 quoted\PYZus{}status is a dict, move it to detlist}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} check values (almost is null)}
-          \PY{n}{tweetdf}\PY{o}{.}\PY{n}{quoted\PYZus{}status}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}21}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} special1 }
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} quoted\PYZus{}status is a dict, move it to detlist}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} check values (almost is null)}
+         \PY{n}{tweetclean}\PY{o}{.}\PY{n}{quoted\PYZus{}status}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}405}]:} True     2324
-          False      28
-          Name: quoted\_status, dtype: int64
+{\color{outcolor}Out[{\color{outcolor}21}]:} True     2324
+         False      28
+         Name: quoted\_status, dtype: int64
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}431}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} check samples}
-          \PY{n}{tweetdf}\PY{p}{[}\PY{n}{tweetdf}\PY{o}{.}\PY{n}{quoted\PYZus{}status}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{quoted\PYZus{}status}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} 从结果看 status 是对用户转发 tweet 的一些记录,可以不进行研究}
+{\color{incolor}In [{\color{incolor}22}]:} \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} many NaN}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} check a sample}
+         \PY{n}{tweetclean}\PY{p}{[}\PY{n}{tweetclean}\PY{o}{.}\PY{n}{quoted\PYZus{}status}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{quoted\PYZus{}status}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} status is some extra info abou a forward}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}431}]:} \{'created\_at': 'Tue Nov 08 22:54:11 +0000 2016',
-           'id': 796123679771897856,
-           'id\_str': '796123679771897856',
-           'full\_text': 'This is Thor, leader of the Vacuum Cleaner Defense League. "Say NO to vacuums. They\textbackslash{}'re loud and they freak him out." https://t.co/yB7BOKunli https://t.co/eG8v8b12xM',
-           'truncated': False,
-           'display\_text\_range': [0, 140],
-           'entities': \{'hashtags': [],
-            'symbols': [],
-            'user\_mentions': [],
-            'urls': [\{'url': 'https://t.co/yB7BOKunli',
-              'expanded\_url': 'http://kng5.tv/VCDL',
-              'display\_url': 'kng5.tv/VCDL',
-              'indices': [117, 140]\}],
-            'media': [\{'id': 796123648415432708,
-              'id\_str': '796123648415432708',
-              'indices': [141, 164],
-              'media\_url': 'http://pbs.twimg.com/media/CwxmPX0XAAQDYuk.jpg',
-              'media\_url\_https': 'https://pbs.twimg.com/media/CwxmPX0XAAQDYuk.jpg',
-              'url': 'https://t.co/eG8v8b12xM',
-              'display\_url': 'pic.twitter.com/eG8v8b12xM',
-              'expanded\_url': 'https://twitter.com/KING5Seattle/status/796123679771897856/photo/1',
-              'type': 'photo',
-              'sizes': \{'medium': \{'w': 960, 'h': 720, 'resize': 'fit'\},
-               'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\},
-               'small': \{'w': 680, 'h': 510, 'resize': 'fit'\},
-               'large': \{'w': 960, 'h': 720, 'resize': 'fit'\}\}\}]\},
-           'extended\_entities': \{'media': [\{'id': 796123648415432708,
-              'id\_str': '796123648415432708',
-              'indices': [141, 164],
-              'media\_url': 'http://pbs.twimg.com/media/CwxmPX0XAAQDYuk.jpg',
-              'media\_url\_https': 'https://pbs.twimg.com/media/CwxmPX0XAAQDYuk.jpg',
-              'url': 'https://t.co/eG8v8b12xM',
-              'display\_url': 'pic.twitter.com/eG8v8b12xM',
-              'expanded\_url': 'https://twitter.com/KING5Seattle/status/796123679771897856/photo/1',
-              'type': 'photo',
-              'sizes': \{'medium': \{'w': 960, 'h': 720, 'resize': 'fit'\},
-               'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\},
-               'small': \{'w': 680, 'h': 510, 'resize': 'fit'\},
-               'large': \{'w': 960, 'h': 720, 'resize': 'fit'\}\}\}]\},
-           'source': '<a href="https://about.twitter.com/products/tweetdeck" rel="nofollow">TweetDeck</a>',
-           'in\_reply\_to\_status\_id': None,
-           'in\_reply\_to\_status\_id\_str': None,
-           'in\_reply\_to\_user\_id': None,
-           'in\_reply\_to\_user\_id\_str': None,
-           'in\_reply\_to\_screen\_name': None,
-           'user': \{'id': 19430999,
-            'id\_str': '19430999',
-            'name': 'KING 5 News',
-            'screen\_name': 'KING5Seattle',
-            'location': 'Seattle, Washington, USA',
-            'description': 'News, weather, traffic \& more for Seattle / Western Washington. NBC affiliate. Email newstips@king5.com',
-            'url': 'https://t.co/DTGVWWcuRo',
-            'entities': \{'url': \{'urls': [\{'url': 'https://t.co/DTGVWWcuRo',
-                'expanded\_url': 'http://www.king5.com',
-                'display\_url': 'king5.com',
-                'indices': [0, 23]\}]\},
-             'description': \{'urls': []\}\},
-            'protected': False,
-            'followers\_count': 622607,
-            'friends\_count': 7997,
-            'listed\_count': 4733,
-            'created\_at': 'Sat Jan 24 04:03:33 +0000 2009',
-            'favourites\_count': 27058,
-            'utc\_offset': -25200,
-            'time\_zone': 'Pacific Time (US \& Canada)',
-            'geo\_enabled': True,
-            'verified': True,
-            'statuses\_count': 246426,
-            'lang': 'en',
-            'contributors\_enabled': False,
-            'is\_translator': False,
-            'is\_translation\_enabled': False,
-            'profile\_background\_color': '000033',
-            'profile\_background\_image\_url': 'http://pbs.twimg.com/profile\_background\_images/5401596/newsbackgroundhd-lg4.jpg',
-            'profile\_background\_image\_url\_https': 'https://pbs.twimg.com/profile\_background\_images/5401596/newsbackgroundhd-lg4.jpg',
-            'profile\_background\_tile': False,
-            'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/786718413838127104/1-AHEPaH\_normal.jpg',
-            'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/786718413838127104/1-AHEPaH\_normal.jpg',
-            'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/19430999/1401391712',
-            'profile\_link\_color': '0084B4',
-            'profile\_sidebar\_border\_color': 'FFFFFF',
-            'profile\_sidebar\_fill\_color': 'FEFCF5',
-            'profile\_text\_color': '333333',
-            'profile\_use\_background\_image': True,
-            'has\_extended\_profile': False,
-            'default\_profile': False,
-            'default\_profile\_image': False,
-            'following': False,
-            'follow\_request\_sent': False,
-            'notifications': False,
-            'translator\_type': 'none'\},
-           'geo': None,
-           'coordinates': None,
-           'place': None,
-           'contributors': None,
-           'is\_quote\_status': False,
-           'retweet\_count': 1832,
-           'favorite\_count': 2654,
-           'favorited': False,
-           'retweeted': False,
-           'possibly\_sensitive': False,
-           'possibly\_sensitive\_appealable': False,
-           'lang': 'en'\}
+{\color{outcolor}Out[{\color{outcolor}22}]:} \{'created\_at': 'Sat Jun 03 18:46:59 +0000 2017',
+          'id': 871075758080503809,
+          'id\_str': '871075758080503809',
+          'full\_text': "A dog's clever solution. https://t.co/7qNdrBVAlA",
+          'truncated': False,
+          'display\_text\_range': [0, 24],
+          'entities': \{'hashtags': [],
+           'symbols': [],
+           'user\_mentions': [],
+           'urls': [],
+           'media': [\{'id': 871075694524203009,
+             'id\_str': '871075694524203009',
+             'indices': [25, 48],
+             'media\_url': 'http://pbs.twimg.com/ext\_tw\_video\_thumb/871075694524203009/pu/img/WAB4Nn412S6K-IY\_.jpg',
+             'media\_url\_https': 'https://pbs.twimg.com/ext\_tw\_video\_thumb/871075694524203009/pu/img/WAB4Nn412S6K-IY\_.jpg',
+             'url': 'https://t.co/7qNdrBVAlA',
+             'display\_url': 'pic.twitter.com/7qNdrBVAlA',
+             'expanded\_url': 'https://twitter.com/animalcog/status/871075758080503809/video/1',
+             'type': 'photo',
+             'sizes': \{'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\},
+              'medium': \{'w': 600, 'h': 338, 'resize': 'fit'\},
+              'small': \{'w': 340, 'h': 191, 'resize': 'fit'\},
+              'large': \{'w': 1024, 'h': 576, 'resize': 'fit'\}\}\}]\},
+          'extended\_entities': \{'media': [\{'id': 871075694524203009,
+             'id\_str': '871075694524203009',
+             'indices': [25, 48],
+             'media\_url': 'http://pbs.twimg.com/ext\_tw\_video\_thumb/871075694524203009/pu/img/WAB4Nn412S6K-IY\_.jpg',
+             'media\_url\_https': 'https://pbs.twimg.com/ext\_tw\_video\_thumb/871075694524203009/pu/img/WAB4Nn412S6K-IY\_.jpg',
+             'url': 'https://t.co/7qNdrBVAlA',
+             'display\_url': 'pic.twitter.com/7qNdrBVAlA',
+             'expanded\_url': 'https://twitter.com/animalcog/status/871075758080503809/video/1',
+             'type': 'video',
+             'sizes': \{'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\},
+              'medium': \{'w': 600, 'h': 338, 'resize': 'fit'\},
+              'small': \{'w': 340, 'h': 191, 'resize': 'fit'\},
+              'large': \{'w': 1024, 'h': 576, 'resize': 'fit'\}\},
+             'video\_info': \{'aspect\_ratio': [16, 9],
+              'duration\_millis': 36170,
+              'variants': [\{'bitrate': 832000,
+                'content\_type': 'video/mp4',
+                'url': 'https://video.twimg.com/ext\_tw\_video/871075694524203009/pu/vid/640x360/8MNJRtaqh7cylswO.mp4'\},
+               \{'content\_type': 'application/x-mpegURL',
+                'url': 'https://video.twimg.com/ext\_tw\_video/871075694524203009/pu/pl/\_fg3rzHZb9J40wJb.m3u8'\},
+               \{'bitrate': 320000,
+                'content\_type': 'video/mp4',
+                'url': 'https://video.twimg.com/ext\_tw\_video/871075694524203009/pu/vid/320x180/PxWa9GGi0CIFtQaK.mp4'\},
+               \{'bitrate': 2176000,
+                'content\_type': 'video/mp4',
+                'url': 'https://video.twimg.com/ext\_tw\_video/871075694524203009/pu/vid/1280x720/s9r873KfVTspe\_p1.mp4'\}]\},
+             'additional\_media\_info': \{'monetizable': False\}\}]\},
+          'source': '<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>',
+          'in\_reply\_to\_status\_id': None,
+          'in\_reply\_to\_status\_id\_str': None,
+          'in\_reply\_to\_user\_id': None,
+          'in\_reply\_to\_user\_id\_str': None,
+          'in\_reply\_to\_screen\_name': None,
+          'user': \{'id': 2745835322,
+           'id\_str': '2745835322',
+           'name': 'Animal Cognition',
+           'screen\_name': 'animalcog',
+           'location': '',
+           'description': 'Help us investigate the mental capacities of animals! https://t.co/7CCCV8goBy',
+           'url': 'https://t.co/7CCCV8goBy',
+           'entities': \{'url': \{'urls': [\{'url': 'https://t.co/7CCCV8goBy',
+               'expanded\_url': 'http://patreon.com/animalcognition',
+               'display\_url': 'patreon.com/animalcognition',
+               'indices': [0, 23]\}]\},
+            'description': \{'urls': [\{'url': 'https://t.co/7CCCV8goBy',
+               'expanded\_url': 'http://patreon.com/animalcognition',
+               'display\_url': 'patreon.com/animalcognition',
+               'indices': [54, 77]\}]\}\},
+           'protected': False,
+           'followers\_count': 10612,
+           'friends\_count': 1558,
+           'listed\_count': 164,
+           'created\_at': 'Tue Aug 19 17:40:56 +0000 2014',
+           'favourites\_count': 1490,
+           'utc\_offset': -25200,
+           'time\_zone': 'Pacific Time (US \& Canada)',
+           'geo\_enabled': False,
+           'verified': False,
+           'statuses\_count': 1493,
+           'lang': 'en',
+           'contributors\_enabled': False,
+           'is\_translator': False,
+           'is\_translation\_enabled': False,
+           'profile\_background\_color': '000000',
+           'profile\_background\_image\_url': 'http://abs.twimg.com/images/themes/theme1/bg.png',
+           'profile\_background\_image\_url\_https': 'https://abs.twimg.com/images/themes/theme1/bg.png',
+           'profile\_background\_tile': False,
+           'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/574995919378063360/tWkNDOTF\_normal.jpeg',
+           'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/574995919378063360/tWkNDOTF\_normal.jpeg',
+           'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/2745835322/1465481545',
+           'profile\_link\_color': '8EBC5A',
+           'profile\_sidebar\_border\_color': '000000',
+           'profile\_sidebar\_fill\_color': '000000',
+           'profile\_text\_color': '000000',
+           'profile\_use\_background\_image': False,
+           'has\_extended\_profile': False,
+           'default\_profile': False,
+           'default\_profile\_image': False,
+           'following': False,
+           'follow\_request\_sent': False,
+           'notifications': False,
+           'translator\_type': 'none'\},
+          'geo': None,
+          'coordinates': None,
+          'place': None,
+          'contributors': None,
+          'is\_quote\_status': False,
+          'retweet\_count': 11961,
+          'favorite\_count': 27298,
+          'favorited': False,
+          'retweeted': False,
+          'possibly\_sensitive': False,
+          'possibly\_sensitive\_appealable': False,
+          'lang': 'en'\}
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} special2 in\PYZus{}reply\PYZus{}to\PYZus{}screen\PYZus{}name}
-        \PY{c+c1}{\PYZsh{}\PYZsh{} have value dog\PYZus{}rates for 47 times}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}\PYZsh{} droplist2}
-        \PY{n}{droplist2} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{truncated}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{retweeted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive\PYZus{}appealable}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{possibly\PYZus{}sensitive}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lang}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{is\PYZus{}quote\PYZus{}status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{favorited}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}392}]:} \PY{c+c1}{\PYZsh{} check a det sample}
-          \PY{c+c1}{\PYZsh{} build function}
-          \PY{k}{def} \PY{n+nf}{check\PYZus{}detail}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n+nb}{list}\PY{p}{)}\PY{p}{:}
-              \PY{n}{sampe} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
-              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{detlist1}\PY{p}{:}
-                  \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-                  \PY{c+c1}{\PYZsh{}\PYZsh{} 使用 pprint 优化 dict 显示}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}\PYZsh{} long message columns}
-        \PY{n}{detlist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{entities}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{extended\PYZus{}entities}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{user}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}416}]:} \PY{n}{tweetclean}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{[}\PY{n}{detlist1}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}23}]:} \PY{c+c1}{\PYZsh{} special2}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} in\PYZus{}reply\PYZus{}to\PYZus{}screen\PYZus{}name have value dog\PYZus{}rates for 47 times}
+         \PY{n}{tweetclean}\PY{o}{.}\PY{n}{query}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{in\PYZus{}reply\PYZus{}to\PYZus{}screen\PYZus{}name == }\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{dog\PYZus{}rates}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}416}]:}                                                entities  \textbackslash{}
-          1597  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
-          
-                                                extended\_entities  \textbackslash{}
-          1597  \{'media': [\{'id': 686003200739115008, 'id\_str'{\ldots}   
-          
-                                                             user quoted\_status  
-          1597  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}           NaN  
+{\color{outcolor}Out[{\color{outcolor}23}]:}               created\_at display\_text\_range  \textbackslash{}
+         147  2017-05-12 17:12:53           [0, 139]   
+         181  2017-04-24 15:13:52           [0, 112]   
+         225  2017-04-01 16:41:12           [0, 135]   
+         231  2017-03-31 01:11:22           [18, 79]   
+         248  2017-03-23 18:29:57           [0, 115]   
+         384  2017-02-01 01:11:25            [0, 69]   
+         495  2016-12-25 21:12:41           [0, 131]   
+         510  2016-12-21 19:01:02           [0, 136]   
+         562  2016-11-25 21:37:47            [0, 45]   
+         839  2016-08-19 19:14:16           [0, 139]   
+         1001 2016-06-28 04:42:46           [0, 132]   
+         1012 2016-06-26 03:22:31            [0, 95]   
+         1014 2016-06-25 21:34:37            [0, 38]   
+         1123 2016-05-10 01:00:58            [0, 43]   
+         1326 2016-03-04 16:06:36            [0, 68]   
+         1335 2016-03-02 03:30:25            [0, 53]   
+         1352 2016-02-27 03:42:44           [0, 135]   
+         1442 2016-02-08 00:27:39           [0, 101]   
+         1448 2016-02-06 00:35:13           [0, 101]   
+         1460 2016-02-02 03:08:26           [0, 135]   
+         1470 2016-01-31 03:57:23           [0, 135]   
+         1493 2016-01-27 19:05:49           [0, 103]   
+         1497 2016-01-27 00:31:15           [0, 108]   
+         1594 2016-01-10 04:04:10           [0, 136]   
+         1601 2016-01-09 04:34:45           [0, 130]   
+         1614 2016-01-07 05:28:35           [0, 140]   
+         1626 2016-01-06 00:54:18           [0, 120]   
+         1630 2016-01-05 04:11:44           [0, 126]   
+         1659 2016-01-01 06:22:03           [0, 139]   
+         1685 2015-12-28 05:07:27           [0, 106]   
+         1770 2015-12-19 01:25:31            [0, 92]   
+         1815 2015-12-15 02:32:17           [0, 110]   
+         1838 2015-12-13 02:51:51           [0, 144]   
+         1840 2015-12-13 01:25:37           [0, 111]   
+         1848 2015-12-12 16:02:36            [0, 82]   
+         1862 2015-12-11 16:20:15            [0, 58]   
+         1878 2015-12-10 17:11:09           [0, 101]   
+         1881 2015-12-10 03:30:58            [0, 51]   
+         1888 2015-12-10 00:54:28            [0, 89]   
+         1891 2015-12-10 00:08:50           [0, 107]   
+         1901 2015-12-09 15:09:55           [0, 134]   
+         1936 2015-12-07 04:11:02            [0, 88]   
+         2032 2015-12-01 16:37:44            [0, 76]   
+         2034 2015-12-01 04:44:10           [0, 135]   
+         2145 2015-11-26 01:11:28           [0, 125]   
+         2165 2015-11-25 03:14:30           [0, 114]   
+         2294 2015-11-18 20:02:51            [0, 69]   
+         
+                                                        entities  \textbackslash{}
+         147   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         181   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         225   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         231   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         248   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         384   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         495   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         510   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         562   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         839   \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1001  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1012  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1014  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1123  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1326  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1335  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1352  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1442  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1448  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1460  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1470  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1493  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1497  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1594  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1601  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1614  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1626  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1630  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1659  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1685  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1770  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1815  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1838  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1840  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1848  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1862  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1878  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1881  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1888  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1891  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1901  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         1936  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         2032  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         2034  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         2145  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         2165  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         2294  \{'hashtags': [], 'symbols': [], 'user\_mentions{\ldots}   
+         
+                                               extended\_entities  favorite\_count  \textbackslash{}
+         147   \{'media': [\{'id': 863079538779013120, 'id\_str'{\ldots}            9068   
+         181   \{'media': [\{'id': 856526604033556482, 'id\_str'{\ldots}           12412   
+         225                                                 NaN            8799   
+         231                                                 NaN            7523   
+         248   \{'media': [\{'id': 844979535204429824, 'id\_str'{\ldots}           14678   
+         384                                                 NaN            5617   
+         495                                                 NaN            4949   
+         510                                                 NaN            6189   
+         562   \{'media': [\{'id': 802265039247904768, 'id\_str'{\ldots}            7011   
+         839                                                 NaN            2862   
+         1001                                                NaN            1510   
+         1012  \{'media': [\{'id': 746906454414790656, 'id\_str'{\ldots}            3158   
+         1014  \{'media': [\{'id': 746818901464453120, 'id\_str'{\ldots}            5785   
+         1123  \{'media': [\{'id': 729838572744912896, 'id\_str'{\ldots}            1849   
+         1326  \{'media': [\{'id': 705786528321044482, 'id\_str'{\ldots}            2125   
+         1335  \{'media': [\{'id': 704871447097905152, 'id\_str'{\ldots}            4564   
+         1352  \{'media': [\{'id': 703424980705538048, 'id\_str'{\ldots}            4153   
+         1442                                                NaN            1334   
+         1448  \{'media': [\{'id': 695767665437233153, 'id\_str'{\ldots}            2047   
+         1460  \{'media': [\{'id': 694356670072373248, 'id\_str'{\ldots}            1643   
+         1470                                                NaN            1468   
+         1493                                                NaN            1613   
+         1497  \{'media': [\{'id': 692142771344400384, 'id\_str'{\ldots}            1788   
+         1594                                                NaN            1271   
+         1601                                                NaN            2219   
+         1614                                                NaN            2509   
+         1626  \{'media': [\{'id': 684538367950872576, 'id\_str'{\ldots}            2902   
+         1630  \{'media': [\{'id': 684225739852492800, 'id\_str'{\ldots}            1361   
+         1659                                                NaN            1941   
+         1685                                                NaN            1797   
+         1770                                                NaN            2085   
+         1815                                                NaN             992   
+         1838  \{'media': [\{'id': 675870715636224001, 'id\_str'{\ldots}            1771   
+         1840                                                NaN            1021   
+         1848  \{'media': [\{'id': 675707321759039488, 'id\_str'{\ldots}            2141   
+         1862  \{'media': [\{'id': 675349367813877760, 'id\_str'{\ldots}            4230   
+         1878  \{'media': [\{'id': 674999800484368385, 'id\_str'{\ldots}            2417   
+         1881  \{'media': [\{'id': 674793390643482624, 'id\_str'{\ldots}            2679   
+         1888  \{'media': [\{'id': 674754014320402432, 'id\_str'{\ldots}            1457   
+         1891                                                NaN             525   
+         1901                                                NaN            1006   
+         1936                                                NaN            3274   
+         2032  \{'media': [\{'id': 671729900588417024, 'id\_str'{\ldots}            9073   
+         2034                                                NaN             963   
+         2145                                                NaN             551   
+         2165  \{'media': [\{'id': 669353426984296449, 'id\_str'{\ldots}             688   
+         2294                                                NaN              87   
+         
+               favorited                                          full\_text  \textbackslash{}
+         147       False  Ladies and gentlemen{\ldots} I found Pipsy. He may {\ldots}   
+         181       False  THIS IS CHARLIE, MARK. HE DID JUST WANT TO SAY{\ldots}   
+         225       False  Jerry just apuppologized to me. He said there {\ldots}   
+         231       False  .@breaannanicolee PUPDATE: Cannon has a heart {\ldots}   
+         248       False  PUPDATE: I'm proud to announce that Toby is 23{\ldots}   
+         384       False  I was going to do 007/10, but the joke wasn't {\ldots}   
+         495       False  I've been informed by multiple sources that th{\ldots}   
+         510       False  PUPDATE: I've been informed that Augie was act{\ldots}   
+         562       False  Like doggo, like pupper version 2. Both 11/10 {\ldots}   
+         839       False  His name is Charley and he already has a new s{\ldots}   
+         1001      False  Other pupper asked not to have his identity sh{\ldots}   
+         1012      False  PUPDATE: can't see any. Even if I could, I cou{\ldots}   
+         1014      False  Guys{\ldots} Dog Jesus 2.0\textbackslash{}n13/10 buoyant af https:{\ldots}   
+         1123      False  "Challenge completed" \textbackslash{}n(pupgraded to 12/10) h{\ldots}   
+         1326      False  Seriously, add us 🐶 11/10 for sad wet pupper h{\ldots}   
+         1335      False  I found a forest Pipsy. 12/10 https://t.co/mIQ{\ldots}   
+         1352      False  Really guys? Again? I know this is a rare Alba{\ldots}   
+         1442      False  After reading the comments I may have overesti{\ldots}   
+         1448      False  If you are aware of who is making these please{\ldots}   
+         1460      False  This pupper only appears through the hole of a{\ldots}   
+         1470      False  BREAKING PUPDATE: I've just been notified that{\ldots}   
+         1493      False  PUPDATE: just noticed this dog has some extra {\ldots}   
+         1497      False  These are some pictures of Teddy that further {\ldots}   
+         1594      False  Yes I do realize a rating of 4/20 would've bee{\ldots}   
+         1601      False  Jack deserves another round of applause. If yo{\ldots}   
+         1614      False  For those who claim this is a goat, u are wron{\ldots}   
+         1626      False  After watching this video, we've determined th{\ldots}   
+         1630      False  Two sneaky puppers were not initially seen, mo{\ldots}   
+         1659      False  I'm aware that I could've said 20/16, but here{\ldots}   
+         1685      False  I've been told there's a slight possibility he{\ldots}   
+         1770      False  After getting lost in Reese's eyes for several{\ldots}   
+         1815      False  After some outrage from the crowd. Bubbles is {\ldots}   
+         1838      False  \&amp; this is Yoshi. Another world record cont{\ldots}   
+         1840      False  This dog is being demoted to a 9/10 for not we{\ldots}   
+         1848      False  We've got ourselves a battle here. Watch out R{\ldots}   
+         1862      False  Yea I lied. Here's more. All 13/10 https://t.c{\ldots}   
+         1878      False  Ok last one of these. I may try to make some m{\ldots}   
+         1881      False  I have found another. 13/10 https://t.co/HwroP{\ldots}   
+         1888      False  Just received another perfect photo of dogs an{\ldots}   
+         1891      False  Some clarification is required. The dog is sin{\ldots}   
+         1901      False  The 13/10 also takes into account this impecca{\ldots}   
+         1936      False  The millennials have spoken and we've decided {\ldots}   
+         2032      False  I'm just going to leave this one here as well{\ldots}   
+         2034      False  After 22 minutes of careful deliberation this {\ldots}   
+         2145      False  After countless hours of research and hundreds{\ldots}   
+         2165      False  This is Tessa. She is also very pleased after {\ldots}   
+         2294      False  After much debate this dog is being upgraded t{\ldots}   
+         
+                               id in\_reply\_to\_screen\_name  in\_reply\_to\_status\_id  \textbackslash{}
+         147   863079547188785154               dog\_rates           6.671522e+17   
+         181   856526610513747968               dog\_rates           8.558181e+17   
+         225   848213670039564288               dog\_rates           8.482121e+17   
+         231   847617282490613760               dog\_rates           8.476062e+17   
+         248   844979544864018432               dog\_rates           7.590995e+17   
+         384   826598799820865537               dog\_rates           8.265984e+17   
+         495   813130366689148928               dog\_rates           8.131273e+17   
+         510   811647686436880384               dog\_rates           8.116272e+17   
+         562   802265048156610565               dog\_rates           7.331095e+17   
+         839   766714921925144576               dog\_rates           7.667118e+17   
+         1001  747651430853525504               dog\_rates           7.476487e+17   
+         1012  746906459439529985               dog\_rates           7.468859e+17   
+         1014  746818907684614144               dog\_rates           6.914169e+17   
+         1123  729838605770891264               dog\_rates           7.291135e+17   
+         1326  705786532653883392               dog\_rates           7.032559e+17   
+         1335  704871453724954624               dog\_rates           6.671522e+17   
+         1352  703425003149250560               dog\_rates           7.030419e+17   
+         1442  696490539101908992               dog\_rates           6.964887e+17   
+         1448  695767669421768709               dog\_rates           6.753494e+17   
+         1460  694356675654983680               dog\_rates           6.706684e+17   
+         1470  693644216740769793               dog\_rates           6.936422e+17   
+         1493  692423280028966913               dog\_rates           6.924173e+17   
+         1497  692142790915014657               dog\_rates           6.920419e+17   
+         1594  686035780142297088               dog\_rates           6.860340e+17   
+         1601  685681090388975616               dog\_rates           6.855479e+17   
+         1614  684969860808454144               dog\_rates           6.849598e+17   
+         1626  684538444857667585               dog\_rates           6.844811e+17   
+         1630  684225744407494656               dog\_rates           6.842229e+17   
+         1659  682808988178739200               dog\_rates           6.827884e+17   
+         1685  681340665377193984               dog\_rates           6.813394e+17   
+         1770  678023323247357953               dog\_rates           6.780211e+17   
+         1815  676590572941893632               dog\_rates           6.765883e+17   
+         1838  675870721063669760               dog\_rates           6.757073e+17   
+         1840  675849018447167488               dog\_rates           6.758457e+17   
+         1848  675707330206547968               dog\_rates           6.754971e+17   
+         1862  675349384339542016               dog\_rates           6.749998e+17   
+         1878  674999807681908736               dog\_rates           6.747934e+17   
+         1881  674793399141146624               dog\_rates           6.717299e+17   
+         1888  674754018082705410               dog\_rates           6.747522e+17   
+         1891  674742531037511680               dog\_rates           6.747400e+17   
+         1901  674606911342424069               dog\_rates           6.744689e+17   
+         1936  673716320723169284               dog\_rates           6.737159e+17   
+         2032  671729906628341761               dog\_rates           6.715610e+17   
+         2034  671550332464455680               dog\_rates           6.715449e+17   
+         2145  669684865554620416               dog\_rates           6.693544e+17   
+         2165  669353438988365824               dog\_rates           6.678065e+17   
+         2294  667070482143944705               dog\_rates           6.670655e+17   
+         
+                                     {\ldots}                          possibly\_sensitive  \textbackslash{}
+         147                         {\ldots}                                         0.0   
+         181                         {\ldots}                                         0.0   
+         225                         {\ldots}                                         NaN   
+         231                         {\ldots}                                         NaN   
+         248                         {\ldots}                                         0.0   
+         384                         {\ldots}                                         NaN   
+         495                         {\ldots}                                         NaN   
+         510                         {\ldots}                                         NaN   
+         562                         {\ldots}                                         0.0   
+         839                         {\ldots}                                         NaN   
+         1001                        {\ldots}                                         NaN   
+         1012                        {\ldots}                                         0.0   
+         1014                        {\ldots}                                         0.0   
+         1123                        {\ldots}                                         0.0   
+         1326                        {\ldots}                                         0.0   
+         1335                        {\ldots}                                         0.0   
+         1352                        {\ldots}                                         0.0   
+         1442                        {\ldots}                                         NaN   
+         1448                        {\ldots}                                         0.0   
+         1460                        {\ldots}                                         0.0   
+         1470                        {\ldots}                                         NaN   
+         1493                        {\ldots}                                         NaN   
+         1497                        {\ldots}                                         0.0   
+         1594                        {\ldots}                                         NaN   
+         1601                        {\ldots}                                         NaN   
+         1614                        {\ldots}                                         NaN   
+         1626                        {\ldots}                                         0.0   
+         1630                        {\ldots}                                         0.0   
+         1659                        {\ldots}                                         NaN   
+         1685                        {\ldots}                                         NaN   
+         1770                        {\ldots}                                         NaN   
+         1815                        {\ldots}                                         NaN   
+         1838                        {\ldots}                                         0.0   
+         1840                        {\ldots}                                         NaN   
+         1848                        {\ldots}                                         0.0   
+         1862                        {\ldots}                                         0.0   
+         1878                        {\ldots}                                         0.0   
+         1881                        {\ldots}                                         0.0   
+         1888                        {\ldots}                                         0.0   
+         1891                        {\ldots}                                         NaN   
+         1901                        {\ldots}                                         NaN   
+         1936                        {\ldots}                                         NaN   
+         2032                        {\ldots}                                         0.0   
+         2034                        {\ldots}                                         NaN   
+         2145                        {\ldots}                                         NaN   
+         2165                        {\ldots}                                         0.0   
+         2294                        {\ldots}                                         NaN   
+         
+               possibly\_sensitive\_appealable quoted\_status  quoted\_status\_id  \textbackslash{}
+         147                             0.0           NaN               NaN   
+         181                             0.0           NaN               NaN   
+         225                             NaN           NaN               NaN   
+         231                             NaN           NaN               NaN   
+         248                             0.0           NaN               NaN   
+         384                             NaN           NaN               NaN   
+         495                             NaN           NaN               NaN   
+         510                             NaN           NaN               NaN   
+         562                             0.0           NaN               NaN   
+         839                             NaN           NaN               NaN   
+         1001                            NaN           NaN               NaN   
+         1012                            0.0           NaN               NaN   
+         1014                            0.0           NaN               NaN   
+         1123                            0.0           NaN               NaN   
+         1326                            0.0           NaN               NaN   
+         1335                            0.0           NaN               NaN   
+         1352                            0.0           NaN               NaN   
+         1442                            NaN           NaN               NaN   
+         1448                            0.0           NaN               NaN   
+         1460                            0.0           NaN               NaN   
+         1470                            NaN           NaN               NaN   
+         1493                            NaN           NaN               NaN   
+         1497                            0.0           NaN               NaN   
+         1594                            NaN           NaN               NaN   
+         1601                            NaN           NaN               NaN   
+         1614                            NaN           NaN               NaN   
+         1626                            0.0           NaN               NaN   
+         1630                            0.0           NaN               NaN   
+         1659                            NaN           NaN               NaN   
+         1685                            NaN           NaN               NaN   
+         1770                            NaN           NaN               NaN   
+         1815                            NaN           NaN               NaN   
+         1838                            0.0           NaN               NaN   
+         1840                            NaN           NaN               NaN   
+         1848                            0.0           NaN               NaN   
+         1862                            0.0           NaN               NaN   
+         1878                            0.0           NaN               NaN   
+         1881                            0.0           NaN               NaN   
+         1888                            0.0           NaN               NaN   
+         1891                            NaN           NaN               NaN   
+         1901                            NaN           NaN               NaN   
+         1936                            NaN           NaN               NaN   
+         2032                            0.0           NaN               NaN   
+         2034                            NaN           NaN               NaN   
+         2145                            NaN           NaN               NaN   
+         2165                            0.0           NaN               NaN   
+         2294                            NaN           NaN               NaN   
+         
+               retweet\_count retweeted  retweeted\_status  \textbackslash{}
+         147            1188     False               NaN   
+         181            2053     False               NaN   
+         225             825     False               NaN   
+         231             462     False               NaN   
+         248            2891     False               NaN   
+         384             292     False               NaN   
+         495             511     False               NaN   
+         510             866     False               NaN   
+         562            1568     False               NaN   
+         839             435     False               NaN   
+         1001            177     False               NaN   
+         1012            334     False               NaN   
+         1014           1933     False               NaN   
+         1123            426     False               NaN   
+         1326            592     False               NaN   
+         1335           1244     False               NaN   
+         1352           1554     False               NaN   
+         1442            169     False               NaN   
+         1448            850     False               NaN   
+         1460            325     False               NaN   
+         1470            149     False               NaN   
+         1493            263     False               NaN   
+         1497            437     False               NaN   
+         1594            138     False               NaN   
+         1601            143     False               NaN   
+         1614            435     False               NaN   
+         1626           1082     False               NaN   
+         1630            239     False               NaN   
+         1659            209     False               NaN   
+         1685            312     False               NaN   
+         1770            438     False               NaN   
+         1815            142     False               NaN   
+         1838            628     False               NaN   
+         1840            170     False               NaN   
+         1848            767     False               NaN   
+         1862           2520     False               NaN   
+         1878           1228     False               NaN   
+         1881           1217     False               NaN   
+         1888            488     False               NaN   
+         1891             55     False               NaN   
+         1901            113     False               NaN   
+         1936            839     False               NaN   
+         2032           4766     False               NaN   
+         2034            228     False               NaN   
+         2145             98     False               NaN   
+         2165            279     False               NaN   
+         2294             14     False               NaN   
+         
+                                                          source  truncated  \textbackslash{}
+         147   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         181   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         225   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         231   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         248   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         384   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         495   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         510   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         562   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         839   <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1001  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1012  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1014  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1123  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1326  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1335  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1352  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1442  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1448  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1460  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1470  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1493  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1497  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1594  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1601  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1614  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1626  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1630  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1659  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1685  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1770  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1815  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1838  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1840  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1848  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1862  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1878  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1881  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1888  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1891  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1901  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         1936  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         2032  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         2034  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         2145  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         2165  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         2294  <a href="http://twitter.com/download/iphone" r{\ldots}      False   
+         
+                                                            user  
+         147   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         181   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         225   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         231   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         248   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         384   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         495   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         510   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         562   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         839   \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1001  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1012  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1014  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1123  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1326  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1335  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1352  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1442  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1448  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1460  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1470  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1493  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1497  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1594  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1601  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1614  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1626  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1630  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1659  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1685  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1770  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1815  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1838  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1840  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1848  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1862  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1878  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1881  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1888  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1891  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1901  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         1936  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         2032  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         2034  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         2145  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         2165  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         2294  \{'id': 4196983835, 'id\_str': '4196983835', 'na{\ldots}  
+         
+         [47 rows x 23 columns]
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}423}]:} \PY{k}{def} \PY{n+nf}{check\PYZus{}detail}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n+nb}{list}\PY{p}{)}\PY{p}{:}
-              \PY{n}{sampe} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
-              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{detlist1}\PY{p}{:}
-                  \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-                  \PY{c+c1}{\PYZsh{}\PYZsh{} 使用 pprint 优化 dict 显示}
+{\color{incolor}In [{\color{incolor}24}]:} \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} check values}
+         \PY{n}{tweetclean}\PY{o}{.}\PY{n}{in\PYZus{}reply\PYZus{}to\PYZus{}screen\PYZus{}name}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} may be dog\PYZus{}rates is a default reply name or thumbs}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} drop column}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}24}]:} dog\_rates          47
+         markhoppus          2
+         ABC                 1
+         CommonWhiteGirI     1
+         Marc\_IRL            1
+         RealKentMurphy      1
+         roushfenway         1
+         wane15              1
+         shibbnbot           1
+         LightningHoltt      1
+         spaghemily          1
+         serial              1
+         ComplicitOwl        1
+         TheEllenShow        1
+         imgur               1
+         bragg6of8           1
+         SkyWilliams         1
+         mount\_alex3         1
+         ABC7                1
+         dhmontgomery        1
+         xianmcguire         1
+         NBCSports           1
+         Jack\_Septic\_Eye     1
+         JODYHiGHROLLER      1
+         NonWhiteHat         1
+         docmisterio         1
+         HistoryInPics       1
+         0\_kelvin\_0          1
+         s8n                 1
+         jonnysun            1
+         UNC                 1
+         Name: in\_reply\_to\_screen\_name, dtype: int64
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} droplist2}
+         \PY{n}{droplist2} \PY{o}{=} \PY{n}{inslist1}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} use .copy to copy rather than llink}
+         \PY{n}{droplist2}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{quoted\PYZus{}status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{droplist2}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{retweeted\PYZus{}status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{droplist2}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{user}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}droplist2 = [\PYZsq{}truncated\PYZsq{},\PYZsq{}retweeted\PYZsq{},\PYZsq{}possibly\PYZus{}sensitive\PYZus{}appealable\PYZsq{},\PYZsq{}possibly\PYZus{}sensitive\PYZsq{},\PYZsq{}lang\PYZsq{},\PYZsq{}is\PYZus{}quote\PYZus{}status\PYZsq{},\PYZsq{}favorited\PYZsq{}]}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}424}]:} \PY{n}{check\PYZus{}detail}\PY{p}{(}\PY{n}{tweetdf}\PY{p}{,}\PY{n}{detlist1}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}26}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} drop2 excute}
+         \PY{n}{drop\PYZus{}column}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{droplist2}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
+---- proceding ----
+- drop 14 columns: ['favorited', 'in\_reply\_to\_screen\_name', 'in\_reply\_to\_status\_id', 'in\_reply\_to\_user\_id', 'is\_quote\_status', 'lang', 'possibly\_sensitive', 'possibly\_sensitive\_appealable', 'quoted\_status\_id', 'retweeted', 'truncated', 'quoted\_status', 'retweeted\_status', 'user'] 
+- remain 9 columns
+- success : True
+
+    \end{Verbatim}
+
+    \hypertarget{check3---detail-cols}{%
+\paragraph{// check3 - detail cols}\label{check3---detail-cols}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{c+c1}{\PYZsh{} check3}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} recheck sample}
+         \PY{n}{check\PYZus{}sample}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+----checking sample index: 785
+
+- columns \#1 : created\_at
+['2016-09-08T20:45:53.000000000']
+
+- columns \#2 : display\_text\_range
+[list([0, 116])]
+
+- columns \#3 : entities
+[\{'hashtags': [], 'symbols': [], 'user\_mentions': [], 'urls': [], 'media': [\{'id': 773985718767149057, 'id\_str': '773985718767149057', 'indices': [117, 140], 'media\_url': 'http://pbs.twimg.com/media/Cr2\_6RRXYAE1ojW.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/Cr2\_6RRXYAE1ojW.jpg', 'url': 'https://t.co/RFWtDqTnAz', 'display\_url': 'pic.twitter.com/RFWtDqTnAz', 'expanded\_url': 'https://twitter.com/dog\_rates/status/773985732834758656/photo/1', 'type': 'photo', 'sizes': \{'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 768, 'h': 1024, 'resize': 'fit'\}, 'small': \{'w': 510, 'h': 680, 'resize': 'fit'\}, 'large': \{'w': 768, 'h': 1024, 'resize': 'fit'\}\}\}]\}]
+
+- columns \#4 : extended\_entities
+[\{'media': [\{'id': 773985718767149057, 'id\_str': '773985718767149057', 'indices': [117, 140], 'media\_url': 'http://pbs.twimg.com/media/Cr2\_6RRXYAE1ojW.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/Cr2\_6RRXYAE1ojW.jpg', 'url': 'https://t.co/RFWtDqTnAz', 'display\_url': 'pic.twitter.com/RFWtDqTnAz', 'expanded\_url': 'https://twitter.com/dog\_rates/status/773985732834758656/photo/1', 'type': 'photo', 'sizes': \{'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 768, 'h': 1024, 'resize': 'fit'\}, 'small': \{'w': 510, 'h': 680, 'resize': 'fit'\}, 'large': \{'w': 768, 'h': 1024, 'resize': 'fit'\}\}\}, \{'id': 773985718876143679, 'id\_str': '773985718876143679', 'indices': [117, 140], 'media\_url': 'http://pbs.twimg.com/media/Cr2\_6RrWgD89Tgb.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/Cr2\_6RrWgD89Tgb.jpg', 'url': 'https://t.co/RFWtDqTnAz', 'display\_url': 'pic.twitter.com/RFWtDqTnAz', 'expanded\_url': 'https://twitter.com/dog\_rates/status/773985732834758656/photo/1', 'type': 'photo', 'sizes': \{'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 768, 'h': 1024, 'resize': 'fit'\}, 'large': \{'w': 768, 'h': 1024, 'resize': 'fit'\}, 'small': \{'w': 510, 'h': 680, 'resize': 'fit'\}\}\}, \{'id': 773985718922317824, 'id\_str': '773985718922317824', 'indices': [117, 140], 'media\_url': 'http://pbs.twimg.com/media/Cr2\_6R2XEAA0CmH.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/Cr2\_6R2XEAA0CmH.jpg', 'url': 'https://t.co/RFWtDqTnAz', 'display\_url': 'pic.twitter.com/RFWtDqTnAz', 'expanded\_url': 'https://twitter.com/dog\_rates/status/773985732834758656/photo/1', 'type': 'photo', 'sizes': \{'small': \{'w': 510, 'h': 680, 'resize': 'fit'\}, 'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 768, 'h': 1024, 'resize': 'fit'\}, 'large': \{'w': 768, 'h': 1024, 'resize': 'fit'\}\}\}, \{'id': 773985718947414016, 'id\_str': '773985718947414016', 'indices': [117, 140], 'media\_url': 'http://pbs.twimg.com/media/Cr2\_6R8WAAAUMtc.jpg', 'media\_url\_https': 'https://pbs.twimg.com/media/Cr2\_6R8WAAAUMtc.jpg', 'url': 'https://t.co/RFWtDqTnAz', 'display\_url': 'pic.twitter.com/RFWtDqTnAz', 'expanded\_url': 'https://twitter.com/dog\_rates/status/773985732834758656/photo/1', 'type': 'photo', 'sizes': \{'thumb': \{'w': 150, 'h': 150, 'resize': 'crop'\}, 'medium': \{'w': 768, 'h': 1024, 'resize': 'fit'\}, 'large': \{'w': 768, 'h': 1024, 'resize': 'fit'\}, 'small': \{'w': 510, 'h': 680, 'resize': 'fit'\}\}\}]\}]
+
+- columns \#5 : favorite\_count
+[11869]
+
+- columns \#6 : full\_text
+['Meet Winnie. She just made awkward eye contact with the driver beside her. Poor pupper panicked. 11/10 would comfort https://t.co/RFWtDqTnAz']
+
+- columns \#7 : id------
+[773985732834758656]
+
+- columns \#8 : retweet\_count
+[4449]
+
+- columns \#9 : source--
+['<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>']
+'----checking complete----'
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} detlist1}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} check dict long columns}
+         \PY{n}{detlist1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{entities}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{extended\PYZus{}entities}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} det check}
+         \PY{n}{check\PYZus{}detail}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{detlist1}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} not new info  \PYZhy{}\PYZgt{} drop}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+- columns \#1 : entities
 \{'hashtags': [],
  'media': [\{'display\_url': 'pic.twitter.com/MgUWQ76dJU',
             'expanded\_url': 'https://twitter.com/dog\_rates/status/892420643555336193/photo/1',
@@ -980,6 +1512,8 @@ Name: truncated, dtype: int64
  'symbols': [],
  'urls': [],
  'user\_mentions': []\}
+
+- columns \#2 : extended\_entities
 \{'media': [\{'display\_url': 'pic.twitter.com/MgUWQ76dJU',
             'expanded\_url': 'https://twitter.com/dog\_rates/status/892420643555336193/photo/1',
             'id': 892420639486877696,
@@ -993,887 +1527,310 @@ Name: truncated, dtype: int64
                       'thumb': \{'h': 150, 'resize': 'crop', 'w': 150\}\},
             'type': 'photo',
             'url': 'https://t.co/MgUWQ76dJU'\}]\}
-\{'contributors\_enabled': False,
- 'created\_at': 'Sun Nov 15 21:41:29 +0000 2015',
- 'default\_profile': False,
- 'default\_profile\_image': False,
- 'description': 'Only Legit Source for Professional Dog Ratings STORE: '
-                '@ShopWeRateDogs | IG, FB \& SC: WeRateDogs | MOBILE APP: '
-                '@GoodDogsGame Business: dogratingtwitter@gmail.com',
- 'entities': \{'description': \{'urls': []\},
-              'url': \{'urls': [\{'display\_url': 'weratedogs.com',
-                                'expanded\_url': 'http://weratedogs.com',
-                                'indices': [0, 23],
-                                'url': 'https://t.co/N7sNNHAEXS'\}]\}\},
- 'favourites\_count': 120162,
- 'follow\_request\_sent': False,
- 'followers\_count': 3768791,
- 'following': False,
- 'friends\_count': 107,
- 'geo\_enabled': True,
- 'has\_extended\_profile': True,
- 'id': 4196983835,
- 'id\_str': '4196983835',
- 'is\_translation\_enabled': False,
- 'is\_translator': False,
- 'lang': 'en',
- 'listed\_count': 3169,
- 'location': 'MERCH↴  DM DOGS. WE WILL RATE',
- 'name': 'SpookyWeRateDogs™',
- 'notifications': False,
- 'profile\_background\_color': '000000',
- 'profile\_background\_image\_url': 'http://abs.twimg.com/images/themes/theme1/bg.png',
- 'profile\_background\_image\_url\_https': 'https://abs.twimg.com/images/themes/theme1/bg.png',
- 'profile\_background\_tile': False,
- 'profile\_banner\_url': 'https://pbs.twimg.com/profile\_banners/4196983835/1506888628',
- 'profile\_image\_url': 'http://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg',
- 'profile\_image\_url\_https': 'https://pbs.twimg.com/profile\_images/914581071265755136/2h5uFpwU\_normal.jpg',
- 'profile\_link\_color': 'F5ABB5',
- 'profile\_sidebar\_border\_color': '000000',
- 'profile\_sidebar\_fill\_color': '000000',
- 'profile\_text\_color': '000000',
- 'profile\_use\_background\_image': False,
- 'protected': False,
- 'screen\_name': 'dog\_rates',
- 'statuses\_count': 5749,
- 'time\_zone': None,
- 'translator\_type': 'none',
- 'url': 'https://t.co/N7sNNHAEXS',
- 'utc\_offset': None,
- 'verified': True\}
-nan
 
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}388}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} build function}
-          \PY{k}{def} \PY{n+nf}{check\PYZus{}describe}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{checklist}\PY{p}{)}\PY{p}{:}
-              \PY{n}{c} \PY{o}{=} \PY{l+m+mi}{1}
-              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{checklist}\PY{p}{:}
-                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZhy{} columns \PYZsh{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ : }\PY{l+s+si}{\PYZob{}:\PYZhy{}\PYZlt{}8\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{i}\PY{p}{)}\PY{p}{)}
-                  \PY{n+nb}{print}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-                  \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} nlargest 非常好用}
-                  \PY{n}{c} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
-              \PY{n}{pp}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}checking complete\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}30}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} droplist3}
+         \PY{n}{droplist3} \PY{o}{=} \PY{n}{detlist1}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}\PYZsh{} drop3 excute}
+         \PY{n}{drop\PYZus{}column}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{droplist3}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}389}]:} \PY{n}{check\PYZus{}describe}\PY{p}{(}\PY{n}{tweetclean}\PY{p}{,}\PY{n}{detaillist1}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-- columns \#1 : entities
+---- proceding ----
+- drop 2 columns: ['entities', 'extended\_entities'] 
+- remain 7 columns
+- success : True
 
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-
-        ------------------------------------------------
-
-        TypeError      Traceback (most recent call last)
-
-        <ipython-input-389-874a8e2b1fe8> in <module>
-    ----> 1 check\_describe(tweetclean,detaillist1)
-    
-
-        <ipython-input-388-71f4c7c0f152> in check\_describe(df, checklist)
-          4     for i in checklist:
-          5         print('\textbackslash{}n- columns \#\{\} : \{:-<8\}'.format(c,i))
-    ----> 6         print(df[i].describe())
-          7         \#\#\# nlargest 非常好用
-          8         c += 1
+{\color{incolor}In [{\color{incolor}31}]:} \PY{n}{tweetclean}\PY{o}{.}\PY{n}{columns}
+\end{Verbatim}
 
 
-        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/generic.py in describe(self, percentiles, include, exclude)
-       8560 
-       8561         if self.ndim == 1:
-    -> 8562             return describe\_1d(self)
-       8563         elif (include is None) and (exclude is None):
-       8564             \# when some numerics are found, keep only numerics
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}31}]:} Index(['created\_at', 'display\_text\_range', 'favorite\_count', 'full\_text', 'id',
+                'retweet\_count', 'source'],
+               dtype='object')
+\end{Verbatim}
+            
+    \hypertarget{review-quanlity}{%
+\paragraph{/review/ quanlity}\label{review-quanlity}}
+
+根据数据删除剩余7列 {[}`created\_at', `display\_text\_range',
+`favorite\_count', `full\_text', `id', `retweet\_count', `source'{]} -
+id 为标识列 - created\_at 包括时间、日期,可以进行时序分析 -
+display\_text\_range 为文字长度 - favorite\_count 为点赞数 - full\_text
+为文字内容 - retweet\_count 为回复数 - source 为来源
+
+    \hypertarget{tidyness}{%
+\subsubsection{/ tidyness}\label{tidyness}}
+
+根据质量部分的输出,对于除id列之外的需要进行清洁度的整理 - created\_at
+包括时间、日期,可以进行时序分析 - 转换为 datafame 的 datetime 格式 -
+display\_text\_range 为文字长度 - 原格式为 {[}0-x{]}
+x实际为推文长度,需要提取 x - 本列为非必须列,可以根据 full\_text
+得出回复长度 - favorite\_count 为点赞数 - 需要检查格式 - full\_text
+为文字内容 - 暂不用处理,后续如果进行nlp的分析需要进行向量化 -
+retweet\_count 为回复数 - 需要检查格式 - source 为来源 -
+来源为链接,中间为发布信息的设备 - 需要使用 re 来完成提取 -
+最后输出为分类信息
+
+    \hypertarget{copy-df}{%
+\subsubsection{/ copy df}\label{copy-df}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} df copy for cleaning}
+         \PY{n}{tweettidy} \PY{o}{=} \PY{n}{tweetclean}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} id should retained for further identity usage}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} consider privacy and easy of proceed}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} delete in this project}
+         \PY{n}{droplist4} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{drop\PYZus{}column}\PY{p}{(}\PY{n}{tweettidy}\PY{p}{,}\PY{n}{droplist4}\PY{p}{)}
+\end{Verbatim}
 
 
-        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/generic.py in describe\_1d(data)
-       8557                 return describe\_numeric\_1d(data)
-       8558             else:
-    -> 8559                 return describe\_categorical\_1d(data)
-       8560 
-       8561         if self.ndim == 1:
-
-
-        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/generic.py in describe\_categorical\_1d(data)
-       8531         def describe\_categorical\_1d(data):
-       8532             names = ['count', 'unique']
-    -> 8533             objcounts = data.value\_counts()
-       8534             count\_unique = len(objcounts[objcounts != 0])
-       8535             result = [data.count(), count\_unique]
-
-
-        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/base.py in value\_counts(self, normalize, sort, ascending, bins, dropna)
-       1036         from pandas.core.algorithms import value\_counts
-       1037         result = value\_counts(self, sort=sort, ascending=ascending,
-    -> 1038                               normalize=normalize, bins=bins, dropna=dropna)
-       1039         return result
-       1040 
-
-
-        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/algorithms.py in value\_counts(values, sort, ascending, normalize, bins, dropna)
-        714 
-        715         else:
-    --> 716             keys, counts = \_value\_counts\_arraylike(values, dropna)
-        717 
-        718             if not isinstance(keys, Index):
-
-
-        \textasciitilde{}/miniconda3/envs/py36/lib/python3.6/site-packages/pandas/core/algorithms.py in \_value\_counts\_arraylike(values, dropna)
-        759         \# TODO: handle uint8
-        760         f = getattr(htable, "value\_count\_\{dtype\}".format(dtype=ndtype))
-    --> 761         keys, counts = f(values, dropna)
-        762 
-        763         mask = isna(values)
-
-
-        pandas/\_libs/hashtable\_func\_helper.pxi in pandas.\_libs.hashtable.value\_count\_object()
-
-
-        pandas/\_libs/hashtable\_func\_helper.pxi in pandas.\_libs.hashtable.value\_count\_object()
-
-
-        TypeError: unhashable type: 'dict'
+    \begin{Verbatim}[commandchars=\\\{\}]
+---- proceding ----
+- drop 1 columns: ['id'] 
+- remain 6 columns
+- success : True
 
     \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients}\PY{p}{[}\PY{n}{patients}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{p}{]}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients}\PY{o}{.}\PY{n}{weight}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{weight\PYZus{}lbs} \PY{o}{=} \PY{n}{patients}\PY{p}{[}\PY{n}{patients}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Zaitseva}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{weight} \PY{o}{*} \PY{l+m+mf}{2.20462}
-        \PY{n}{height\PYZus{}in} \PY{o}{=} \PY{n}{patients}\PY{p}{[}\PY{n}{patients}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Zaitseva}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{height}
-        \PY{n}{bmi\PYZus{}check} \PY{o}{=} \PY{l+m+mi}{703} \PY{o}{*} \PY{n}{weight\PYZus{}lbs} \PY{o}{/} \PY{p}{(}\PY{n}{height\PYZus{}in} \PY{o}{*} \PY{n}{height\PYZus{}in}\PY{p}{)}
-        \PY{n}{bmi\PYZus{}check}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients}\PY{p}{[}\PY{n}{patients}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Zaitseva}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{bmi}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{treatments}\PY{o}{.}\PY{n}{auralin}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{treatments}\PY{o}{.}\PY{n}{novodra}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{ux8d28ux91cf}{%
-\paragraph{质量}\label{ux8d28ux91cf}}
-
-\hypertarget{patients-ux8868ux683c}{%
-\subparagraph{\texorpdfstring{\texttt{patients}
-表格}{patients 表格}}\label{patients-ux8868ux683c}}
-
-\begin{itemize}
-\tightlist
-\item
-  邮编是浮点，而不是字符串
-\item
-  邮编有时是四位数
-\item
-  Tim Neudorf 的身高是 27 英尺，而不是 72 英尺
-\item
-  有时使用州的全称，其他用简称
-\item
-  Dsvid Gustafsson
-\item
-  缺少人口统计信息 (地址列至联系方式列) \textbf{\emph{(无法清理)}}
-\item
-  错误的数据类型 (指定性别、州、邮编和出生日期列)
-\item
-  多个手机号格式
-\item
-  John Doe 的默认数据
-\item
-  Jakobsen、Gersten、Taylor 多条记录
-\item
-  Zaitseva 体重单位是 kgs，不是 lbs
-\end{itemize}
-
-\hypertarget{treatments-ux8868ux683c}{%
-\subparagraph{\texorpdfstring{\texttt{treatments}
-表格}{treatments 表格}}\label{treatments-ux8868ux683c}}
-
-\begin{itemize}
-\tightlist
-\item
-  缺少 HbA1c 变化
-\item
-  Auralin 和 Novodra 初始剂量和最终剂量中的字母 `u'
-\item
-  小写形式的姓和名
-\item
-  缺少记录 (280 而不是 350)
-\item
-  错误的数据类型 (auralin 和 novodra 列)
-\item
-  HbA1c 变化不准确 (首个 4s 误写为 9s)
-\item
-  auralin 和 novodra 列中空值用破折号 (-) 表示
-\end{itemize}
-
-\hypertarget{adverse_reactions-ux8868ux683c}{%
-\subparagraph{\texorpdfstring{\texttt{adverse\_reactions}
-表格}{adverse\_reactions 表格}}\label{adverse_reactions-ux8868ux683c}}
-
-\begin{itemize}
-\tightlist
-\item
-  小写形式的姓和名
-\end{itemize}
-
-\hypertarget{ux6e05ux6d01ux5ea6}{%
-\paragraph{清洁度}\label{ux6e05ux6d01ux5ea6}}
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{patients} 表格中的联系方式一列应该拆分为两个变量：手机号和邮箱
-\item
-  \texttt{treatments} 表格两列中的三个变量 (治疗、初始剂量和最终剂量)
-\item
-  不良反应应是 \texttt{treatments} 表格的一部分
-\item
-  \texttt{patients} 表格中的姓和名两列复制到 \texttt{treatments} 和
-  \texttt{adverse\_reactions} 表格中
-\end{itemize}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean} \PY{o}{=} \PY{n}{patients}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
-        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{treatments}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
-        \PY{n}{adverse\PYZus{}reactions\PYZus{}clean} \PY{o}{=} \PY{n}{adverse\PYZus{}reactions}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
 
     \hypertarget{ux6e05ux7406}{%
 \subsection{清理}\label{ux6e05ux7406}}
 
-\hypertarget{ux7f3aux5931ux6570ux636e}{%
-\subsubsection{缺失数据}\label{ux7f3aux5931ux6570ux636e}}
+关于数据质量的问题,在上一节已经处理完成了,本节任务是完成数据整洁的问题
 
-\hypertarget{treatmentsux7f3aux5c11ux8bb0ux5f55-280-ux800cux4e0dux662f-350}{%
-\paragraph{\texorpdfstring{\texttt{treatments}：缺少记录 (280 而不是
-350)}{treatments：缺少记录 (280 而不是 350)}}\label{treatmentsux7f3aux5c11ux8bb0ux5f55-280-ux800cux4e0dux662f-350}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-把切割过的 treatments 数据导入到 DataFrame 中，并将它和原始的 treatments
-DataFrame 拼接到一起。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
+\hypertarget{missing-data}{%
+\subsubsection{/ missing data}\label{missing-data}}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}1}]:} \PY{n}{treatments\PYZus{}cut} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{treatments\PYZus{}cut.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{concat}\PY{p}{(}\PY{p}{[}\PY{n}{treatments\PYZus{}clean}\PY{p}{,} \PY{n}{treatments\PYZus{}cut}\PY{p}{]}\PY{p}{,}
-                                     \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}33}]:} \PY{c+c1}{\PYZsh{} check missing}
+         \PY{n}{tweettidy}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{all}\PY{p}{(}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} not any null data \PYZhy{}\PYZgt{} pass}
 \end{Verbatim}
 
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-        ---------------------------------------------------------------------------
-
-        NameError                                 Traceback (most recent call last)
-
-        <ipython-input-1-1a2b77c8c29b> in <module>
-    ----> 1 treatments\_cut = pd.read\_csv('treatments\_cut.csv')
-          2 treatments\_clean = pd.concat([treatments\_clean, treatments\_cut],
-          3                              ignore\_index=True)
-
-
-        NameError: name 'pd' is not defined
-
-    \end{Verbatim}
-
-    \hypertarget{ux6d4bux8bd5}{%
-\subparagraph{测试}\label{ux6d4bux8bd5}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}33}]:} created\_at            True
+         display\_text\_range    True
+         favorite\_count        True
+         full\_text             True
+         retweet\_count         True
+         source                True
+         dtype: bool
 \end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-        ---------------------------------------------------------------------------
-
-        NameError                                 Traceback (most recent call last)
-
-        <ipython-input-2-f47ee6b77dd4> in <module>
-    ----> 1 treatments\_clean.head()
-    
-
-        NameError: name 'treatments\_clean' is not defined
-
-    \end{Verbatim}
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{tail}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \hypertarget{treatments-ux7f3aux5c11-hba1c-ux53d8ux5316ux548c-hba1c-ux53d8ux5316ux4e0dux51c6ux786e-ux9996ux4e2a-4s-ux8befux5199ux4e3a-9s}{%
-\paragraph{\texorpdfstring{\texttt{treatments}: 缺少 HbA1c 变化和 HbA1c
-变化不准确 (首个 4s 误写为
-9s)}{treatments: 缺少 HbA1c 变化和 HbA1c 变化不准确 (首个 4s 误写为 9s)}}\label{treatments-ux7f3aux5c11-hba1c-ux53d8ux5316ux548c-hba1c-ux53d8ux5316ux4e0dux51c6ux786e-ux9996ux4e2a-4s-ux8befux5199ux4e3a-9s}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-重新计算 \texttt{hba1c\_change} 一列： \texttt{hba1c\_start} 减去
-\texttt{hba1c\_end}。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{hba1c\PYZus{}change} \PY{o}{=} \PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{hba1c\PYZus{}start} \PY{o}{\PYZhy{}} 
-                                         \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{hba1c\PYZus{}end}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{test}{%
-\subparagraph{Test}\label{test}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{hba1c\PYZus{}change}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{ux6e05ux6d01ux5ea6}{%
-\subsubsection{清洁度}\label{ux6e05ux6d01ux5ea6}}
-
-\hypertarget{patients-ux8868ux683cux4e2dux7684ux8054ux7cfbux65b9ux5f0fux4e00ux5217ux5305ux62ecux4e24ux4e2aux53d8ux91cfux624bux673aux53f7ux548cux90aeux7bb1}{%
-\paragraph{\texorpdfstring{\texttt{patients}
-表格中的联系方式一列包括两个变量：手机号和邮箱}{patients 表格中的联系方式一列包括两个变量：手机号和邮箱}}\label{patients-ux8868ux683cux4e2dux7684ux8054ux7cfbux65b9ux5f0fux4e00ux5217ux5305ux62ecux4e24ux4e2aux53d8ux91cfux624bux673aux53f7ux548cux90aeux7bb1}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-使用正则表达式和 pandas 的 \texttt{str.extract} 方法，从 \emph{联系方式}
-一列提取变量\emph{手机号} 和 \emph{邮箱} 。完成后删除 \emph{联系方式}
-一列。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{phone\PYZus{}number}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{contact}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{extract}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{((?:}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{+}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{1,2\PYZcb{}}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{s)?}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{(?}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{d}\PY{l+s+si}{\PYZob{}3\PYZcb{}}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{)?[}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{s.\PYZhy{}]?}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{d}\PY{l+s+si}{\PYZob{}3\PYZcb{}}\PY{l+s+s1}{[}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{s.\PYZhy{}]?}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{d}\PY{l+s+si}{\PYZob{}4\PYZcb{}}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{expand}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
-        \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{email}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{contact}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{extract}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{([a\PYZhy{}zA\PYZhy{}Z][a\PYZhy{}zA\PYZhy{}Z0\PYZhy{}9\PYZus{}.+\PYZhy{}]+@[a\PYZhy{}zA\PYZhy{}Z0\PYZhy{}9\PYZhy{}]+}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{.[a\PYZhy{}zA\PYZhy{}Z0\PYZhy{}9\PYZhy{}.][a\PYZhy{}zA\PYZhy{}Z]+)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{expand}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
-        \PY{c+c1}{\PYZsh{} Note: axis=1 表明我们参考的是一列，而不是一行}
-        \PY{n}{patients\PYZus{}clean} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{contact}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{ux6d4bux8bd5}{%
-\subparagraph{测试}\label{ux6d4bux8bd5}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 确认联系方式一列可以运行}
-        \PY{n+nb}{list}\PY{p}{(}\PY{n}{patients\PYZus{}clean}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{phone\PYZus{}number}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{25}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 确认没有邮箱以整数开头 (正则表达式不能匹配整数)}
-        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{email}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{treatments-ux8868ux683cux4e24ux5217ux4e2dux7684ux4e09ux4e2aux53d8ux91cf-ux6cbbux7597ux521dux59cbux5242ux91cfux548cux6700ux7ec8ux5242ux91cf}{%
-\paragraph{\texorpdfstring{\texttt{treatments} 表格两列中的三个变量
-(治疗、初始剂量和最终剂量)}{treatments 表格两列中的三个变量 (治疗、初始剂量和最终剂量)}}\label{treatments-ux8868ux683cux4e24ux5217ux4e2dux7684ux4e09ux4e2aux53d8ux91cf-ux6cbbux7597ux521dux59cbux5242ux91cfux548cux6700ux7ec8ux5242ux91cf}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-在 \emph{auralin} 和 \emph{novodra} 两列中加入 \emph{治疗} 和
-\emph{剂量} 列 (这时剂量仍然包含初始剂量和最终剂量)。然后使用破折号 ' -
-' 把剂量列切分，得到 \emph{初始剂量} 和 \emph{最终剂量}
-两列。删除中间使用的 \emph{剂量} 一列。
-
-\hypertarget{code}{%
-\subparagraph{Code}\label{code}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{melt}\PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{p}{,} \PY{n}{id\PYZus{}vars}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hba1c\PYZus{}start}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hba1c\PYZus{}end}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hba1c\PYZus{}change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
-                                   \PY{n}{var\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{treatment}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{value\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{p}{[}\PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose} \PY{o}{!=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
-        \PY{n}{treatments\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose\PYZus{}start}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{treatments\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose\PYZus{}end}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ \PYZhy{} }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{str}
-        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dose}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{test}{%
-\subparagraph{Test}\label{test}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \hypertarget{ux4e0dux826fux53cdux5e94ux5e94ux662f-treatments-ux8868ux683cux7684ux4e00ux90e8ux5206}{%
-\paragraph{\texorpdfstring{不良反应应是 \texttt{treatments}
-表格的一部分}{不良反应应是 treatments 表格的一部分}}\label{ux4e0dux826fux53cdux5e94ux5e94ux662f-treatments-ux8868ux683cux7684ux4e00ux90e8ux5206}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-将 \emph{不良反应} 一列合并到 \texttt{treatments} 表格中，按照 \emph{名}
-和 \emph{姓}进行合并。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{merge}\PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{p}{,} \PY{n}{adverse\PYZus{}reactions\PYZus{}clean}\PY{p}{,}
-                                    \PY{n}{on}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{how}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{left}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{test}{%
-\subparagraph{Test}\label{test}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \hypertarget{patients-ux8868ux683cux4e2dux7684ux59d3ux548cux540dux4e24ux5217ux590dux5236ux5230-treatments-ux548c-adverse_reactions-ux8868ux683cux4e2dux4ee5ux53caux5c0fux5199ux5f62ux5f0fux7684ux59d3ux548cux540d}{%
-\paragraph{\texorpdfstring{\texttt{patients} 表格中的姓和名两列复制到
-\texttt{treatments} 和 \texttt{adverse\_reactions}
-表格中，以及小写形式的姓和名}{patients 表格中的姓和名两列复制到 treatments 和 adverse\_reactions 表格中，以及小写形式的姓和名}}\label{patients-ux8868ux683cux4e2dux7684ux59d3ux548cux540dux4e24ux5217ux590dux5236ux5230-treatments-ux548c-adverse_reactions-ux8868ux683cux4e2dux4ee5ux53caux5c0fux5199ux5f62ux5f0fux7684ux59d3ux548cux540d}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-我们不再需要不良反应表格，所以忽略这部分内容。在 \texttt{patients}
-表格中，提取病人编号和姓名，然后把这些名字改为小写形式，加入到
-\texttt{treatments} 表格中。然后删除治疗表格中的姓和名两列
-(这样小写形式不再是问题了)。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{id\PYZus{}names} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{patient\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
-        \PY{n}{id\PYZus{}names}\PY{o}{.}\PY{n}{given\PYZus{}name} \PY{o}{=} \PY{n}{id\PYZus{}names}\PY{o}{.}\PY{n}{given\PYZus{}name}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}
-        \PY{n}{id\PYZus{}names}\PY{o}{.}\PY{n}{surname} \PY{o}{=} \PY{n}{id\PYZus{}names}\PY{o}{.}\PY{n}{surname}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}
-        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{merge}\PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{p}{,} \PY{n}{id\PYZus{}names}\PY{p}{,} \PY{n}{on}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-        \PY{n}{treatments\PYZus{}clean} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{given\PYZus{}name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{surname}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{ux6d4bux8bd5}{%
-\subparagraph{测试}\label{ux6d4bux8bd5}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 确认进行了正确融合}
-        \PY{n}{treatments\PYZus{}clean}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Patient ID should be the only duplicate column}
-        \PY{n}{all\PYZus{}columns} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{patients\PYZus{}clean}\PY{p}{)} \PY{o}{+} \PY{n+nb}{list}\PY{p}{(}\PY{n}{treatments\PYZus{}clean}\PY{p}{)}\PY{p}{)}
-        \PY{n}{all\PYZus{}columns}\PY{p}{[}\PY{n}{all\PYZus{}columns}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{p}{]}
-\end{Verbatim}
-
-
-    \hypertarget{ux8d28ux91cf}{%
-\subsubsection{质量}\label{ux8d28ux91cf}}
-
-\hypertarget{ux90aeux7f16ux662fux6d6eux70b9ux800cux4e0dux662fux5b57ux7b26ux4e32ux6709ux65f6ux662fux56dbux4f4dux6570}{%
-\paragraph{邮编是浮点，而不是字符串，有时是四位数}\label{ux90aeux7f16ux662fux6d6eux70b9ux800cux4e0dux662fux5b57ux7b26ux4e32ux6709ux65f6ux662fux56dbux4f4dux6570}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-Convert the zip code column's data type from a float to a string 使用
-\texttt{astype}
-把邮件一列的数据类型从浮点转换为字符串，使用字符串分割删除
-`.0'。在四位数邮编前面加上 0。
-
-\hypertarget{code}{%
-\subparagraph{Code}\label{code}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{str}\PY{p}{)}\PY{o}{.}\PY{n}{str}\PY{p}{[}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{pad}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{fillchar}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{0}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{c+c1}{\PYZsh{} 对于上面代码转化后的\PYZsq{}0000n\PYZsq{}非数字条目，进行再次转化}
-        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{0000n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{ux6d4bux8bd5}{%
-\subparagraph{测试}\label{ux6d4bux8bd5}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{zip\PYZus{}code}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{tim-neudorf-ux7684ux8eabux9ad8ux662f-27-ux82f1ux5c3aux800cux4e0dux662f-72-ux82f1ux5c3a}{%
-\paragraph{Tim Neudorf 的身高是 27 英尺，而不是 72
-英尺}\label{tim-neudorf-ux7684ux8eabux9ad8ux662f-27-ux82f1ux5c3aux800cux4e0dux662f-72-ux82f1ux5c3a}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-在 \texttt{patients} 表格中身高为 27 英尺 (仅有一个)
-的一行身高，替换为72英尺。
-
-\hypertarget{code}{%
-\subparagraph{Code}\label{code}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{height} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{height}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+m+mi}{27}\PY{p}{,} \PY{l+m+mi}{72}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{test}{%
-\subparagraph{Test}\label{test}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 应为空}
-        \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{height} \PY{o}{==} \PY{l+m+mi}{27}\PY{p}{]}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 确认完成替换}
-        \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Neudorf}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \hypertarget{ux6709ux65f6ux4f7fux7528ux5ddeux7684ux5168ux79f0ux5176ux4ed6ux7528ux7b80ux79f0}{%
-\paragraph{有时使用州的全称，其他用简称}\label{ux6709ux65f6ux4f7fux7528ux5ddeux7684ux5168ux79f0ux5176ux4ed6ux7528ux7b80ux79f0}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-使用函数，将 California (加利福尼亚)、New York (纽约)、Illinois
-(伊利诺伊)、Florida (佛罗里达) 和 Nebrask (内布拉斯加)
-等州的全称转变为简称。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 从州的全称映射到简称}
-        \PY{n}{state\PYZus{}abbrev} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{California}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{New York}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{NY}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Illinois}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{IL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Florida}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{FL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nebraska}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{NE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{\PYZcb{}}
-        
-        \PY{c+c1}{\PYZsh{} 使用的函数}
-        \PY{k}{def} \PY{n+nf}{abbreviate\PYZus{}state}\PY{p}{(}\PY{n}{patient}\PY{p}{)}\PY{p}{:}
-            \PY{k}{if} \PY{n}{patient}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{state}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o+ow}{in} \PY{n}{state\PYZus{}abbrev}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-                \PY{n}{abbrev} \PY{o}{=} \PY{n}{state\PYZus{}abbrev}\PY{p}{[}\PY{n}{patient}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{state}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
-                \PY{k}{return} \PY{n}{abbrev}
-            \PY{k}{else}\PY{p}{:}
-                \PY{k}{return} \PY{n}{patient}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{state}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
             
-        \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{state}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{n}{abbreviate\PYZus{}state}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{c+c1}{\PYZsh{} check describe}
+         \PY{n}{tweettidy}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} both count do not have to change type}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} value seems ok}
 \end{Verbatim}
 
 
-    \hypertarget{test}{%
-\subparagraph{Test}\label{test}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{state}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}34}]:}        favorite\_count  retweet\_count
+         count     2352.000000    2352.000000
+         mean      8109.198980    3134.932398
+         std      11980.795669    5237.846296
+         min          0.000000       0.000000
+         25\%       1417.000000     618.000000
+         50\%       3596.500000    1456.500000
+         75\%      10118.000000    3628.750000
+         max     132318.000000   79116.000000
 \end{Verbatim}
-
-
-    \hypertarget{dsvid-gustafsson}{%
-\paragraph{Dsvid Gustafsson}\label{dsvid-gustafsson}}
-
-\hypertarget{define}{%
-\subparagraph{Define}\label{define}}
-
-在 \texttt{patients} 表格中含有名 `Dsvid' 的一行里替换为'David'。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
+            
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{given\PYZus{}name} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{given\PYZus{}name}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Dsvid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{David}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{ux6d4bux8bd5}{%
-\subparagraph{测试}\label{ux6d4bux8bd5}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gustafsson}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \hypertarget{ux9519ux8befux7684ux6570ux636eux7c7bux578b-ux6307ux5b9aux6027ux522bux5ddeux90aeux7f16ux548cux51faux751fux65e5ux671fux5217-ux548cux9519ux8befux7684ux6570ux636eux7c7bux578b-auralin-ux548c-novodra-ux5217ux4ee5ux53ca-auralin-ux548c-novodra-ux521dux59cbux5242ux91cfux548cux6700ux7ec8ux5242ux91cfux4e2dux7684ux5b57ux6bcd-u}{%
-\paragraph{错误的数据类型 (指定性别、州、邮编和出生日期列)
-和错误的数据类型 (auralin 和 novodra 列)，以及 Auralin 和 Novodra
-初始剂量和最终剂量中的字母
-`u'}\label{ux9519ux8befux7684ux6570ux636eux7c7bux578b-ux6307ux5b9aux6027ux522bux5ddeux90aeux7f16ux548cux51faux751fux65e5ux671fux5217-ux548cux9519ux8befux7684ux6570ux636eux7c7bux578b-auralin-ux548c-novodra-ux5217ux4ee5ux53ca-auralin-ux548c-novodra-ux521dux59cbux5242ux91cfux548cux6700ux7ec8ux5242ux91cfux4e2dux7684ux5b57ux6bcd-u}}
-
-\hypertarget{define}{%
-\subparagraph{Define}\label{define}}
-
-将指定性别和州转化为分类数据类型。上面已经解决了邮编的数据类型。把出生日期转化为
-datetime 数据类型。在初始剂量和最终剂量中添加字母
-`u'，并把这些列转化为整数数据类型。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 转为分类数据类型}
-        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{assigned\PYZus{}sex} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{assigned\PYZus{}sex}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{category}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{state} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{state}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{category}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        
-        \PY{c+c1}{\PYZsh{} 转为 datetime 类型}
-        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{birthdate} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}datetime}\PY{p}{(}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{birthdate}\PY{p}{)}
-        
-        \PY{c+c1}{\PYZsh{} 添加 u 并转为整数类型}
-        \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose\PYZus{}start} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose\PYZus{}start}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{u}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
-        \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose\PYZus{}end} \PY{o}{=} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{dose\PYZus{}end}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{u}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{test}{%
-\subparagraph{Test}\label{test}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}35}]:} \PY{c+c1}{\PYZsh{} check info}
+         \PY{n}{tweettidy}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{treatments\PYZus{}clean}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2352 entries, 0 to 2351
+Data columns (total 6 columns):
+created\_at            2352 non-null datetime64[ns]
+display\_text\_range    2352 non-null object
+favorite\_count        2352 non-null int64
+full\_text             2352 non-null object
+retweet\_count         2352 non-null int64
+source                2352 non-null object
+dtypes: datetime64[ns](1), int64(2), object(3)
+memory usage: 110.3+ KB
 
+    \end{Verbatim}
 
-    \hypertarget{ux591aux4e2aux624bux673aux53f7ux683cux5f0f}{%
-\paragraph{多个手机号格式}\label{ux591aux4e2aux624bux673aux53f7ux683cux5f0f}}
+    \hypertarget{tidy-data}{%
+\subsubsection{/ tidy data}\label{tidy-data}}
 
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
+\hypertarget{created_at}{%
+\paragraph{// created\_at}\label{created_at}}
 
-增加所有的 " ``、''-``、''(``,'')" 和
-``+''，存储所有没有格式的数字。如果手机号只有 10 位数，在手机号前添加 1
-(我们需要国家编号)。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{phone\PYZus{}number} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{phone\PYZus{}number}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{D+}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{pad}\PY{p}{(}\PY{l+m+mi}{11}\PY{p}{,} \PY{n}{fillchar}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{ux6d4bux8bd5}{%
-\subparagraph{测试}\label{ux6d4bux8bd5}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{phone\PYZus{}number}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    \hypertarget{john-doe-ux7684ux9ed8ux8ba4ux6570ux636e}{%
-\paragraph{John Doe
-的默认数据}\label{john-doe-ux7684ux9ed8ux8ba4ux6570ux636e}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-从 \texttt{patients} 表格中删除不可恢复的 John Doe 记录。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
+define: 将数据转换为时间格式 - solution1 使用 dataframe 的 datatime 格式
+- 数据本身为 datetime 格式 - 如果是时序的数据可以将时间转换为
+index,非常方便筛选
+https://chrisalbon.com/python/data\_wrangling/pandas\_time\_series\_basics/
+- (solution2 使用 python datatime 格式、calendar格式)
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{!=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Doe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\end{Verbatim}
-
-
-    \hypertarget{ux6d4bux8bd5}{%
-\subparagraph{测试}\label{ux6d4bux8bd5}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 应该没有 Doe 记录}
-        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}36}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} convert to pandas datetime format}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 应该没有 123 Main Street 记录}
-        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}90}]:} \PY{n}{tweettidy}\PY{o}{.}\PY{n}{created\PYZus{}at}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
-    \hypertarget{jakobsengerstentaylor-ux591aux6761ux8bb0ux5f55}{%
-\paragraph{Jakobsen、Gersten、Taylor
-多条记录}\label{jakobsengerstentaylor-ux591aux6761ux8bb0ux5f55}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-从 \texttt{patients} 表格中删除 Jake Jakobsen、Pat Gersten 和 Sandy
-Taylor。这些是昵称，不应该出现在 \texttt{treatments} 表格中
-(删除错误名字可以保证 \texttt{patients} 和 \texttt{treatments}
-表格的一致性问题)。这些是复制后第二次出现。这些是唯一出现的非空值复制地址。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}90}]:} 1498   2016-01-26 17:50:29
+         Name: created\_at, dtype: datetime64[ns]
+\end{Verbatim}
+            
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 波浪符号表示否： http://pandas.pydata.org/pandas\PYZhy{}docs/stable/indexing.html\PYZsh{}boolean\PYZhy{}indexing}
-        \PY{n}{patients\PYZus{}clean} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{o}{\PYZti{}}\PY{p}{(}\PY{p}{(}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZam{}} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{address}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}37}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} test}
 \end{Verbatim}
 
 
-    \hypertarget{test}{%
-\subparagraph{Test}\label{test}}
+    \hypertarget{display_text_range}{%
+\paragraph{// display\_text\_range}\label{display_text_range}}
+
+define: 抽取出 text 的长度,存为整数 - solution1 使用 python standard re
+lib - 抽出字符 - 转换为 int
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Jakobsen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gersten}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{patients\PYZus{}clean}\PY{p}{[}\PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Taylor}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\end{Verbatim}
-
-
-    .dataframe thead tr:only-child th \{ text-align: right; \}
-
-    \hypertarget{zaitseva-ux4f53ux91cdux5355ux4f4dux662f-kgsux4e0dux662f-lbs}{%
-\paragraph{Zaitseva 体重单位是 kgs，不是
-lbs}\label{zaitseva-ux4f53ux91cdux5355ux4f4dux662f-kgsux4e0dux662f-lbs}}
-
-\hypertarget{ux5b9aux4e49}{%
-\subparagraph{定义}\label{ux5b9aux4e49}}
-
-使用 \href{https://stackoverflow.com/a/44913631}{高级索引} 把姓是
-Zaitseva 的行隔离出来，并把体重单元格中的 kg 改为 lbs。
-
-\hypertarget{ux4ee3ux7801}{%
-\subparagraph{代码}\label{ux4ee3ux7801}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{weight\PYZus{}kg} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{weight}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{210}\PY{p}{]}
-        \PY{n}{mask} \PY{o}{=} \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{surname} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Zaitseva}\PY{l+s+s1}{\PYZsq{}}
-        \PY{n}{column\PYZus{}name} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weight}\PY{l+s+s1}{\PYZsq{}}
-        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{mask}\PY{p}{,} \PY{n}{column\PYZus{}name}\PY{p}{]} \PY{o}{=} \PY{n}{weight\PYZus{}kg} \PY{o}{*} \PY{l+m+mf}{2.20462}
-\end{Verbatim}
-
-
-    \hypertarget{ux6d4bux8bd5}{%
-\subparagraph{测试}\label{ux6d4bux8bd5}}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} 48.8 不应该是最低的}
-        \PY{n}{patients\PYZus{}clean}\PY{o}{.}\PY{n}{weight}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}38}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} extract str}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} bokeh (drop)}
-        \PY{c+c1}{\PYZsh{}\PYZsh{} https://github.com/bokeh/bokeh\PYZhy{}notebooks}
-        \PY{c+c1}{\PYZsh{}\PYZsh{} 工具栏设置 https://www.cnblogs.com/shengyang17/p/9739571.html}
-        \PY{c+c1}{\PYZsh{}\PYZsh{} 对比了一下,决定使用 plotly 并且以后扩展 dash}
+{\color{incolor}In [{\color{incolor}39}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} convert to int}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}260}]:} \PY{c+c1}{\PYZsh{} plotly}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} 如果使用账号,可以将图存到网上,也可本地使用}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} https://blog.csdn.net/u012897374/article/details/77857980}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} https://zhuanlan.zhihu.com/p/32793153}
-          \PY{c+c1}{\PYZsh{}\PYZsh{} https://plot.ly/python/getting\PYZhy{}started/\PYZsh{}jupyter\PYZhy{}setup}
-          
-          \PY{k+kn}{import} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{offline} \PY{k}{as} \PY{n+nn}{py}
-          \PY{k+kn}{from} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{graph\PYZus{}objs} \PY{k}{import} \PY{n}{Scatter}\PY{p}{,} \PY{n}{Layout}
-          \PY{k+kn}{import} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{graph\PYZus{}objs} \PY{k}{as} \PY{n+nn}{go}
-          
-          \PY{n}{py}\PY{o}{.}\PY{n}{init\PYZus{}notebook\PYZus{}mode}\PY{p}{(}\PY{n}{connected}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
-          
-          \PY{n}{trace1}\PY{o}{=}\PY{n}{go}\PY{o}{.}\PY{n}{Scatter}\PY{p}{(}
-              \PY{n}{x}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
-              \PY{n}{y}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}
-          \PY{p}{)}
-          \PY{n}{trace2}\PY{o}{=}\PY{n}{go}\PY{o}{.}\PY{n}{Scatter}\PY{p}{(}
-              \PY{n}{x}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
-              \PY{n}{y}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}
-          \PY{p}{)}
-          \PY{n}{py}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{p}{[}\PY{n}{trace1}\PY{p}{,} \PY{n}{trace2}\PY{p}{]}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}40}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} test}
 \end{Verbatim}
 
 
-    
-    
-    
-    
+    \hypertarget{full_text}{%
+\paragraph{// full\_text}\label{full_text}}
+
+define: - 每个评价后面都有一个分值和链接 11/10 https://t.co/8W5iSOgXfx -
+评分为 10/10 或 11/10,没找到说明, 链接科学上网也不能访问 -
+需要删除后保存 - 此处不做处理,词云的制作最后再做
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}78}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} extract str}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}\PYZsh{} test}
+\end{Verbatim}
+
+
+    \hypertarget{source}{%
+\paragraph{// source}\label{source}}
+
+define: 抽取出发 tweet 使用的设备 - 信息是这样的 Twitter for iPhone -
+需要抽取出 \texttt{Twitter\ for\ iPhone}, 并定义分类为 iphone -
+将本列做成分类数据
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}79}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} extract str}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}80}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} test}
+\end{Verbatim}
+
+
+    \hypertarget{polishing-data}{%
+\subsubsection{/ polishing data}\label{polishing-data}}
+
+最终对数据进行检查和调整,生成最终的数据
+
+\hypertarget{word-clouding-data-generate}{%
+\paragraph{// (word clouding data
+generate)}\label{word-clouding-data-generate}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}81}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} extract str}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}82}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} test}
+\end{Verbatim}
+
+
+    \hypertarget{finial-data-check}{%
+\paragraph{// finial data check}\label{finial-data-check}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}83}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} extract str}
+\end{Verbatim}
+
+
+    \hypertarget{save-df}{%
+\paragraph{// save df}\label{save-df}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}84}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} extract str}
+\end{Verbatim}
+
+
+    \hypertarget{ux53efux89c6ux5316}{%
+\subsection{可视化}\label{ux53efux89c6ux5316}}
+
+\hypertarget{data-visulization}{%
+\subsubsection{/ data visulization}\label{data-visulization}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}85}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} extract str}
+\end{Verbatim}
+
+
+    \hypertarget{data-interact-visulization}{%
+\subsubsection{/ data interact
+visulization}\label{data-interact-visulization}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}86}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} extract str}
+\end{Verbatim}
+
+
+    \hypertarget{word-cloud-generate}{%
+\subsubsection{/ word cloud generate}\label{word-cloud-generate}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}87}]:} \PY{c+c1}{\PYZsh{} code}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} extract str}
+\end{Verbatim}
+
+
+    \hypertarget{ux7ed3ux8bba}{%
+\subsection{结论}\label{ux7ed3ux8bba}}
+
 
     % Add a bibliography block to the postdoc
     
