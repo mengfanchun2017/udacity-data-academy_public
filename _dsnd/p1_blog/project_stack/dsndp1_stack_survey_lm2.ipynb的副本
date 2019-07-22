@@ -23,8 +23,8 @@
    "execution_count": 1,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-07-18T23:04:45.145615Z",
-     "start_time": "2019-07-18T23:04:44.227038Z"
+     "end_time": "2019-07-21T02:00:48.605882Z",
+     "start_time": "2019-07-21T02:00:47.596979Z"
     },
     "hide_input": true
    },
@@ -35,18 +35,18 @@
     "import numpy as np\n",
     "\n",
     "import pprint  as pp\n",
-    "import sys\n",
-    "import zipfile"
+    "import sys"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 54,
+   "execution_count": 3,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-07-16T00:30:44.113073Z",
-     "start_time": "2019-07-16T00:30:33.065968Z"
-    }
+     "end_time": "2019-07-21T02:00:56.892268Z",
+     "start_time": "2019-07-21T02:00:56.887302Z"
+    },
+    "hide_input": false
    },
    "outputs": [],
    "source": [
@@ -84,16 +84,16 @@
     "\n",
     "### refactory use dic\n",
     "### https://stackoverflow.com/questions/6181935/how-do-you-create-different-variable-names-while-in-a-loop\n",
-    "'''"
+    "''';"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 10,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-07-19T00:47:47.707289Z",
-     "start_time": "2019-07-19T00:47:46.558850Z"
+     "end_time": "2019-07-21T02:03:42.968848Z",
+     "start_time": "2019-07-21T02:03:41.646801Z"
     }
    },
    "outputs": [
@@ -127,11 +127,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 11,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-07-19T00:48:04.191254Z",
-     "start_time": "2019-07-19T00:48:03.931764Z"
+     "end_time": "2019-07-21T02:03:43.263312Z",
+     "start_time": "2019-07-21T02:03:43.003542Z"
     }
    },
    "outputs": [
@@ -140,19 +140,22 @@
      "output_type": "stream",
      "text": [
       "/Users/francis/git/udacity-private/_dsnd/p1_blog/project_stack\n",
-      "total 414560\n",
-      "drwxr-xr-x  13 francis  staff        416  7 19 08:47 \u001b[34m.\u001b[m\u001b[m\n",
+      "total 387688\n",
+      "drwxr-xr-x  16 francis  staff        512  7 21 10:03 \u001b[34m.\u001b[m\u001b[m\n",
       "drwxr-xr-x   5 francis  staff        160  7 15 14:32 \u001b[34m..\u001b[m\u001b[m\n",
-      "-rw-r--r--@  1 francis  staff       6148  7 19 08:47 .DS_Store\n",
-      "drwxr-xr-x   6 francis  staff        192  7 16 09:07 \u001b[34m.ipynb_checkpoints\u001b[m\u001b[m\n",
-      "drwxrwxr-x   3 francis  staff         96  7 19 08:47 \u001b[34m__MACOSX\u001b[m\u001b[m\n",
+      "-rw-r--r--@  1 francis  staff       6148  7 20 10:56 .DS_Store\n",
+      "drwxr-xr-x   9 francis  staff        288  7 21 10:02 \u001b[34m.ipynb_checkpoints\u001b[m\u001b[m\n",
+      "drwxrwxr-x   3 francis  staff         96  7 21 10:03 \u001b[34m__MACOSX\u001b[m\u001b[m\n",
       "-rw-r--r--@  1 francis  staff      64532  7 15 14:57 capestone_report_Investigate.ipynb\n",
       "-rw-r--r--@  1 francis  staff      18113  7 15 14:58 capestone_report_solution1.ipynb\n",
       "-rw-r--r--@  1 francis  staff      43395  7 15 14:58 capestone_report_visual.ipynb\n",
-      "drwx------@  6 francis  staff        192  7 15 07:17 \u001b[34mdeveloper_survey_2017\u001b[m\u001b[m\n",
-      "drwx------@  8 francis  staff        256  7 19 06:44 \u001b[34mdeveloper_survey_2018\u001b[m\u001b[m\n",
-      "drwx------@  7 francis  staff        224  7 19 06:58 \u001b[34mdeveloper_survey_2019\u001b[m\u001b[m\n",
-      "-rw-r--r--@  1 francis  staff     302190  7 19 08:47 dsndp1_stack_survey.ipynb\n",
+      "drwx------@  7 francis  staff        224  7 19 13:45 \u001b[34mdeveloper_survey_2017\u001b[m\u001b[m\n",
+      "drwx------@  7 francis  staff        224  7 19 13:47 \u001b[34mdeveloper_survey_2018\u001b[m\u001b[m\n",
+      "drwx------@  6 francis  staff        192  7 19 11:20 \u001b[34mdeveloper_survey_2019\u001b[m\u001b[m\n",
+      "-rw-r--r--@  1 francis  staff      49826  7 19 14:28 dsndp1_stack_survey.ipynb\n",
+      "-rw-r--r--@  1 francis  staff     104362  7 19 14:48 dsndp1_stack_survey_lm.ipynb\n",
+      "-rw-r--r--   1 francis  staff     104363  7 21 10:01 dsndp1_stack_survey_lm2-Copy1.ipynb\n",
+      "-rw-r--r--@  1 francis  staff     104623  7 21 10:02 dsndp1_stack_survey_lm2.ipynb\n",
       "-rw-r--r--   1 francis  staff  196592730  4 19 01:08 survey_results_public.csv\n"
      ]
     }
@@ -165,11 +168,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 12,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-07-19T00:52:23.685980Z",
-     "start_time": "2019-07-19T00:52:20.504523Z"
+     "end_time": "2019-07-21T02:03:47.690209Z",
+     "start_time": "2019-07-21T02:03:44.244701Z"
     }
    },
    "outputs": [],
@@ -193,16 +196,21 @@
     "#df2018d = pd.read_csv(f2018_public)\n",
     "#df2018s = pd.read_csv(f2018_shcema)\n",
     "#df2017d = pd.read_csv(f2017_public)\n",
-    "#df2017s = pd.read_csv(f2017_shcema)"
+    "#df2017s = pd.read_csv(f2017_shcema)\n",
+    "\n",
+    "# load df\n",
+    "## read_jason 有很多参数,可以参考官方文档\n",
+    "## 此处要加 lines=True\n",
+    "## https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 13,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-07-19T00:54:54.350695Z",
-     "start_time": "2019-07-19T00:54:53.966411Z"
+     "end_time": "2019-07-21T02:03:49.041608Z",
+     "start_time": "2019-07-21T02:03:48.618017Z"
     }
    },
    "outputs": [
@@ -210,33 +218,39 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "total 872\n",
-      "drwxr-xr-x  12 francis  staff     384  7 19 08:54 \u001b[34m.\u001b[m\u001b[m\n",
+      "total 387688\n",
+      "drwxr-xr-x  16 francis  staff        512  7 21 10:03 \u001b[34m.\u001b[m\u001b[m\n",
+      "drwxr-xr-x   5 francis  staff        160  7 15 14:32 \u001b[34m..\u001b[m\u001b[m\n",
+      "-rw-r--r--@  1 francis  staff       6148  7 20 10:56 .DS_Store\n",
+      "drwxr-xr-x   9 francis  staff        288  7 21 10:02 \u001b[34m.ipynb_checkpoints\u001b[m\u001b[m\n",
+      "drwxrwxr-x   3 francis  staff         96  7 21 10:03 \u001b[34m__MACOSX\u001b[m\u001b[m\n",
+      "-rw-r--r--@  1 francis  staff      64532  7 15 14:57 capestone_report_Investigate.ipynb\n",
+      "-rw-r--r--@  1 francis  staff      18113  7 15 14:58 capestone_report_solution1.ipynb\n",
+      "-rw-r--r--@  1 francis  staff      43395  7 15 14:58 capestone_report_visual.ipynb\n",
+      "drwx------@  7 francis  staff        224  7 19 13:45 \u001b[34mdeveloper_survey_2017\u001b[m\u001b[m\n",
+      "drwx------@  7 francis  staff        224  7 19 13:47 \u001b[34mdeveloper_survey_2018\u001b[m\u001b[m\n",
+      "drwx------@  6 francis  staff        192  7 19 11:20 \u001b[34mdeveloper_survey_2019\u001b[m\u001b[m\n",
+      "-rw-r--r--@  1 francis  staff      49826  7 19 14:28 dsndp1_stack_survey.ipynb\n",
+      "-rw-r--r--@  1 francis  staff     104362  7 19 14:48 dsndp1_stack_survey_lm.ipynb\n",
+      "-rw-r--r--   1 francis  staff     104363  7 21 10:01 dsndp1_stack_survey_lm2-Copy1.ipynb\n",
+      "-rw-r--r--@  1 francis  staff     104623  7 21 10:02 dsndp1_stack_survey_lm2.ipynb\n",
+      "-rw-r--r--   1 francis  staff  196592730  4 19 01:08 survey_results_public.csv\n",
+      "total 1000\n",
+      "drwxr-xr-x  15 francis  staff     480  7 21 10:03 \u001b[34m.\u001b[m\u001b[m\n",
       "drwxr-xr-x   5 francis  staff     160  7 15 14:32 \u001b[34m..\u001b[m\u001b[m\n",
-      "-rw-r--r--@  1 francis  staff    6148  7 19 08:47 .DS_Store\n",
-      "drwxr-xr-x   6 francis  staff     192  7 16 09:07 \u001b[34m.ipynb_checkpoints\u001b[m\u001b[m\n",
-      "drwxrwxr-x   3 francis  staff      96  7 19 08:47 \u001b[34m__MACOSX\u001b[m\u001b[m\n",
+      "-rw-r--r--@  1 francis  staff    6148  7 20 10:56 .DS_Store\n",
+      "drwxr-xr-x   9 francis  staff     288  7 21 10:02 \u001b[34m.ipynb_checkpoints\u001b[m\u001b[m\n",
+      "drwxrwxr-x   3 francis  staff      96  7 21 10:03 \u001b[34m__MACOSX\u001b[m\u001b[m\n",
       "-rw-r--r--@  1 francis  staff   64532  7 15 14:57 capestone_report_Investigate.ipynb\n",
       "-rw-r--r--@  1 francis  staff   18113  7 15 14:58 capestone_report_solution1.ipynb\n",
       "-rw-r--r--@  1 francis  staff   43395  7 15 14:58 capestone_report_visual.ipynb\n",
-      "drwx------@  6 francis  staff     192  7 15 07:17 \u001b[34mdeveloper_survey_2017\u001b[m\u001b[m\n",
-      "drwx------@  8 francis  staff     256  7 19 06:44 \u001b[34mdeveloper_survey_2018\u001b[m\u001b[m\n",
-      "drwx------@  6 francis  staff     192  7 19 08:53 \u001b[34mdeveloper_survey_2019\u001b[m\u001b[m\n",
-      "-rw-r--r--@  1 francis  staff  306611  7 19 08:53 dsndp1_stack_survey.ipynb\n",
-      "rm: survey_results_public.csv: No such file or directory\n",
-      "total 872\n",
-      "drwxr-xr-x  12 francis  staff     384  7 19 08:54 \u001b[34m.\u001b[m\u001b[m\n",
-      "drwxr-xr-x   5 francis  staff     160  7 15 14:32 \u001b[34m..\u001b[m\u001b[m\n",
-      "-rw-r--r--@  1 francis  staff    6148  7 19 08:47 .DS_Store\n",
-      "drwxr-xr-x   6 francis  staff     192  7 16 09:07 \u001b[34m.ipynb_checkpoints\u001b[m\u001b[m\n",
-      "drwxrwxr-x   3 francis  staff      96  7 19 08:47 \u001b[34m__MACOSX\u001b[m\u001b[m\n",
-      "-rw-r--r--@  1 francis  staff   64532  7 15 14:57 capestone_report_Investigate.ipynb\n",
-      "-rw-r--r--@  1 francis  staff   18113  7 15 14:58 capestone_report_solution1.ipynb\n",
-      "-rw-r--r--@  1 francis  staff   43395  7 15 14:58 capestone_report_visual.ipynb\n",
-      "drwx------@  6 francis  staff     192  7 15 07:17 \u001b[34mdeveloper_survey_2017\u001b[m\u001b[m\n",
-      "drwx------@  8 francis  staff     256  7 19 06:44 \u001b[34mdeveloper_survey_2018\u001b[m\u001b[m\n",
-      "drwx------@  6 francis  staff     192  7 19 08:53 \u001b[34mdeveloper_survey_2019\u001b[m\u001b[m\n",
-      "-rw-r--r--@  1 francis  staff  306611  7 19 08:53 dsndp1_stack_survey.ipynb\n"
+      "drwx------@  7 francis  staff     224  7 19 13:45 \u001b[34mdeveloper_survey_2017\u001b[m\u001b[m\n",
+      "drwx------@  7 francis  staff     224  7 19 13:47 \u001b[34mdeveloper_survey_2018\u001b[m\u001b[m\n",
+      "drwx------@  6 francis  staff     192  7 19 11:20 \u001b[34mdeveloper_survey_2019\u001b[m\u001b[m\n",
+      "-rw-r--r--@  1 francis  staff   49826  7 19 14:28 dsndp1_stack_survey.ipynb\n",
+      "-rw-r--r--@  1 francis  staff  104362  7 19 14:48 dsndp1_stack_survey_lm.ipynb\n",
+      "-rw-r--r--   1 francis  staff  104363  7 21 10:01 dsndp1_stack_survey_lm2-Copy1.ipynb\n",
+      "-rw-r--r--@  1 francis  staff  104623  7 21 10:02 dsndp1_stack_survey_lm2.ipynb\n"
      ]
     }
    ],
@@ -251,11 +265,713 @@
   },
   {
    "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T02:04:08.366953Z",
+     "start_time": "2019-07-21T02:04:08.358112Z"
+    },
+    "hide_input": true
+   },
+   "outputs": [],
+   "source": [
+    "# check df file (not run)\n",
+    "'''\n",
+    "for i in df_list:\n",
+    "    print('\\n---checking item---\\n')\n",
+    "    print(i.shape)\n",
+    "    print(i.info())\n",
+    "''';\n",
+    "### original checking many dfs, left for refactory"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### / check feature"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T02:09:19.982139Z",
+     "start_time": "2019-07-21T02:09:19.973694Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# check features (not run)\n",
+    "## there are too many features\n",
+    "## featrues diffs form year to year\n",
+    "\n",
+    "## load column as array\n",
+    "'''\n",
+    "q2019_array = df2019s.Column.values\n",
+    "q2018_array = df2018s.Column.values\n",
+    "q2017_array = df2017s.Column.values\n",
+    "''';\n",
+    "### list name can not start with int"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T02:09:20.654731Z",
+     "start_time": "2019-07-21T02:09:20.649371Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## check similarity\n",
+    "'''\n",
+    "print(len(q2019_array), len(q2018_array), len(q2017_array))\n",
+    "print(len(np.intersect1d(q2019_array,q2018_array)))\n",
+    "print(len(np.intersect1d(q2019_array,q2017_array)))\n",
+    "print(len(np.intersect1d(q2018_array,q2017_array)))\n",
+    "## too many different / human check\n",
+    "## only use 2019 data for analysis\n",
+    "''';"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T02:09:21.337684Z",
+     "start_time": "2019-07-21T02:09:21.302241Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Respondent</th>\n",
+       "      <th>MainBranch</th>\n",
+       "      <th>Hobbyist</th>\n",
+       "      <th>OpenSourcer</th>\n",
+       "      <th>OpenSource</th>\n",
+       "      <th>Employment</th>\n",
+       "      <th>Country</th>\n",
+       "      <th>Student</th>\n",
+       "      <th>EdLevel</th>\n",
+       "      <th>UndergradMajor</th>\n",
+       "      <th>...</th>\n",
+       "      <th>WelcomeChange</th>\n",
+       "      <th>SONewContent</th>\n",
+       "      <th>Age</th>\n",
+       "      <th>Gender</th>\n",
+       "      <th>Trans</th>\n",
+       "      <th>Sexuality</th>\n",
+       "      <th>Ethnicity</th>\n",
+       "      <th>Dependents</th>\n",
+       "      <th>SurveyLength</th>\n",
+       "      <th>SurveyEase</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1</td>\n",
+       "      <td>I am a student who is learning to code</td>\n",
+       "      <td>Yes</td>\n",
+       "      <td>Never</td>\n",
+       "      <td>The quality of OSS and closed source software ...</td>\n",
+       "      <td>Not employed, and not looking for work</td>\n",
+       "      <td>United Kingdom</td>\n",
+       "      <td>No</td>\n",
+       "      <td>Primary/elementary school</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>...</td>\n",
+       "      <td>Just as welcome now as I felt last year</td>\n",
+       "      <td>Tech articles written by other developers;Indu...</td>\n",
+       "      <td>14.0</td>\n",
+       "      <td>Man</td>\n",
+       "      <td>No</td>\n",
+       "      <td>Straight / Heterosexual</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>No</td>\n",
+       "      <td>Appropriate in length</td>\n",
+       "      <td>Neither easy nor difficult</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>2</td>\n",
+       "      <td>I am a student who is learning to code</td>\n",
+       "      <td>No</td>\n",
+       "      <td>Less than once per year</td>\n",
+       "      <td>The quality of OSS and closed source software ...</td>\n",
+       "      <td>Not employed, but looking for work</td>\n",
+       "      <td>Bosnia and Herzegovina</td>\n",
+       "      <td>Yes, full-time</td>\n",
+       "      <td>Secondary school (e.g. American high school, G...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>...</td>\n",
+       "      <td>Just as welcome now as I felt last year</td>\n",
+       "      <td>Tech articles written by other developers;Indu...</td>\n",
+       "      <td>19.0</td>\n",
+       "      <td>Man</td>\n",
+       "      <td>No</td>\n",
+       "      <td>Straight / Heterosexual</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>No</td>\n",
+       "      <td>Appropriate in length</td>\n",
+       "      <td>Neither easy nor difficult</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>3</td>\n",
+       "      <td>I am not primarily a developer, but I write co...</td>\n",
+       "      <td>Yes</td>\n",
+       "      <td>Never</td>\n",
+       "      <td>The quality of OSS and closed source software ...</td>\n",
+       "      <td>Employed full-time</td>\n",
+       "      <td>Thailand</td>\n",
+       "      <td>No</td>\n",
+       "      <td>Bachelor’s degree (BA, BS, B.Eng., etc.)</td>\n",
+       "      <td>Web development or web design</td>\n",
+       "      <td>...</td>\n",
+       "      <td>Just as welcome now as I felt last year</td>\n",
+       "      <td>Tech meetups or events in your area;Courses on...</td>\n",
+       "      <td>28.0</td>\n",
+       "      <td>Man</td>\n",
+       "      <td>No</td>\n",
+       "      <td>Straight / Heterosexual</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Yes</td>\n",
+       "      <td>Appropriate in length</td>\n",
+       "      <td>Neither easy nor difficult</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>3 rows × 85 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   Respondent                                         MainBranch Hobbyist  \\\n",
+       "0           1             I am a student who is learning to code      Yes   \n",
+       "1           2             I am a student who is learning to code       No   \n",
+       "2           3  I am not primarily a developer, but I write co...      Yes   \n",
+       "\n",
+       "               OpenSourcer                                         OpenSource  \\\n",
+       "0                    Never  The quality of OSS and closed source software ...   \n",
+       "1  Less than once per year  The quality of OSS and closed source software ...   \n",
+       "2                    Never  The quality of OSS and closed source software ...   \n",
+       "\n",
+       "                               Employment                 Country  \\\n",
+       "0  Not employed, and not looking for work          United Kingdom   \n",
+       "1      Not employed, but looking for work  Bosnia and Herzegovina   \n",
+       "2                      Employed full-time                Thailand   \n",
+       "\n",
+       "          Student                                            EdLevel  \\\n",
+       "0              No                          Primary/elementary school   \n",
+       "1  Yes, full-time  Secondary school (e.g. American high school, G...   \n",
+       "2              No           Bachelor’s degree (BA, BS, B.Eng., etc.)   \n",
+       "\n",
+       "                  UndergradMajor             ...              \\\n",
+       "0                            NaN             ...               \n",
+       "1                            NaN             ...               \n",
+       "2  Web development or web design             ...               \n",
+       "\n",
+       "                             WelcomeChange  \\\n",
+       "0  Just as welcome now as I felt last year   \n",
+       "1  Just as welcome now as I felt last year   \n",
+       "2  Just as welcome now as I felt last year   \n",
+       "\n",
+       "                                        SONewContent   Age Gender Trans  \\\n",
+       "0  Tech articles written by other developers;Indu...  14.0    Man    No   \n",
+       "1  Tech articles written by other developers;Indu...  19.0    Man    No   \n",
+       "2  Tech meetups or events in your area;Courses on...  28.0    Man    No   \n",
+       "\n",
+       "                 Sexuality Ethnicity Dependents           SurveyLength  \\\n",
+       "0  Straight / Heterosexual       NaN         No  Appropriate in length   \n",
+       "1  Straight / Heterosexual       NaN         No  Appropriate in length   \n",
+       "2  Straight / Heterosexual       NaN        Yes  Appropriate in length   \n",
+       "\n",
+       "                   SurveyEase  \n",
+       "0  Neither easy nor difficult  \n",
+       "1  Neither easy nor difficult  \n",
+       "2  Neither easy nor difficult  \n",
+       "\n",
+       "[3 rows x 85 columns]"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# dive into 2019\n",
+    "df2019d.head(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T02:09:34.763708Z",
+     "start_time": "2019-07-21T02:09:34.735661Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "No                65816\n",
+       "Yes, full-time    15769\n",
+       "Yes, part-time     5429\n",
+       "Name: Student, dtype: int64"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "## example of value counts at a featrue\n",
+    "df2019d.Student.value_counts()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T02:09:35.468829Z",
+     "start_time": "2019-07-21T02:09:35.421197Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "CareerSat                           JobSat                            \n",
+       "Neither satisfied nor dissatisfied  Neither satisfied nor dissatisfied     2926\n",
+       "                                    Slightly dissatisfied                  1705\n",
+       "                                    Slightly satisfied                     1484\n",
+       "                                    Very dissatisfied                       409\n",
+       "                                    Very satisfied                          303\n",
+       "Slightly dissatisfied               Neither satisfied nor dissatisfied      980\n",
+       "                                    Slightly dissatisfied                  3894\n",
+       "                                    Slightly satisfied                      888\n",
+       "                                    Very dissatisfied                      1294\n",
+       "                                    Very satisfied                          253\n",
+       "Slightly satisfied                  Neither satisfied nor dissatisfied     3323\n",
+       "                                    Slightly dissatisfied                  3135\n",
+       "                                    Slightly satisfied                    13588\n",
+       "                                    Very dissatisfied                       724\n",
+       "                                    Very satisfied                         3761\n",
+       "Very dissatisfied                   Neither satisfied nor dissatisfied      269\n",
+       "                                    Slightly dissatisfied                   753\n",
+       "                                    Slightly satisfied                      322\n",
+       "                                    Very dissatisfied                      1940\n",
+       "                                    Very satisfied                          245\n",
+       "Very satisfied                      Neither satisfied nor dissatisfied     1222\n",
+       "                                    Slightly dissatisfied                  1265\n",
+       "                                    Slightly satisfied                     7925\n",
+       "                                    Very dissatisfied                       490\n",
+       "                                    Very satisfied                        17890\n",
+       "Name: CareerSat, dtype: int64"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "## example of how to observe two feature are related\n",
+    "df2019d.groupby(['CareerSat','JobSat'])['CareerSat'].count()\n",
+    "### dataframe has catagory dtype, research later\n",
+    "### https://pbpython.com/pandas_dtypes_cat.html"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### / update df\n",
+    "#### // manually select features"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-19T03:09:08.565378Z",
+     "start_time": "2019-07-19T03:09:08.556755Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# only get select features\n",
+    "select_list = ['MainBranch','OpenSourcer','OpenSource','Employment','Age','Student','EdLevel','UndergradMajor','EduOther',\n",
+    "              'OrgSize','DevType','YearsCode','CareerSat','JobSeek','JobFactors','ConvertedComp','WorkWeekHrs','WorkPlan','WorkChallenge','WorkRemote','ImpSyn',\n",
+    "              'LanguageWorkedWith','LanguageDesireNextYear','DatabaseWorkedWith','DatabaseDesireNextYear','DevEnviron','OpSys','BetterLife',\n",
+    "              'SOVisitFreq','SOVisitTo','SOFindAnswer','SOTimeSaved','SOHowMuchTime','SOPartFreq','SOJobs','EntTeams','SOComm','WelcomeChange','SONewContent']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-19T03:09:11.929775Z",
+     "start_time": "2019-07-19T03:09:11.884254Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## df copy for assesment\n",
+    "df = df2019d[select_list]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-19T03:09:31.604344Z",
+     "start_time": "2019-07-19T03:09:31.591810Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "39\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "Index(['MainBranch', 'OpenSourcer', 'OpenSource', 'Employment', 'Age',\n",
+       "       'Student', 'EdLevel', 'UndergradMajor', 'EduOther', 'OrgSize',\n",
+       "       'DevType', 'YearsCode', 'CareerSat', 'JobSeek', 'JobFactors',\n",
+       "       'ConvertedComp', 'WorkWeekHrs', 'WorkPlan', 'WorkChallenge',\n",
+       "       'WorkRemote', 'ImpSyn', 'LanguageWorkedWith', 'LanguageDesireNextYear',\n",
+       "       'DatabaseWorkedWith', 'DatabaseDesireNextYear', 'DevEnviron', 'OpSys',\n",
+       "       'BetterLife', 'SOVisitFreq', 'SOVisitTo', 'SOFindAnswer', 'SOTimeSaved',\n",
+       "       'SOHowMuchTime', 'SOPartFreq', 'SOJobs', 'EntTeams', 'SOComm',\n",
+       "       'WelcomeChange', 'SONewContent'],\n",
+       "      dtype='object')"
+      ]
+     },
+     "execution_count": 48,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "## check columns\n",
+    "print(len(df.columns))\n",
+    "df.columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-19T03:18:23.133008Z",
+     "start_time": "2019-07-19T03:18:23.124704Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "17777"
+      ]
+     },
+     "execution_count": 59,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# check null value\n",
+    "## 0.2 count\n",
+    "round(df.shape[0] * 0.2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-19T03:11:56.533788Z",
+     "start_time": "2019-07-19T03:11:56.292420Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "MainBranch                  552\n",
+       "OpenSourcer                   0\n",
+       "OpenSource                 2041\n",
+       "Employment                 1702\n",
+       "Age                        9673\n",
+       "Student                    1869\n",
+       "EdLevel                    2493\n",
+       "UndergradMajor            13269\n",
+       "EduOther                   4623\n",
+       "OrgSize                   17092\n",
+       "DevType                    7548\n",
+       "YearsCode                   945\n",
+       "CareerSat                 16036\n",
+       "JobSeek                    8328\n",
+       "JobFactors                 9512\n",
+       "ConvertedComp             33060\n",
+       "WorkWeekHrs               24380\n",
+       "WorkPlan                  19969\n",
+       "WorkChallenge             20742\n",
+       "WorkRemote                18599\n",
+       "ImpSyn                    17104\n",
+       "LanguageWorkedWith         1314\n",
+       "LanguageDesireNextYear     4795\n",
+       "DatabaseWorkedWith        12857\n",
+       "DatabaseDesireNextYear    19736\n",
+       "DevEnviron                 1566\n",
+       "OpSys                      1032\n",
+       "BetterLife                 2614\n",
+       "SOVisitFreq                 620\n",
+       "SOVisitTo                   797\n",
+       "SOFindAnswer               1067\n",
+       "SOTimeSaved                2539\n",
+       "SOHowMuchTime             20505\n",
+       "SOPartFreq                14191\n",
+       "SOJobs                      817\n",
+       "EntTeams                   1042\n",
+       "SOComm                      752\n",
+       "WelcomeChange              3028\n",
+       "SONewContent              19323\n",
+       "dtype: int64"
+      ]
+     },
+     "execution_count": 57,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "## check columns\n",
+    "df.isnull().sum()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### // update featrues"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T02:11:58.188454Z",
+     "start_time": "2019-07-21T02:11:58.131713Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "35\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "Index(['MainBranch', 'OpenSourcer', 'OpenSource', 'Employment', 'Age',\n",
+       "       'Student', 'EdLevel', 'UndergradMajor', 'EduOther', 'OrgSize',\n",
+       "       'DevType', 'YearsCode', 'CareerSat', 'JobSeek', 'JobFactors',\n",
+       "       'ConvertedComp', 'WorkWeekHrs', 'WorkChallenge', 'ImpSyn',\n",
+       "       'LanguageWorkedWith', 'LanguageDesireNextYear', 'DatabaseWorkedWith',\n",
+       "       'DatabaseDesireNextYear', 'DevEnviron', 'OpSys', 'BetterLife',\n",
+       "       'SOVisitFreq', 'SOVisitTo', 'SOFindAnswer', 'SOTimeSaved', 'SOPartFreq',\n",
+       "       'SOJobs', 'EntTeams', 'SOComm', 'WelcomeChange'],\n",
+       "      dtype='object')"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# update selected list\n",
+    "select_list_updated = ['MainBranch','OpenSourcer','OpenSource','Employment','Age','Student','EdLevel','UndergradMajor','EduOther',\n",
+    "              'OrgSize','DevType','YearsCode','CareerSat','JobSeek','JobFactors','ConvertedComp','WorkWeekHrs','WorkChallenge','ImpSyn',\n",
+    "              'LanguageWorkedWith','LanguageDesireNextYear','DatabaseWorkedWith','DatabaseDesireNextYear','DevEnviron','OpSys','BetterLife',\n",
+    "              'SOVisitFreq','SOVisitTo','SOFindAnswer','SOTimeSaved','SOPartFreq','SOJobs','EntTeams','SOComm','WelcomeChange']\n",
+    "df = df2019d[select_list_updated]\n",
+    "print(len(df.columns))\n",
+    "df.columns"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### // persistance"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T03:13:46.341686Z",
+     "start_time": "2019-07-21T03:13:46.335400Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# file type select\n",
+    "## for file more than 100m, need zip for git upload\n",
+    "## csv_gzip may take most compression\n",
+    "### https://stackoverflow.com/questions/37193157/apply-gzip-compression-to-a-csv-in-python-pandas\n",
+    "## pickle get more efficiency\n",
+    "\n",
+    "# solution\n",
+    "## use pickle for read speed (for pickle save more info than csv, read is many time faster)\n",
+    "## use gzip(quick) or xz(max comp) to store file"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T03:14:55.899034Z",
+     "start_time": "2019-07-21T03:14:55.893162Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## csv gzip save test (mac air 9.75s)\n",
+    "# df2019d.to_csv('2019_35featrue.csv.gz', compression='gzip')\n",
+    "### 18.1 MB;"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T03:14:59.264631Z",
+     "start_time": "2019-07-21T03:14:59.256518Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## csv gzip load test (mac air 3.96s)\n",
+    "#dfcheck = pd.read_csv('2019_35featrue.csv.gz', compression='gzip')\n",
+    "#dfcheck.head(3);"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T03:15:04.503148Z",
+     "start_time": "2019-07-21T03:15:04.498900Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## pickle  gzip test (env the same)\n",
+    "# df2019d.to_pickle('2019_35featrue.pickle.gz', compression='gzip')\n",
+    "## 6.9MB"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T03:15:15.712993Z",
+     "start_time": "2019-07-21T03:15:15.707324Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "#dfcheck = pd.read_pickle('2019_35featrue.pickle.gz', compression='gzip')\n",
+    "#dfcheck.head(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T03:06:35.356350Z",
+     "start_time": "2019-07-21T03:06:34.713070Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## not com para is fast, but largest (also com 50%  to csv)\n",
+    "## to use 643 ms, read use 488 ms"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-07-21T03:09:43.980494Z",
+     "start_time": "2019-07-21T03:09:10.799716Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## pickle xz test (env the same)\n",
+    "df2019d.to_pickle('2019_35featrue.pickle.xz', compression='xz')\n",
+    "## 5.4MB"
+   ]
+  },
+  {
+   "cell_type": "code",
    "execution_count": 37,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-07-19T00:56:02.488017Z",
-     "start_time": "2019-07-19T00:56:02.443773Z"
+     "end_time": "2019-07-21T03:11:26.686597Z",
+     "start_time": "2019-07-21T03:11:25.597565Z"
     }
    },
    "outputs": [
@@ -436,666 +1152,16 @@
     }
    ],
    "source": [
-    "df2019d.head(3)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 66,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-16T00:37:09.852981Z",
-     "start_time": "2019-07-16T00:37:09.408190Z"
-    },
-    "collapsed": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\n",
-      "---checking item---\n",
-      "\n",
-      "(88883, 85)\n",
-      "<class 'pandas.core.frame.DataFrame'>\n",
-      "RangeIndex: 88883 entries, 0 to 88882\n",
-      "Data columns (total 85 columns):\n",
-      "Respondent                88883 non-null int64\n",
-      "MainBranch                88331 non-null object\n",
-      "Hobbyist                  88883 non-null object\n",
-      "OpenSourcer               88883 non-null object\n",
-      "OpenSource                86842 non-null object\n",
-      "Employment                87181 non-null object\n",
-      "Country                   88751 non-null object\n",
-      "Student                   87014 non-null object\n",
-      "EdLevel                   86390 non-null object\n",
-      "UndergradMajor            75614 non-null object\n",
-      "EduOther                  84260 non-null object\n",
-      "OrgSize                   71791 non-null object\n",
-      "DevType                   81335 non-null object\n",
-      "YearsCode                 87938 non-null object\n",
-      "Age1stCode                87634 non-null object\n",
-      "YearsCodePro              74331 non-null object\n",
-      "CareerSat                 72847 non-null object\n",
-      "JobSat                    70988 non-null object\n",
-      "MgrIdiot                  61159 non-null object\n",
-      "MgrMoney                  61157 non-null object\n",
-      "MgrWant                   61232 non-null object\n",
-      "JobSeek                   80555 non-null object\n",
-      "LastHireDate              79854 non-null object\n",
-      "LastInt                   67155 non-null object\n",
-      "FizzBuzz                  71344 non-null object\n",
-      "JobFactors                79371 non-null object\n",
-      "ResumeUpdate              77877 non-null object\n",
-      "CurrencySymbol            71392 non-null object\n",
-      "CurrencyDesc              71392 non-null object\n",
-      "CompTotal                 55945 non-null float64\n",
-      "CompFreq                  63268 non-null object\n",
-      "ConvertedComp             55823 non-null float64\n",
-      "WorkWeekHrs               64503 non-null float64\n",
-      "WorkPlan                  68914 non-null object\n",
-      "WorkChallenge             68141 non-null object\n",
-      "WorkRemote                70284 non-null object\n",
-      "WorkLoc                   70055 non-null object\n",
-      "ImpSyn                    71779 non-null object\n",
-      "CodeRev                   70390 non-null object\n",
-      "CodeRevHrs                49790 non-null float64\n",
-      "UnitTests                 62668 non-null object\n",
-      "PurchaseHow               61108 non-null object\n",
-      "PurchaseWhat              62029 non-null object\n",
-      "LanguageWorkedWith        87569 non-null object\n",
-      "LanguageDesireNextYear    84088 non-null object\n",
-      "DatabaseWorkedWith        76026 non-null object\n",
-      "DatabaseDesireNextYear    69147 non-null object\n",
-      "PlatformWorkedWith        80714 non-null object\n",
-      "PlatformDesireNextYear    77443 non-null object\n",
-      "WebFrameWorkedWith        65022 non-null object\n",
-      "WebFrameDesireNextYear    62944 non-null object\n",
-      "MiscTechWorkedWith        59586 non-null object\n",
-      "MiscTechDesireNextYear    64511 non-null object\n",
-      "DevEnviron                87317 non-null object\n",
-      "OpSys                     87851 non-null object\n",
-      "Containers                85366 non-null object\n",
-      "BlockchainOrg             48175 non-null object\n",
-      "BlockchainIs              60165 non-null object\n",
-      "BetterLife                86269 non-null object\n",
-      "ITperson                  87141 non-null object\n",
-      "OffOn                     86663 non-null object\n",
-      "SocialMedia               84437 non-null object\n",
-      "Extraversion              87305 non-null object\n",
-      "ScreenName                80486 non-null object\n",
-      "SOVisit1st                83877 non-null object\n",
-      "SOVisitFreq               88263 non-null object\n",
-      "SOVisitTo                 88086 non-null object\n",
-      "SOFindAnswer              87816 non-null object\n",
-      "SOTimeSaved               86344 non-null object\n",
-      "SOHowMuchTime             68378 non-null object\n",
-      "SOAccount                 87828 non-null object\n",
-      "SOPartFreq                74692 non-null object\n",
-      "SOJobs                    88066 non-null object\n",
-      "EntTeams                  87841 non-null object\n",
-      "SOComm                    88131 non-null object\n",
-      "WelcomeChange             85855 non-null object\n",
-      "SONewContent              69560 non-null object\n",
-      "Age                       79210 non-null float64\n",
-      "Gender                    85406 non-null object\n",
-      "Trans                     83607 non-null object\n",
-      "Sexuality                 76147 non-null object\n",
-      "Ethnicity                 76668 non-null object\n",
-      "Dependents                83059 non-null object\n",
-      "SurveyLength              86984 non-null object\n",
-      "SurveyEase                87081 non-null object\n",
-      "dtypes: float64(5), int64(1), object(79)\n",
-      "memory usage: 57.6+ MB\n",
-      "None\n",
-      "\n",
-      "---checking item---\n",
-      "\n",
-      "(85, 2)\n",
-      "<class 'pandas.core.frame.DataFrame'>\n",
-      "RangeIndex: 85 entries, 0 to 84\n",
-      "Data columns (total 2 columns):\n",
-      "Column          85 non-null object\n",
-      "QuestionText    85 non-null object\n",
-      "dtypes: object(2)\n",
-      "memory usage: 1.4+ KB\n",
-      "None\n",
-      "\n",
-      "---checking item---\n",
-      "\n",
-      "(98855, 129)\n",
-      "<class 'pandas.core.frame.DataFrame'>\n",
-      "RangeIndex: 98855 entries, 0 to 98854\n",
-      "Columns: 129 entries, Respondent to SurveyEasy\n",
-      "dtypes: float64(41), int64(1), object(87)\n",
-      "memory usage: 97.3+ MB\n",
-      "None\n",
-      "\n",
-      "---checking item---\n",
-      "\n",
-      "(129, 2)\n",
-      "<class 'pandas.core.frame.DataFrame'>\n",
-      "RangeIndex: 129 entries, 0 to 128\n",
-      "Data columns (total 2 columns):\n",
-      "Column          129 non-null object\n",
-      "QuestionText    129 non-null object\n",
-      "dtypes: object(2)\n",
-      "memory usage: 2.1+ KB\n",
-      "None\n",
-      "\n",
-      "---checking item---\n",
-      "\n",
-      "(51392, 154)\n",
-      "<class 'pandas.core.frame.DataFrame'>\n",
-      "RangeIndex: 51392 entries, 0 to 51391\n",
-      "Columns: 154 entries, Respondent to ExpectedSalary\n",
-      "dtypes: float64(6), int64(1), object(147)\n",
-      "memory usage: 60.4+ MB\n",
-      "None\n",
-      "\n",
-      "---checking item---\n",
-      "\n",
-      "(154, 2)\n",
-      "<class 'pandas.core.frame.DataFrame'>\n",
-      "RangeIndex: 154 entries, 0 to 153\n",
-      "Data columns (total 2 columns):\n",
-      "Column      154 non-null object\n",
-      "Question    154 non-null object\n",
-      "dtypes: object(2)\n",
-      "memory usage: 2.5+ KB\n",
-      "None\n"
-     ]
-    }
-   ],
-   "source": [
-    "# check df file (not run)\n",
-    "'''\n",
-    "for i in df_list:\n",
-    "    print('\\n---checking item---\\n')\n",
-    "    print(i.shape)\n",
-    "    print(i.info())\n",
-    "'''\n",
-    "### original checking many dfs, left for refactory"
+    "dfcheck = pd.read_pickle('2019_35featrue.pickle.xz', compression='xz')\n",
+    "dfcheck.head(3)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### / check feature"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 86,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-16T00:58:47.190874Z",
-     "start_time": "2019-07-16T00:58:47.186146Z"
-    }
-   },
-   "outputs": [],
-   "source": [
-    "# check features (not run)\n",
-    "## there are too many features\n",
-    "## featrues diffs form year to year\n",
-    "\n",
-    "## load column as array\n",
-    "q2019_array = df2019s.Column.values\n",
-    "q2018_array = df2018s.Column.values\n",
-    "q2017_array = df2017s.Column.values\n",
-    "\n",
-    "### list name can not start with int"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 94,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-16T01:26:40.001395Z",
-     "start_time": "2019-07-16T01:26:39.992809Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "(85, 129, 154)"
-      ]
-     },
-     "execution_count": 94,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "## check similarity\n",
-    "len(q2019_array), len(q2018_array), len(q2017_array)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 95,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-16T01:27:13.100270Z",
-     "start_time": "2019-07-16T01:27:13.090489Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "17"
-      ]
-     },
-     "execution_count": 95,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "len(np.intersect1d(q2019_array,q2018_array))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 91,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-16T01:23:10.768275Z",
-     "start_time": "2019-07-16T01:23:10.760079Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "3"
-      ]
-     },
-     "execution_count": 91,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "len(np.intersect1d(q2019_array,q2017_array))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 93,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-16T01:25:11.525892Z",
-     "start_time": "2019-07-16T01:25:11.517006Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "17"
-      ]
-     },
-     "execution_count": 93,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "len(np.intersect1d(q2018_array,q2017_array))\n",
-    "## too many different / human check\n",
-    "## only use 2019 data for analysis"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 108,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-16T02:57:45.267302Z",
-     "start_time": "2019-07-16T02:57:45.232649Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>Respondent</th>\n",
-       "      <th>MainBranch</th>\n",
-       "      <th>Hobbyist</th>\n",
-       "      <th>OpenSourcer</th>\n",
-       "      <th>OpenSource</th>\n",
-       "      <th>Employment</th>\n",
-       "      <th>Country</th>\n",
-       "      <th>Student</th>\n",
-       "      <th>EdLevel</th>\n",
-       "      <th>UndergradMajor</th>\n",
-       "      <th>...</th>\n",
-       "      <th>WelcomeChange</th>\n",
-       "      <th>SONewContent</th>\n",
-       "      <th>Age</th>\n",
-       "      <th>Gender</th>\n",
-       "      <th>Trans</th>\n",
-       "      <th>Sexuality</th>\n",
-       "      <th>Ethnicity</th>\n",
-       "      <th>Dependents</th>\n",
-       "      <th>SurveyLength</th>\n",
-       "      <th>SurveyEase</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>1</td>\n",
-       "      <td>I am a student who is learning to code</td>\n",
-       "      <td>Yes</td>\n",
-       "      <td>Never</td>\n",
-       "      <td>The quality of OSS and closed source software ...</td>\n",
-       "      <td>Not employed, and not looking for work</td>\n",
-       "      <td>United Kingdom</td>\n",
-       "      <td>No</td>\n",
-       "      <td>Primary/elementary school</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>...</td>\n",
-       "      <td>Just as welcome now as I felt last year</td>\n",
-       "      <td>Tech articles written by other developers;Indu...</td>\n",
-       "      <td>14.0</td>\n",
-       "      <td>Man</td>\n",
-       "      <td>No</td>\n",
-       "      <td>Straight / Heterosexual</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>No</td>\n",
-       "      <td>Appropriate in length</td>\n",
-       "      <td>Neither easy nor difficult</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>2</td>\n",
-       "      <td>I am a student who is learning to code</td>\n",
-       "      <td>No</td>\n",
-       "      <td>Less than once per year</td>\n",
-       "      <td>The quality of OSS and closed source software ...</td>\n",
-       "      <td>Not employed, but looking for work</td>\n",
-       "      <td>Bosnia and Herzegovina</td>\n",
-       "      <td>Yes, full-time</td>\n",
-       "      <td>Secondary school (e.g. American high school, G...</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>...</td>\n",
-       "      <td>Just as welcome now as I felt last year</td>\n",
-       "      <td>Tech articles written by other developers;Indu...</td>\n",
-       "      <td>19.0</td>\n",
-       "      <td>Man</td>\n",
-       "      <td>No</td>\n",
-       "      <td>Straight / Heterosexual</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>No</td>\n",
-       "      <td>Appropriate in length</td>\n",
-       "      <td>Neither easy nor difficult</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>3</td>\n",
-       "      <td>I am not primarily a developer, but I write co...</td>\n",
-       "      <td>Yes</td>\n",
-       "      <td>Never</td>\n",
-       "      <td>The quality of OSS and closed source software ...</td>\n",
-       "      <td>Employed full-time</td>\n",
-       "      <td>Thailand</td>\n",
-       "      <td>No</td>\n",
-       "      <td>Bachelor’s degree (BA, BS, B.Eng., etc.)</td>\n",
-       "      <td>Web development or web design</td>\n",
-       "      <td>...</td>\n",
-       "      <td>Just as welcome now as I felt last year</td>\n",
-       "      <td>Tech meetups or events in your area;Courses on...</td>\n",
-       "      <td>28.0</td>\n",
-       "      <td>Man</td>\n",
-       "      <td>No</td>\n",
-       "      <td>Straight / Heterosexual</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>Yes</td>\n",
-       "      <td>Appropriate in length</td>\n",
-       "      <td>Neither easy nor difficult</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "<p>3 rows × 85 columns</p>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "   Respondent                                         MainBranch Hobbyist  \\\n",
-       "0           1             I am a student who is learning to code      Yes   \n",
-       "1           2             I am a student who is learning to code       No   \n",
-       "2           3  I am not primarily a developer, but I write co...      Yes   \n",
-       "\n",
-       "               OpenSourcer                                         OpenSource  \\\n",
-       "0                    Never  The quality of OSS and closed source software ...   \n",
-       "1  Less than once per year  The quality of OSS and closed source software ...   \n",
-       "2                    Never  The quality of OSS and closed source software ...   \n",
-       "\n",
-       "                               Employment                 Country  \\\n",
-       "0  Not employed, and not looking for work          United Kingdom   \n",
-       "1      Not employed, but looking for work  Bosnia and Herzegovina   \n",
-       "2                      Employed full-time                Thailand   \n",
-       "\n",
-       "          Student                                            EdLevel  \\\n",
-       "0              No                          Primary/elementary school   \n",
-       "1  Yes, full-time  Secondary school (e.g. American high school, G...   \n",
-       "2              No           Bachelor’s degree (BA, BS, B.Eng., etc.)   \n",
-       "\n",
-       "                  UndergradMajor             ...              \\\n",
-       "0                            NaN             ...               \n",
-       "1                            NaN             ...               \n",
-       "2  Web development or web design             ...               \n",
-       "\n",
-       "                             WelcomeChange  \\\n",
-       "0  Just as welcome now as I felt last year   \n",
-       "1  Just as welcome now as I felt last year   \n",
-       "2  Just as welcome now as I felt last year   \n",
-       "\n",
-       "                                        SONewContent   Age Gender Trans  \\\n",
-       "0  Tech articles written by other developers;Indu...  14.0    Man    No   \n",
-       "1  Tech articles written by other developers;Indu...  19.0    Man    No   \n",
-       "2  Tech meetups or events in your area;Courses on...  28.0    Man    No   \n",
-       "\n",
-       "                 Sexuality Ethnicity Dependents           SurveyLength  \\\n",
-       "0  Straight / Heterosexual       NaN         No  Appropriate in length   \n",
-       "1  Straight / Heterosexual       NaN         No  Appropriate in length   \n",
-       "2  Straight / Heterosexual       NaN        Yes  Appropriate in length   \n",
-       "\n",
-       "                   SurveyEase  \n",
-       "0  Neither easy nor difficult  \n",
-       "1  Neither easy nor difficult  \n",
-       "2  Neither easy nor difficult  \n",
-       "\n",
-       "[3 rows x 85 columns]"
-      ]
-     },
-     "execution_count": 108,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# dive into 2019\n",
-    "df2019d.head(3)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 187,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-18T04:15:54.188337Z",
-     "start_time": "2019-07-18T04:15:54.135188Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "No                65816\n",
-       "Yes, full-time    15769\n",
-       "Yes, part-time     5429\n",
-       "Name: Student, dtype: int64"
-      ]
-     },
-     "execution_count": 187,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "## example of value counts at a featrue\n",
-    "df2019d.Student.value_counts()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 132,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-16T23:13:38.304437Z",
-     "start_time": "2019-07-16T23:13:38.255976Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "CareerSat                           JobSat                            \n",
-       "Neither satisfied nor dissatisfied  Neither satisfied nor dissatisfied     2926\n",
-       "                                    Slightly dissatisfied                  1705\n",
-       "                                    Slightly satisfied                     1484\n",
-       "                                    Very dissatisfied                       409\n",
-       "                                    Very satisfied                          303\n",
-       "Slightly dissatisfied               Neither satisfied nor dissatisfied      980\n",
-       "                                    Slightly dissatisfied                  3894\n",
-       "                                    Slightly satisfied                      888\n",
-       "                                    Very dissatisfied                      1294\n",
-       "                                    Very satisfied                          253\n",
-       "Slightly satisfied                  Neither satisfied nor dissatisfied     3323\n",
-       "                                    Slightly dissatisfied                  3135\n",
-       "                                    Slightly satisfied                    13588\n",
-       "                                    Very dissatisfied                       724\n",
-       "                                    Very satisfied                         3761\n",
-       "Very dissatisfied                   Neither satisfied nor dissatisfied      269\n",
-       "                                    Slightly dissatisfied                   753\n",
-       "                                    Slightly satisfied                      322\n",
-       "                                    Very dissatisfied                      1940\n",
-       "                                    Very satisfied                          245\n",
-       "Very satisfied                      Neither satisfied nor dissatisfied     1222\n",
-       "                                    Slightly dissatisfied                  1265\n",
-       "                                    Slightly satisfied                     7925\n",
-       "                                    Very dissatisfied                       490\n",
-       "                                    Very satisfied                        17890\n",
-       "Name: CareerSat, dtype: int64"
-      ]
-     },
-     "execution_count": 132,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "## example of how to observe two feature are related\n",
-    "df2019d.groupby(['CareerSat','JobSat'])['CareerSat'].count()\n",
-    "### dataframe has catagory dtype, research later\n",
-    "### https://pbpython.com/pandas_dtypes_cat.html"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 188,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-18T04:32:02.305327Z",
-     "start_time": "2019-07-18T04:32:02.294600Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array(['Respondent', 'MainBranch', 'Hobbyist', 'OpenSourcer',\n",
-       "       'OpenSource', 'Employment', 'Country', 'Student', 'EdLevel',\n",
-       "       'UndergradMajor', 'EduOther', 'OrgSize', 'DevType', 'YearsCode',\n",
-       "       'Age1stCode', 'YearsCodePro', 'CareerSat', 'JobSat', 'MgrIdiot',\n",
-       "       'MgrMoney', 'MgrWant', 'JobSeek', 'LastHireDate', 'LastInt',\n",
-       "       'FizzBuzz', 'JobFactors', 'ResumeUpdate', 'CurrencySymbol',\n",
-       "       'CurrencyDesc', 'CompTotal', 'CompFreq', 'ConvertedComp',\n",
-       "       'WorkWeekHrs', 'WorkPlan', 'WorkChallenge', 'WorkRemote',\n",
-       "       'WorkLoc', 'ImpSyn', 'CodeRev', 'CodeRevHrs', 'UnitTests',\n",
-       "       'PurchaseHow', 'PurchaseWhat', 'LanguageWorkedWith',\n",
-       "       'LanguageDesireNextYear', 'DatabaseWorkedWith',\n",
-       "       'DatabaseDesireNextYear', 'PlatformWorkedWith',\n",
-       "       'PlatformDesireNextYear', 'WebFrameWorkedWith',\n",
-       "       'WebFrameDesireNextYear', 'MiscTechWorkedWith',\n",
-       "       'MiscTechDesireNextYear', 'DevEnviron', 'OpSys', 'Containers',\n",
-       "       'BlockchainOrg', 'BlockchainIs', 'BetterLife', 'ITperson', 'OffOn',\n",
-       "       'SocialMedia', 'Extraversion', 'ScreenName', 'SOVisit1st',\n",
-       "       'SOVisitFreq', 'SOVisitTo', 'SOFindAnswer', 'SOTimeSaved',\n",
-       "       'SOHowMuchTime', 'SOAccount', 'SOPartFreq', 'SOJobs', 'EntTeams',\n",
-       "       'SOComm', 'WelcomeChange', 'SONewContent', 'Age', 'Gender',\n",
-       "       'Trans', 'Sexuality', 'Ethnicity', 'Dependents', 'SurveyLength',\n",
-       "       'SurveyEase'], dtype=object)"
-      ]
-     },
-     "execution_count": 188,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "### observe 2019 columns\n",
-    "q2019_array"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 7,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-06-10T08:05:10.628637Z",
-     "start_time": "2019-06-10T08:05:09.454360Z"
-    },
-    "hide_input": true
-   },
-   "outputs": [],
-   "source": [
-    "# load df\n",
-    "## read_jason 有很多参数,可以参考官方文档\n",
-    "## 此处要加 lines=True\n",
-    "## https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "### / update df"
+    "## / Prepare Data\n",
+    "### // check1 - data inspect"
    ]
   },
   {
@@ -1103,365 +1169,14 @@
    "execution_count": 44,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-07-19T03:09:08.565378Z",
-     "start_time": "2019-07-19T03:09:08.556755Z"
+     "end_time": "2019-07-21T03:47:46.807297Z",
+     "start_time": "2019-07-21T03:47:45.775142Z"
     }
    },
    "outputs": [],
    "source": [
-    "# only get select features\n",
-    "select_list = ['MainBranch','OpenSourcer','OpenSource','Employment','Age','Student','EdLevel','UndergradMajor','EduOther',\n",
-    "              'OrgSize','DevType','YearsCode','CareerSat','JobSeek','JobFactors','ConvertedComp','WorkWeekHrs','WorkPlan','WorkChallenge','WorkRemote','ImpSyn',\n",
-    "              'LanguageWorkedWith','LanguageDesireNextYear','DatabaseWorkedWith','DatabaseDesireNextYear','DevEnviron','OpSys','BetterLife',\n",
-    "              'SOVisitFreq','SOVisitTo','SOFindAnswer','SOTimeSaved','SOHowMuchTime','SOPartFreq','SOJobs','EntTeams','SOComm','WelcomeChange','SONewContent']"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 45,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-19T03:09:11.929775Z",
-     "start_time": "2019-07-19T03:09:11.884254Z"
-    }
-   },
-   "outputs": [],
-   "source": [
-    "## df copy for assesment\n",
-    "df = df2019d[select_list]"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 48,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-19T03:09:31.604344Z",
-     "start_time": "2019-07-19T03:09:31.591810Z"
-    }
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "39\n"
-     ]
-    },
-    {
-     "data": {
-      "text/plain": [
-       "Index(['MainBranch', 'OpenSourcer', 'OpenSource', 'Employment', 'Age',\n",
-       "       'Student', 'EdLevel', 'UndergradMajor', 'EduOther', 'OrgSize',\n",
-       "       'DevType', 'YearsCode', 'CareerSat', 'JobSeek', 'JobFactors',\n",
-       "       'ConvertedComp', 'WorkWeekHrs', 'WorkPlan', 'WorkChallenge',\n",
-       "       'WorkRemote', 'ImpSyn', 'LanguageWorkedWith', 'LanguageDesireNextYear',\n",
-       "       'DatabaseWorkedWith', 'DatabaseDesireNextYear', 'DevEnviron', 'OpSys',\n",
-       "       'BetterLife', 'SOVisitFreq', 'SOVisitTo', 'SOFindAnswer', 'SOTimeSaved',\n",
-       "       'SOHowMuchTime', 'SOPartFreq', 'SOJobs', 'EntTeams', 'SOComm',\n",
-       "       'WelcomeChange', 'SONewContent'],\n",
-       "      dtype='object')"
-      ]
-     },
-     "execution_count": 48,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "## check columns\n",
-    "print(len(df.columns))\n",
-    "df.columns"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 59,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-19T03:18:23.133008Z",
-     "start_time": "2019-07-19T03:18:23.124704Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "17777"
-      ]
-     },
-     "execution_count": 59,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# check null value\n",
-    "## 0.2 count\n",
-    "round(df.shape[0] * 0.2)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 57,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-19T03:11:56.533788Z",
-     "start_time": "2019-07-19T03:11:56.292420Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "MainBranch                  552\n",
-       "OpenSourcer                   0\n",
-       "OpenSource                 2041\n",
-       "Employment                 1702\n",
-       "Age                        9673\n",
-       "Student                    1869\n",
-       "EdLevel                    2493\n",
-       "UndergradMajor            13269\n",
-       "EduOther                   4623\n",
-       "OrgSize                   17092\n",
-       "DevType                    7548\n",
-       "YearsCode                   945\n",
-       "CareerSat                 16036\n",
-       "JobSeek                    8328\n",
-       "JobFactors                 9512\n",
-       "ConvertedComp             33060\n",
-       "WorkWeekHrs               24380\n",
-       "WorkPlan                  19969\n",
-       "WorkChallenge             20742\n",
-       "WorkRemote                18599\n",
-       "ImpSyn                    17104\n",
-       "LanguageWorkedWith         1314\n",
-       "LanguageDesireNextYear     4795\n",
-       "DatabaseWorkedWith        12857\n",
-       "DatabaseDesireNextYear    19736\n",
-       "DevEnviron                 1566\n",
-       "OpSys                      1032\n",
-       "BetterLife                 2614\n",
-       "SOVisitFreq                 620\n",
-       "SOVisitTo                   797\n",
-       "SOFindAnswer               1067\n",
-       "SOTimeSaved                2539\n",
-       "SOHowMuchTime             20505\n",
-       "SOPartFreq                14191\n",
-       "SOJobs                      817\n",
-       "EntTeams                   1042\n",
-       "SOComm                      752\n",
-       "WelcomeChange              3028\n",
-       "SONewContent              19323\n",
-       "dtype: int64"
-      ]
-     },
-     "execution_count": 57,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "## check columns\n",
-    "df.isnull().sum()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 61,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-07-19T03:35:01.640604Z",
-     "start_time": "2019-07-19T03:35:01.587248Z"
-    }
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "35\n"
-     ]
-    },
-    {
-     "data": {
-      "text/plain": [
-       "Index(['MainBranch', 'OpenSourcer', 'OpenSource', 'Employment', 'Age',\n",
-       "       'Student', 'EdLevel', 'UndergradMajor', 'EduOther', 'OrgSize',\n",
-       "       'DevType', 'YearsCode', 'CareerSat', 'JobSeek', 'JobFactors',\n",
-       "       'ConvertedComp', 'WorkWeekHrs', 'WorkChallenge', 'ImpSyn',\n",
-       "       'LanguageWorkedWith', 'LanguageDesireNextYear', 'DatabaseWorkedWith',\n",
-       "       'DatabaseDesireNextYear', 'DevEnviron', 'OpSys', 'BetterLife',\n",
-       "       'SOVisitFreq', 'SOVisitTo', 'SOFindAnswer', 'SOTimeSaved', 'SOPartFreq',\n",
-       "       'SOJobs', 'EntTeams', 'SOComm', 'WelcomeChange'],\n",
-       "      dtype='object')"
-      ]
-     },
-     "execution_count": 61,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# update\n",
-    "select_list_updated = ['MainBranch','OpenSourcer','OpenSource','Employment','Age','Student','EdLevel','UndergradMajor','EduOther',\n",
-    "              'OrgSize','DevType','YearsCode','CareerSat','JobSeek','JobFactors','ConvertedComp','WorkWeekHrs','WorkChallenge','ImpSyn',\n",
-    "              'LanguageWorkedWith','LanguageDesireNextYear','DatabaseWorkedWith','DatabaseDesireNextYear','DevEnviron','OpSys','BetterLife',\n",
-    "              'SOVisitFreq','SOVisitTo','SOFindAnswer','SOTimeSaved','SOPartFreq','SOJobs','EntTeams','SOComm','WelcomeChange']\n",
-    "df = df2019d[select_list_updated]\n",
-    "print(len(df.columns))\n",
-    "df.columns"
-   ]
-  },
-  
-  {
-   "cell_type": "code",
-   "execution_count": 9,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-06-10T08:05:10.661866Z",
-     "start_time": "2019-06-10T08:05:10.648658Z"
-    },
-    "hide_input": true
-   },
-   "outputs": [],
-   "source": [
-    "# build function (base on solution2)\n",
-    "def check_sample(df):\n",
-    "    sample = df.sample(1)\n",
-    "    print('----checking sample index: {}'.format(sample.index[0]))\n",
-    "    ### sometimes pp is uncaptible with .format\n",
-    "    i = 1\n",
-    "    for (colname, coldata) in sample.iteritems():\n",
-    "        print('\\n- columns #{} : {:-<8}'.format(i,colname))\n",
-    "        print(coldata.values)\n",
-    "        i += 1\n",
-    "    pp.pprint('----checking complete----')\n",
-    "\n",
-    "# archive test\n",
-    "## solutions1 (col loop pass)\n",
-    "'''\n",
-    "sample = tweetdf.sample()\n",
-    "p('----checking sample index: {:-<8}'.format(sample.index[0]))\n",
-    "\n",
-    "i = 1\n",
-    "for col in list(tweetdf.columns):\n",
-    "    print('\\n- columns check {} : {:-<8}'.format(i,col))\n",
-    "    print(sample[col].values)\n",
-    "    i+=1\n",
-    "## 参考 https://thispointer.com/pandas-loop-or-iterate-over-all-or-certain-columns-of-a-dataframe/\n",
-    "'''\n",
-    "\n",
-    "## solutuion2 (iteritem pass)\n",
-    "'''\n",
-    "sample = tweetdf.sample()\n",
-    "p('----checking sample index: {:-<8}'.format(sample.index[0]))\n",
-    "\n",
-    "\n",
-    "for (colname, coldata) in sample.iteritems():\n",
-    "    print('\\n- columns check {} : {:-<8}'.format(i,colname))\n",
-    "    print(coldata.values)\n",
-    "    i += 1\n",
-    "''';"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "#### // check_info(df,list)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 10,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-06-10T08:05:10.675909Z",
-     "start_time": "2019-06-10T08:05:10.667699Z"
-    },
-    "hide_input": true
-   },
-   "outputs": [],
-   "source": [
-    "# build function\n",
-    "def check_info(df,list):\n",
-    "    c = 1\n",
-    "    for i in list:\n",
-    "        print(('\\n- columns #{} : {:-<8}'.format(c,i)))\n",
-    "        print((df[i].value_counts().nlargest(5)))\n",
-    "        ### nlargest 非常好用\n",
-    "        c += 1\n",
-    "    pp.pprint('----checking complete----')"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "#### // check_detail(df,list)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 11,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-06-10T08:05:10.694259Z",
-     "start_time": "2019-06-10T08:05:10.682594Z"
-    }
-   },
-   "outputs": [],
-   "source": [
-    "# build function\n",
-    "def check_detail(df,list):\n",
-    "    sampe = df.sample(1)\n",
-    "    c = 1\n",
-    "    for i in list:\n",
-    "        print(('\\n- columns #{} : {:-<8}'.format(c,i)))\n",
-    "        pp.pprint(df[i].iloc[0])\n",
-    "        c += 1\n",
-    "        ## 使用 pprint 优化 dict 显示"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "#### // drop_column"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 12,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-06-10T08:05:10.800798Z",
-     "start_time": "2019-06-10T08:05:10.707408Z"
-    },
-    "hide_input": false
-   },
-   "outputs": [],
-   "source": [
-    "## build fuction\n",
-    "def drop_column(df,list):\n",
-    "    ## proceed\n",
-    "    dflen = len(df.columns)\n",
-    "    df.drop(list,axis=1,inplace=True)\n",
-    "    ### 在函数中要用 inplace=True 而不是赋值来作用于df\n",
-    "    ## check\n",
-    "    print('---- proceding ----')\n",
-    "    print('- drop {} columns: {} '.format(len(list), list))\n",
-    "    print('- remain {} columns'.format(len(df.columns)))\n",
-    "    print('- success : {}'.format(len(list) + len(df.columns) == dflen))"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "### / quanlity\n",
-    "#### // check1 - init drop"
+    "# read data\n",
+    "df2019 = pd.read_pickle('2019_35featrue.pickle.xz', compression='xz')"
    ]
   },
   {
@@ -2988,7 +2703,7 @@
     "width": "167px"
    },
    "toc_section_display": true,
-   "toc_window_display": false
+   "toc_window_display": true
   },
   "varInspector": {
    "cols": {
