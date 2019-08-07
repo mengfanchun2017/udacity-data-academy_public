@@ -5216,8 +5216,7 @@
     "define: 抽取出 text 的长度,存为整数\n",
     "- solution1 使用 python standard re lib\n",
     "    - 抽出字符\n",
-    "    - 转换为 int\n",
-    "- https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html 非常全面的介绍"
+    "    - 转换为 int"
    ]
   },
   {
