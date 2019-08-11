@@ -79,8 +79,16 @@ def drop_column(df,list):
     print('- remain {} columns'.format(len(df.columns)))
     print('- success : {}'.format(len(list) + len(df.columns) == dflen))
 
+
 # build function
-def check_value(df,list='all'):
+def check_value(df,list):
+    for i in list:
+        print(('\n- columns: {:-<8}'.format(i)))
+        print((df[i].value_counts()))
+
+
+# build function
+def check_value1(df,show_list):
     '''
     input: 
     1\ dataframe which to exam
@@ -96,12 +104,9 @@ def check_value(df,list='all'):
     output: str
     full info from a specific feature value distribution.
     '''
-
-    if list=='all':
-        list = list(df.columns)
-
+    
     c = 1
-    for i in list:
+    for i in show_list:
         print(('\n- columns #{} : {:-<8}'.format(c,i)))
         print((df[i].value_counts().nlargest(5)))
         ### nlargest 非常好用
