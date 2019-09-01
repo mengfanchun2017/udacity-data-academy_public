@@ -1,24 +1,83 @@
 import sys
+# import library
+import pandas as pd
+import numpy as np
+import matplotlib as plt
+import re
+import pickle
+from sqlalchemy import create_engine
+
+import pprint as pp
+
+# import ml library
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score,f1_score,recall_score
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline, FeatureUnion
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 
 def load_data(database_filepath):
-    pass
-
+    engine_name = 'sqlite:///' + database_filepath
+    engine = create_engine(engine_name)
+    df = pd.read_sql_table('YourTableName',con=engine)
+    X = df['message']
+    y = df[df.columns[5:]]
+    
+    return X,y
 
 def tokenize(text):
-    pass
+    tokens = word_tokenize(text)
+    lemmatizer = WordNetLemmatizer()
+    
+    clean_tokens = []
+    for tok in tokens:
+        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
+        clean_tokens.append(clean_tok)
+    
+    return clean_tokens
 
 
 def build_model():
-    pass
+    pipeline = Pipeline([
+        ('vect', CountVectorizer(tokenizer=tokenize)),
+        ('tfidf', TfidfTransformer()),
+        ('clf', RandomForestClassifier())
+    ])
 
+    # specify parameters for grid search
+    parameters = {
+        'vect__max_df': (0.75, 1.0),
+        'vect__max_features': (None, 5000),
+        'tfidf__use_idf': (True, False),
+        'clf__n_estimators': [50, 100],
+        'clf__min_samples_split': [3, 4],
+    }
+
+    # create grid search object
+    cv = GridSearchCV(pipeline, param_grid=parameters)
+    
+    #return pipeline
+    return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
-    pass
+    y_pred = model.predict(X_test)
+    #target_names = df.columns[5:]
+    #reports = classification_report(Y_test,y_pred,target_names=target_names)
+    reports = classification_report(Y_test,y_pred)
+    return reports
 
 
 def save_model(model, model_filepath):
-    pass
+    pickle.dump(model, open(model_filepath, 'wb'))
 
 
 def main():
