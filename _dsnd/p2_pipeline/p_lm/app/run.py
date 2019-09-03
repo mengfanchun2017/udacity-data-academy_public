@@ -15,6 +15,14 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 def tokenize(text):
+    '''
+    function: get text to tokens, includes
+        - tokenize
+        - lemmatize
+    input: text
+    output: tokens
+    env: WordNetLemmatizer, word_tokenize
+    '''
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
@@ -37,7 +45,12 @@ model = joblib.load("../models/your_model_name.pkl")
 @app.route('/')
 @app.route('/index')
 def index():
-    
+    '''
+    function: visual show for message source
+    input: dataframe with source
+    output: visual show
+    env: plotly
+    '''
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
@@ -77,6 +90,14 @@ def index():
 # web page that handles user query and displays model results
 @app.route('/go')
 def go():
+    '''
+    function: IO process
+        - got user input
+        - put output to webpage
+    input: predict output
+    output: info to webpage
+    env: flask
+    '''
     # save user input in query
     query = request.args.get('query', '') 
 
@@ -93,6 +114,9 @@ def go():
 
 
 def main():
+    '''
+    function: api main function
+    '''
     app.run(host='0.0.0.0', port=3001, debug=True)
 
 
