@@ -36,11 +36,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 749,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:00.489103Z",
-     "start_time": "2019-09-19T08:00:58.361235Z"
+     "end_time": "2019-09-19T07:14:24.630442Z",
+     "start_time": "2019-09-19T07:14:24.544141Z"
     }
    },
    "outputs": [],
@@ -68,11 +68,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 750,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:00.707952Z",
-     "start_time": "2019-09-19T08:01:00.491781Z"
+     "end_time": "2019-09-19T07:14:25.084646Z",
+     "start_time": "2019-09-19T07:14:24.635968Z"
     }
    },
    "outputs": [
@@ -185,7 +185,7 @@
        "((45993, 3), (1056, 5))"
       ]
      },
-     "execution_count": 2,
+     "execution_count": 750,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -213,11 +213,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 751,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:00.879938Z",
-     "start_time": "2019-09-19T08:01:00.713187Z"
+     "end_time": "2019-09-19T07:14:25.172226Z",
+     "start_time": "2019-09-19T07:14:25.091981Z"
     }
    },
    "outputs": [
@@ -251,11 +251,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 752,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:00.890596Z",
-     "start_time": "2019-09-19T08:01:00.883804Z"
+     "end_time": "2019-09-19T07:14:25.183434Z",
+     "start_time": "2019-09-19T07:14:25.177214Z"
     }
    },
    "outputs": [],
@@ -267,11 +267,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 753,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:00.909146Z",
-     "start_time": "2019-09-19T08:01:00.894756Z"
+     "end_time": "2019-09-19T07:14:25.209242Z",
+     "start_time": "2019-09-19T07:14:25.187832Z"
     }
    },
    "outputs": [
@@ -306,11 +306,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 754,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:00.944518Z",
-     "start_time": "2019-09-19T08:01:00.911950Z"
+     "end_time": "2019-09-19T07:14:25.240674Z",
+     "start_time": "2019-09-19T07:14:25.213510Z"
     }
    },
    "outputs": [
@@ -327,7 +327,7 @@
        "45976"
       ]
      },
-     "execution_count": 6,
+     "execution_count": 754,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -341,11 +341,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 755,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:00.979364Z",
-     "start_time": "2019-09-19T08:01:00.956574Z"
+     "end_time": "2019-09-19T07:14:25.254431Z",
+     "start_time": "2019-09-19T07:14:25.244822Z"
     }
    },
    "outputs": [
@@ -355,7 +355,7 @@
        "45976"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 755,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -367,11 +367,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 756,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.361024Z",
-     "start_time": "2019-09-19T08:01:00.992148Z"
+     "end_time": "2019-09-19T07:14:25.664135Z",
+     "start_time": "2019-09-19T07:14:25.261136Z"
     }
    },
    "outputs": [
@@ -395,11 +395,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 757,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.391446Z",
-     "start_time": "2019-09-19T08:01:01.365516Z"
+     "end_time": "2019-09-19T07:14:25.700312Z",
+     "start_time": "2019-09-19T07:14:25.668764Z"
     }
    },
    "outputs": [
@@ -409,7 +409,7 @@
        "364"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 757,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -425,11 +425,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 758,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.418679Z",
-     "start_time": "2019-09-19T08:01:01.395065Z"
+     "end_time": "2019-09-19T07:14:25.735009Z",
+     "start_time": "2019-09-19T07:14:25.703755Z"
     }
    },
    "outputs": [
@@ -439,7 +439,7 @@
        "3.0"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 758,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -465,11 +465,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 759,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.433811Z",
-     "start_time": "2019-09-19T08:01:01.422170Z"
+     "end_time": "2019-09-19T07:14:25.744074Z",
+     "start_time": "2019-09-19T07:14:25.738231Z"
     }
    },
    "outputs": [],
@@ -489,11 +489,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 760,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.449877Z",
-     "start_time": "2019-09-19T08:01:01.437403Z"
+     "end_time": "2019-09-19T07:14:25.763633Z",
+     "start_time": "2019-09-19T07:14:25.747132Z"
     }
    },
    "outputs": [
@@ -503,7 +503,7 @@
        "(1051, 1056)"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 760,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -516,11 +516,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 761,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.496543Z",
-     "start_time": "2019-09-19T08:01:01.457178Z"
+     "end_time": "2019-09-19T07:14:25.807288Z",
+     "start_time": "2019-09-19T07:14:25.768053Z"
     }
    },
    "outputs": [
@@ -689,7 +689,7 @@
        "[834 rows x 5 columns]"
       ]
      },
-     "execution_count": 13,
+     "execution_count": 761,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -701,11 +701,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 762,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.511472Z",
-     "start_time": "2019-09-19T08:01:01.499790Z"
+     "end_time": "2019-09-19T07:14:25.825948Z",
+     "start_time": "2019-09-19T07:14:25.810516Z"
     }
    },
    "outputs": [
@@ -739,11 +739,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 763,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.535929Z",
-     "start_time": "2019-09-19T08:01:01.514930Z"
+     "end_time": "2019-09-19T07:14:25.858019Z",
+     "start_time": "2019-09-19T07:14:25.829323Z"
     }
    },
    "outputs": [
@@ -753,7 +753,7 @@
        "(18, 714, 714)"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 763,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -766,11 +766,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 764,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.551663Z",
-     "start_time": "2019-09-19T08:01:01.539414Z"
+     "end_time": "2019-09-19T07:14:25.874451Z",
+     "start_time": "2019-09-19T07:14:25.861487Z"
     }
    },
    "outputs": [
@@ -780,7 +780,7 @@
        "714"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 764,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -792,11 +792,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 765,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.572335Z",
-     "start_time": "2019-09-19T08:01:01.555155Z"
+     "end_time": "2019-09-19T07:14:25.894816Z",
+     "start_time": "2019-09-19T07:14:25.877739Z"
     }
    },
    "outputs": [
@@ -806,7 +806,7 @@
        "5148"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 765,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -819,11 +819,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 766,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.618176Z",
-     "start_time": "2019-09-19T08:01:01.584109Z"
+     "end_time": "2019-09-19T07:14:25.923194Z",
+     "start_time": "2019-09-19T07:14:25.897423Z"
     }
    },
    "outputs": [
@@ -833,7 +833,7 @@
        "(45976, 45976)"
       ]
      },
-     "execution_count": 18,
+     "execution_count": 766,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -851,11 +851,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 767,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.636528Z",
-     "start_time": "2019-09-19T08:01:01.621645Z"
+     "end_time": "2019-09-19T07:14:25.934255Z",
+     "start_time": "2019-09-19T07:14:25.928328Z"
     }
    },
    "outputs": [],
@@ -876,11 +876,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 768,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.726286Z",
-     "start_time": "2019-09-19T08:01:01.638919Z"
+     "end_time": "2019-09-19T07:14:25.964812Z",
+     "start_time": "2019-09-19T07:14:25.939002Z"
     }
    },
    "outputs": [
@@ -890,7 +890,7 @@
        "('1429', 937)"
       ]
      },
-     "execution_count": 20,
+     "execution_count": 768,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -902,11 +902,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 769,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.752025Z",
-     "start_time": "2019-09-19T08:01:01.732190Z"
+     "end_time": "2019-09-19T07:14:25.984493Z",
+     "start_time": "2019-09-19T07:14:25.967783Z"
     }
    },
    "outputs": [],
@@ -918,11 +918,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 770,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.806929Z",
-     "start_time": "2019-09-19T08:01:01.759532Z"
+     "end_time": "2019-09-19T07:14:26.048935Z",
+     "start_time": "2019-09-19T07:14:25.987469Z"
     }
    },
    "outputs": [
@@ -996,7 +996,7 @@
        "4       1276          deploy your python model as a restful api        5"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 770,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1028,11 +1028,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 771,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.882995Z",
-     "start_time": "2019-09-19T08:01:01.817957Z"
+     "end_time": "2019-09-19T07:14:26.063378Z",
+     "start_time": "2019-09-19T07:14:26.057374Z"
     }
    },
    "outputs": [
@@ -1079,11 +1079,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 772,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.910540Z",
-     "start_time": "2019-09-19T08:01:01.889443Z"
+     "end_time": "2019-09-19T07:14:26.094926Z",
+     "start_time": "2019-09-19T07:14:26.068780Z"
     }
    },
    "outputs": [
@@ -1111,7 +1111,7 @@
        " 'Putting A Human Face On Machine Learning']"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 772,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1126,11 +1126,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 773,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.925194Z",
-     "start_time": "2019-09-19T08:01:01.914395Z"
+     "end_time": "2019-09-19T07:14:26.109552Z",
+     "start_time": "2019-09-19T07:14:26.100878Z"
     }
    },
    "outputs": [],
@@ -1172,11 +1172,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 774,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:01.968380Z",
-     "start_time": "2019-09-19T08:01:01.927444Z"
+     "end_time": "2019-09-19T07:14:26.141933Z",
+     "start_time": "2019-09-19T07:14:26.113430Z"
     }
    },
    "outputs": [
@@ -1198,11 +1198,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 775,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:02.111600Z",
-     "start_time": "2019-09-19T08:01:01.977001Z"
+     "end_time": "2019-09-19T07:14:26.210698Z",
+     "start_time": "2019-09-19T07:14:26.145504Z"
     }
    },
    "outputs": [
@@ -1259,11 +1259,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 776,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:02.381989Z",
-     "start_time": "2019-09-19T08:01:02.119084Z"
+     "end_time": "2019-09-19T07:14:26.345142Z",
+     "start_time": "2019-09-19T07:14:26.213917Z"
     }
    },
    "outputs": [
@@ -1337,7 +1337,7 @@
        "4      1276.0          deploy your python model as a restful api        5"
       ]
      },
-     "execution_count": 28,
+     "execution_count": 776,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1371,11 +1371,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 777,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:02.619997Z",
-     "start_time": "2019-09-19T08:01:02.388846Z"
+     "end_time": "2019-09-19T07:14:26.510370Z",
+     "start_time": "2019-09-19T07:14:26.350856Z"
     }
    },
    "outputs": [
@@ -1883,11 +1883,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 778,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:02.627847Z",
-     "start_time": "2019-09-19T08:01:02.622614Z"
+     "end_time": "2019-09-19T07:14:26.522395Z",
+     "start_time": "2019-09-19T07:14:26.514079Z"
     }
    },
    "outputs": [],
@@ -1917,11 +1917,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 779,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:02.811131Z",
-     "start_time": "2019-09-19T08:01:02.639129Z"
+     "end_time": "2019-09-19T07:14:26.689017Z",
+     "start_time": "2019-09-19T07:14:26.526088Z"
     }
    },
    "outputs": [
@@ -2147,7 +2147,7 @@
        "[5 rows x 714 columns]"
       ]
      },
-     "execution_count": 31,
+     "execution_count": 779,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2159,11 +2159,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": 780,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.146759Z",
-     "start_time": "2019-09-19T08:01:02.828863Z"
+     "end_time": "2019-09-19T07:14:28.036216Z",
+     "start_time": "2019-09-19T07:14:26.692674Z"
     }
    },
    "outputs": [
@@ -2173,7 +2173,7 @@
        "((5149, 714), (4048, 714), 47.0, 47.0)"
       ]
      },
-     "execution_count": 32,
+     "execution_count": 780,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2201,11 +2201,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 36,
+   "execution_count": 781,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:02:03.655818Z",
-     "start_time": "2019-09-19T08:02:03.649167Z"
+     "end_time": "2019-09-19T07:14:28.049391Z",
+     "start_time": "2019-09-19T07:14:28.040193Z"
     }
    },
    "outputs": [
@@ -2238,11 +2238,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 37,
+   "execution_count": 782,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:02:07.830596Z",
-     "start_time": "2019-09-19T08:02:07.663741Z"
+     "end_time": "2019-09-19T07:14:28.261157Z",
+     "start_time": "2019-09-19T07:14:28.053558Z"
     }
    },
    "outputs": [
@@ -2360,7 +2360,7 @@
        "[1 rows x 714 columns]"
       ]
      },
-     "execution_count": 37,
+     "execution_count": 782,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2393,11 +2393,186 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 783,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.546499Z",
-     "start_time": "2019-09-19T08:00:58.501Z"
+     "end_time": "2019-09-19T07:14:28.315675Z",
+     "start_time": "2019-09-19T07:14:28.265425Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "article_id\n",
+       "0.0       0.0\n",
+       "2.0       0.0\n",
+       "4.0       0.0\n",
+       "8.0       0.0\n",
+       "9.0       0.0\n",
+       "         ... \n",
+       "1440.0    0.0\n",
+       "1441.0    0.0\n",
+       "1442.0    0.0\n",
+       "1443.0    0.0\n",
+       "1444.0    0.0\n",
+       "Name: 2, Length: 714, dtype: float64"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th>article_id</th>\n",
+       "      <th>0.0</th>\n",
+       "      <th>2.0</th>\n",
+       "      <th>4.0</th>\n",
+       "      <th>8.0</th>\n",
+       "      <th>9.0</th>\n",
+       "      <th>12.0</th>\n",
+       "      <th>14.0</th>\n",
+       "      <th>15.0</th>\n",
+       "      <th>16.0</th>\n",
+       "      <th>18.0</th>\n",
+       "      <th>...</th>\n",
+       "      <th>1434.0</th>\n",
+       "      <th>1435.0</th>\n",
+       "      <th>1436.0</th>\n",
+       "      <th>1437.0</th>\n",
+       "      <th>1439.0</th>\n",
+       "      <th>1440.0</th>\n",
+       "      <th>1441.0</th>\n",
+       "      <th>1442.0</th>\n",
+       "      <th>1443.0</th>\n",
+       "      <th>1444.0</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>user_id</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <td>1</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>1 rows × 714 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "article_id  0.0     2.0     4.0     8.0     9.0     12.0    14.0    15.0    \\\n",
+       "user_id                                                                      \n",
+       "1              0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0   \n",
+       "\n",
+       "article_id  16.0    18.0    ...  1434.0  1435.0  1436.0  1437.0  1439.0  \\\n",
+       "user_id                     ...                                           \n",
+       "1              0.0     0.0  ...     0.0     0.0     1.0     0.0     1.0   \n",
+       "\n",
+       "article_id  1440.0  1441.0  1442.0  1443.0  1444.0  \n",
+       "user_id                                             \n",
+       "1              0.0     0.0     0.0     0.0     0.0  \n",
+       "\n",
+       "[1 rows x 714 columns]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "array([   1,    2,    3, ..., 5147, 5148, 5149])"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# test code\n",
+    "display(user_item.iloc[user_id,:])\n",
+    "display(user_item[user_item.index==user_id])\n",
+    "display(list(user_item.index.values[:10]))\n",
+    "display(df.user_id.unique())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 784,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-09-19T07:14:28.327848Z",
+     "start_time": "2019-09-19T07:14:28.320046Z"
     }
    },
    "outputs": [],
@@ -2451,11 +2626,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 41,
+   "execution_count": 785,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:03:48.744837Z",
-     "start_time": "2019-09-19T08:03:48.734317Z"
+     "end_time": "2019-09-19T07:14:28.347157Z",
+     "start_time": "2019-09-19T07:14:28.332309Z"
     }
    },
    "outputs": [],
@@ -2503,11 +2678,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 786,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.549651Z",
-     "start_time": "2019-09-19T08:00:58.510Z"
+     "end_time": "2019-09-19T07:14:28.355785Z",
+     "start_time": "2019-09-19T07:14:28.349774Z"
     }
    },
    "outputs": [],
@@ -2524,11 +2699,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 57,
+   "execution_count": 787,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:09:24.251384Z",
-     "start_time": "2019-09-19T08:09:24.184081Z"
+     "end_time": "2019-09-19T07:14:28.432401Z",
+     "start_time": "2019-09-19T07:14:28.358697Z"
     }
    },
    "outputs": [
@@ -2536,14 +2711,14 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "The 10 most similar users to user 1 are: [3933, 23, 3782, 203, 4459, 3870, 131, 4201, 46, 3697]\n",
+      "The 10 most similar users to user 1 are: [98, 49, 3764, 3697, 4785, 38, 5083, 290, 2982, 23]\n",
       "The 5 most similar users to user 3933 are: [1, 3782, 23, 203, 4459]\n",
       "The 3 most similar users to user 46 are: [4201, 3782, 23]\n"
      ]
     }
    ],
    "source": [
-    "print(\"The 10 most similar users to user 1 are: {}\".format(find_similar_users(1)[:10]))\n",
+    "print(\"The 10 most similar users to user 1 are: {}\".format(find_similar_users(2)[:10]))\n",
     "print(\"The 5 most similar users to user 3933 are: {}\".format(find_similar_users(3933)[:5]))\n",
     "print(\"The 3 most similar users to user 46 are: {}\".format(find_similar_users(46)[:3]))"
    ]
@@ -2557,57 +2732,57 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 60,
+   "execution_count": 788,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:13:17.963382Z",
-     "start_time": "2019-09-19T08:13:17.938084Z"
+     "end_time": "2019-09-19T07:14:28.463127Z",
+     "start_time": "2019-09-19T07:14:28.435814Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "[3933, 23, 3782, 203, 4459, 3870, 131, 4201, 46, 3697]"
+       "[98, 49, 3764, 3697, 4785, 38, 5083, 290, 2982, 23]"
       ]
      },
-     "execution_count": 60,
+     "execution_count": 788,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "article_ids = find_similar_users(1)[:10]\n",
+    "article_ids = find_similar_users(2)[:10]\n",
     "article_ids"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 61,
+   "execution_count": 789,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:13:18.828437Z",
-     "start_time": "2019-09-19T08:13:18.818748Z"
+     "end_time": "2019-09-19T07:14:28.479480Z",
+     "start_time": "2019-09-19T07:14:28.465910Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "3933      Brunel: Imitation Is A Sincere Form Of Flattery\n",
-       "23      Access Db2 Warehouse On Cloud And Db2 With Python\n",
-       "3782          Airbnb Data For Analytics: Toronto Calendar\n",
-       "203     10 Must Attend Data Science, Ml And Ai Confere...\n",
-       "4459    Finding Optimal Locations Of New Store Using D...\n",
-       "3870    Why You Should Master R (Even If It Might Even...\n",
-       "131              Data Visualization With R: Scrum Metrics\n",
-       "4201         Healthcare Python Streaming Application Demo\n",
-       "46                               Uci: Sms Spam Collection\n",
+       "98      10 Must Attend Data Science, Ml And Ai Confere...\n",
+       "49                               Access Mysql With Python\n",
+       "3764                     The Pandas Data Analysis Library\n",
        "3697          Flexdashboard: Interactive Dashboards For R\n",
+       "4785           Use Deep Learning For Image Classification\n",
+       "38              Common Excel Tasks Demonstrated In Pandas\n",
+       "5083                            Data Science In The Cloud\n",
+       "290                 Classify Tumors With Machine Learning\n",
+       "2982                        The Machine Learning Database\n",
+       "23      Access Db2 Warehouse On Cloud And Db2 With Python\n",
        "Name: title, dtype: object"
       ]
      },
-     "execution_count": 61,
+     "execution_count": 789,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2619,11 +2794,50 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 46,
+   "execution_count": 826,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:04:44.408672Z",
-     "start_time": "2019-09-19T08:04:44.399600Z"
+     "end_time": "2019-09-19T07:32:27.811081Z",
+     "start_time": "2019-09-19T07:32:27.803174Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4"
+      ]
+     },
+     "execution_count": 826,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "round(4.5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 830,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-09-19T07:33:45.829496Z",
+     "start_time": "2019-09-19T07:33:45.824665Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "list = ['1320.0', '232', '844']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 827,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2019-09-19T07:32:36.208510Z",
+     "start_time": "2019-09-19T07:32:36.198571Z"
     }
    },
    "outputs": [],
@@ -2641,9 +2855,9 @@
     "    # Your code here\n",
     "    #article_names = list(df.iloc[article_id,:]['title'].str.title())\n",
     "    \n",
-    "    article_ids = list(map(int, article_ids))\n",
-    "    #article_ids = [round(i) for i in article_ids]\n",
-    "    #article_ids = [int(i) for i in article_ids]\n",
+    "    #article_ids = list(map(int, article_ids))\n",
+    "    article_ids = [round(i) for i in article_ids]\n",
+    "    article_ids = [int(i) for i in article_ids]\n",
     "    article_names = list(df.iloc[article_ids,:]['title'])\n",
     "    \n",
     "    return article_names # Return the article names associated with list of article ids\n",
@@ -2700,56 +2914,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 62,
+   "execution_count": 828,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:14:12.727903Z",
-     "start_time": "2019-09-19T08:14:12.669278Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "['3933', '23', '3782', '203', '4459', '3870', '131', '4201', '46', '3697']"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
-     "data": {
-      "text/plain": [
-       "['brunel: imitation is a sincere form of flattery',\n",
-       " 'access db2 warehouse on cloud and db2 with python',\n",
-       " 'airbnb data for analytics: toronto calendar',\n",
-       " '10 must attend data science, ml and ai conferences in 2018',\n",
-       " 'finding optimal locations of new store using decision optimization',\n",
-       " 'why you should master r (even if it might eventually become obsolete)',\n",
-       " 'data visualization with r: scrum metrics',\n",
-       " 'healthcare python streaming application demo',\n",
-       " 'uci: sms spam collection',\n",
-       " 'flexdashboard: interactive dashboards for r']"
-      ]
-     },
-     "execution_count": 62,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# test code\n",
-    "display(user_user_recs(1, 10))\n",
-    "get_article_names(user_user_recs(1, 10))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 63,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-09-19T08:14:25.805493Z",
-     "start_time": "2019-09-19T08:14:25.778798Z"
+     "end_time": "2019-09-19T07:32:36.745689Z",
+     "start_time": "2019-09-19T07:32:36.716899Z"
     }
    },
    "outputs": [
@@ -2761,7 +2930,7 @@
        "  'ml optimization using cognitive assistant'])"
       ]
      },
-     "execution_count": 63,
+     "execution_count": 828,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2773,333 +2942,90 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 64,
+   "execution_count": 829,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:14:30.521427Z",
-     "start_time": "2019-09-19T08:14:30.482105Z"
+     "end_time": "2019-09-19T07:32:38.414529Z",
+     "start_time": "2019-09-19T07:32:38.385880Z"
     }
    },
    "outputs": [
     {
-     "data": {
-      "text/plain": [
-       "['neural networks for beginners: popular types and applications',\n",
-       " 'ml optimization using cognitive assistant',\n",
-       " 'ml optimization using cognitive assistant']"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
-     "data": {
-      "text/plain": [
-       "['neural networks for beginners: popular types and applications',\n",
-       " 'ml optimization using cognitive assistant',\n",
-       " 'ml optimization using cognitive assistant']"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
-     "data": {
-      "text/plain": [
-       "['10 must attend data science, ml and ai conferences in 2018',\n",
-       " 'access mysql with python',\n",
-       " 'the pandas data analysis library',\n",
-       " 'flexdashboard: interactive dashboards for r']"
-      ]
-     },
-     "execution_count": 64,
-     "metadata": {},
-     "output_type": "execute_result"
+     "ename": "TypeError",
+     "evalue": "type str doesn't define __round__ method",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m--------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m        Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-829-2a5e71fccaf5>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;31m# test code\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;31m## both int and str are acceptable\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0mdisplay\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_article_names\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'1320.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'232'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'844'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      4\u001b[0m \u001b[0mdisplay\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_article_names\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1320\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m232\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m844\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mget_article_names\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0muser_user_recs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m4\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m<ipython-input-827-b815c12b141a>\u001b[0m in \u001b[0;36mget_article_names\u001b[0;34m(article_ids, df)\u001b[0m\n\u001b[1;32m     13\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     14\u001b[0m     \u001b[0;31m#article_ids = list(map(int, article_ids))\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 15\u001b[0;31m     \u001b[0marticle_ids\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mround\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mi\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[0;32min\u001b[0m \u001b[0marticle_ids\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     16\u001b[0m     \u001b[0marticle_ids\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mi\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[0;32min\u001b[0m \u001b[0marticle_ids\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     17\u001b[0m     \u001b[0marticle_names\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0miloc\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0marticle_ids\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'title'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m<ipython-input-827-b815c12b141a>\u001b[0m in \u001b[0;36m<listcomp>\u001b[0;34m(.0)\u001b[0m\n\u001b[1;32m     13\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     14\u001b[0m     \u001b[0;31m#article_ids = list(map(int, article_ids))\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 15\u001b[0;31m     \u001b[0marticle_ids\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mround\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mi\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[0;32min\u001b[0m \u001b[0marticle_ids\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     16\u001b[0m     \u001b[0marticle_ids\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mi\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[0;32min\u001b[0m \u001b[0marticle_ids\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     17\u001b[0m     \u001b[0marticle_names\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0miloc\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0marticle_ids\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'title'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mTypeError\u001b[0m: type str doesn't define __round__ method"
+     ]
     }
    ],
    "source": [
     "# test code\n",
     "## both int and str are acceptable\n",
-    "display(get_article_names(['1320', '232', '844']))\n",
+    "display(get_article_names(['1320.0', '232', '844']))\n",
     "display(get_article_names([1320, 232, 844]))\n",
     "get_article_names(user_user_recs(2, 4))"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 70,
+   "execution_count": 821,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:17:56.372266Z",
-     "start_time": "2019-09-19T08:17:56.357155Z"
-    }
-   },
-   "outputs": [],
-   "source": [
-    "# test code func1\n",
-    "def get_article_names(article_ids, df=df):\n",
-    "    '''\n",
-    "    INPUT:\n",
-    "    article_ids - (list) a list of article ids\n",
-    "    df - (pandas dataframe) df as defined at the top of the notebook\n",
-    "    \n",
-    "    OUTPUT:\n",
-    "    article_names - (list) a list of article names associated with the list of article ids \n",
-    "                    (this is identified by the title column)\n",
-    "    '''\n",
-    "    # Your code here\n",
-    "    #article_names_orig = df[df['article_id'].isin(article_ids)]['title'].unique().tolist()\n",
-    "    \n",
-    "    article_names = []\n",
-    "    \n",
-    "    # if article_ids are given as list of string, convert to list of float   \n",
-    "    article_ids = list(map(float, article_ids))\n",
-    "    \n",
-    "    # get df arranged by article ids\n",
-    "    df_by_article_id = df.drop_duplicates(subset='article_id')[['article_id', 'title']].set_index('article_id')\n",
-    "    \n",
-    "    article_names_orig = df_by_article_id.loc[article_ids]['title'].values.tolist()\n",
-    "    \n",
-    "    # remove \\nName: title, dtype: object from article names\n",
-    "    for name in article_names_orig:\n",
-    "        try:\n",
-    "            name = name.replace(\"\\nName: title, dtype: object\", \"\")\n",
-    "        except:\n",
-    "            continue\n",
-    "        article_names.append(name)\n",
-    "        \n",
-    "    return article_names # Return the article names associated with list of article ids\n",
-    "\n",
-    "\n",
-    "def get_user_articles(user_id, user_item=user_item):\n",
-    "    '''\n",
-    "    INPUT:\n",
-    "    user_id - (int) a user id\n",
-    "    user_item - (pandas dataframe) matrix of users by articles: \n",
-    "                1's when a user has interacted with an article, 0 otherwise\n",
-    "    \n",
-    "    OUTPUT:\n",
-    "    article_ids - (list) a list of the article ids seen by the user\n",
-    "    article_names - (list) a list of article names associated with the list of article ids \n",
-    "                    (this is identified by the doc_full_name column in df_content)\n",
-    "    \n",
-    "    Description:\n",
-    "    Provides a list of the article_ids and article titles that have been seen by a user\n",
-    "    '''\n",
-    "    # Your code here\n",
-    "    # get row of user\n",
-    "    user_row = user_item.loc[user_id]\n",
-    "    \n",
-    "    # find indices of user_row where there are interactionns\n",
-    "    ind = np.where(user_row  == 1)\n",
-    "    \n",
-    "    # get article ids where user has interactions\n",
-    "    article_ids = user_row.index[ind].values.tolist()\n",
-    "    \n",
-    "    # get article names where users have interactions\n",
-    "    article_names = get_article_names(article_ids)\n",
-    "    \n",
-    "    return article_ids, article_names # return the ids and names\n",
-    "\n",
-    "\n",
-    "def user_user_recs(user_id, m=10):\n",
-    "    '''\n",
-    "    INPUT:\n",
-    "    user_id - (int) a user id\n",
-    "    m - (int) the number of recommendations you want for the user\n",
-    "    \n",
-    "    OUTPUT:\n",
-    "    recs - (list) a list of recommendations for the user\n",
-    "    \n",
-    "    Description:\n",
-    "    Loops through the users based on closeness to the input user_id\n",
-    "    For each user - finds articles the user hasn't seen before and provides them as recs\n",
-    "    Does this until m recommendations are found\n",
-    "    \n",
-    "    Notes:\n",
-    "    Users who are the same closeness are chosen arbitrarily as the 'next' user\n",
-    "    \n",
-    "    For the user where the number of recommended articles starts below m \n",
-    "    and ends exceeding m, the last items are chosen arbitrarily\n",
-    "    \n",
-    "    '''\n",
-    "    # Your code here\n",
-    "    \n",
-    "    # store id of recommended articles\n",
-    "    recs = []\n",
-    "    \n",
-    "    # find similar users\n",
-    "    similar_users = find_similar_users(user_id)\n",
-    "    \n",
-    "    for sim_user in similar_users:\n",
-    "        # get articles viewed by similar user\n",
-    "        rec_article_ids, rec_article_names = get_user_articles(sim_user)\n",
-    "        \n",
-    "        # get articles seen by current user\n",
-    "        seen_articles_ids, seen_articles_names = get_user_articles(user_id)\n",
-    "        \n",
-    "        # get recommended  articles not seen by user\n",
-    "        rec_articles = np.setdiff1d(np.array(rec_article_ids), np.array(seen_articles_ids), assume_unique=True)\n",
-    "        \n",
-    "        # add recommended articles id for this iteration to main list\n",
-    "        recs.extend(rec_articles.tolist())\n",
-    "        \n",
-    "        # if we have enough articles\n",
-    "        if len(recs) >= m:\n",
-    "            break\n",
-    "    \n",
-    "    recs = recs[:m]\n",
-    "    \n",
-    "    return recs # return your recommendations for this user_id"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 71,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-09-19T08:18:10.803460Z",
-     "start_time": "2019-09-19T08:18:10.718794Z"
+     "end_time": "2019-09-19T07:29:13.327225Z",
+     "start_time": "2019-09-19T07:29:13.298605Z"
     }
    },
    "outputs": [
     {
-     "data": {
-      "text/plain": [
-       "['this week in data science (april 18, 2017)',\n",
-       " 'timeseries data analysis of iot events by using jupyter notebook',\n",
-       " 'got zip code data? prep it for analytics. – ibm watson data lab – medium',\n",
-       " 'higher-order logistic regression for large datasets',\n",
-       " 'using machine learning to predict parking difficulty',\n",
-       " 'deep forest: towards an alternative to deep neural networks',\n",
-       " 'experience iot with coursera',\n",
-       " 'using brunel in ipython/jupyter notebooks',\n",
-       " 'graph-based machine learning',\n",
-       " 'the 3 kinds of context: machine learning and the art of the frame']"
-      ]
-     },
-     "execution_count": 71,
-     "metadata": {},
-     "output_type": "execute_result"
+     "ename": "ValueError",
+     "evalue": "invalid literal for int() with base 10: '1024.0'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m--------------------------------------------------\u001b[0m",
+      "\u001b[0;31mValueError\u001b[0m       Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-821-c81316aeaccc>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;31m# Test your functions here - No need to change this code - just run this cell\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_article_names\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'1024.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1176.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1305.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1314.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1422.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1427.0'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'using deep learning to reconstruct high-resolution audio'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'build a python app on the streaming analytics service'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'gosales transactions for naive bayes model'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'healthcare python streaming application demo'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'use r dataframes & ibm watson natural language understanding'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'use xgboost, scikit-learn & ibm watson machine learning apis'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"Oops! Your the get_article_names function doesn't work quite how we expect.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_article_names\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'1320.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'232.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'844.0'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'housing (2015): united states demographic measures'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m'self-service data preparation with ibm data refinery'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m'use the cloudant-spark connector in python notebook'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"Oops! Your the get_article_names function doesn't work quite how we expect.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_user_articles\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m20\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'1320.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'232.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'844.0'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_user_articles\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m20\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'housing (2015): united states demographic measures'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'self-service data preparation with ibm data refinery'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m'use the cloudant-spark connector in python notebook'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m<ipython-input-818-3e0958b824b0>\u001b[0m in \u001b[0;36mget_article_names\u001b[0;34m(article_ids, df)\u001b[0m\n\u001b[1;32m     13\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     14\u001b[0m     \u001b[0;31m#article_ids = list(map(int, article_ids))\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 15\u001b[0;31m     \u001b[0marticle_ids\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mi\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[0;32min\u001b[0m \u001b[0marticle_ids\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     16\u001b[0m     \u001b[0marticle_names\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0miloc\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0marticle_ids\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'title'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     17\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m<ipython-input-818-3e0958b824b0>\u001b[0m in \u001b[0;36m<listcomp>\u001b[0;34m(.0)\u001b[0m\n\u001b[1;32m     13\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     14\u001b[0m     \u001b[0;31m#article_ids = list(map(int, article_ids))\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 15\u001b[0;31m     \u001b[0marticle_ids\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mi\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[0;32min\u001b[0m \u001b[0marticle_ids\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     16\u001b[0m     \u001b[0marticle_names\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0miloc\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0marticle_ids\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'title'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     17\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mValueError\u001b[0m: invalid literal for int() with base 10: '1024.0'"
+     ]
     }
    ],
    "source": [
-    "#### tobc\n",
-    "# Check Results\n",
-    "get_article_names(user_user_recs(1, 10)) # Return 10 recommendations for user 1"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 65,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-09-19T08:14:32.012092Z",
-     "start_time": "2019-09-19T08:14:32.007267Z"
-    }
-   },
-   "outputs": [],
-   "source": [
     "# Test your functions here - No need to change this code - just run this cell\n",
-    "# altered from bizzar input, this code cell is only arc for ori\n",
-    "'''\n",
     "assert set(get_article_names(['1024.0', '1176.0', '1305.0', '1314.0', '1422.0', '1427.0'])) == set(['using deep learning to reconstruct high-resolution audio', 'build a python app on the streaming analytics service', 'gosales transactions for naive bayes model', 'healthcare python streaming application demo', 'use r dataframes & ibm watson natural language understanding', 'use xgboost, scikit-learn & ibm watson machine learning apis']), \"Oops! Your the get_article_names function doesn't work quite how we expect.\"\n",
     "assert set(get_article_names(['1320.0', '232.0', '844.0'])) == set(['housing (2015): united states demographic measures','self-service data preparation with ibm data refinery','use the cloudant-spark connector in python notebook']), \"Oops! Your the get_article_names function doesn't work quite how we expect.\"\n",
     "assert set(get_user_articles(20)[0]) == set(['1320.0', '232.0', '844.0'])\n",
     "assert set(get_user_articles(20)[1]) == set(['housing (2015): united states demographic measures', 'self-service data preparation with ibm data refinery','use the cloudant-spark connector in python notebook'])\n",
     "assert set(get_user_articles(2)[0]) == set(['1024.0', '1176.0', '1305.0', '1314.0', '1422.0', '1427.0'])\n",
     "assert set(get_user_articles(2)[1]) == set(['using deep learning to reconstruct high-resolution audio', 'build a python app on the streaming analytics service', 'gosales transactions for naive bayes model', 'healthcare python streaming application demo', 'use r dataframes & ibm watson natural language understanding', 'use xgboost, scikit-learn & ibm watson machine learning apis'])\n",
-    "print(\"If this is all you see, you passed all of our tests!  Nice job!\")\n",
-    "''';"
+    "print(\"If this is all you see, you passed all of our tests!  Nice job!\")"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 73,
+   "execution_count": 795,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:18:52.737398Z",
-     "start_time": "2019-09-19T08:18:52.703428Z"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "['using deep learning to reconstruct high-resolution audio',\n",
-       " 'build a python app on the streaming analytics service',\n",
-       " 'gosales transactions for naive bayes model',\n",
-       " 'healthcare python streaming application demo',\n",
-       " 'use r dataframes & ibm watson natural language understanding',\n",
-       " 'use xgboost, scikit-learn & ibm watson machine learning apis']"
-      ]
-     },
-     "execution_count": 73,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "get_article_names([1024, 1176, 1305, 1314, 1422, 1427])"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 74,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-09-19T08:19:42.347956Z",
-     "start_time": "2019-09-19T08:19:42.333998Z"
-    }
-   },
-   "outputs": [],
-   "source": [
-    "assert set(get_article_names([1024, 1176, 1305, 1314, 1422, 1427])) == set(['using deep learning to reconstruct high-resolution audio', 'build a python app on the streaming analytics service', 'gosales transactions for naive bayes model', 'healthcare python streaming application demo', 'use r dataframes & ibm watson natural language understanding', 'use xgboost, scikit-learn & ibm watson machine learning apis']), \"Oops! Your the get_article_names function doesn't work quite how we expect.\"\n",
-    "\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 75,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-09-19T08:20:13.726409Z",
-     "start_time": "2019-09-19T08:20:13.706923Z"
-    }
-   },
-   "outputs": [
-    {
-     "ename": "SyntaxError",
-     "evalue": "invalid syntax (<ipython-input-75-52cc52cad5d4>, line 1)",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-75-52cc52cad5d4>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    get_user_articles(20)[0]) == set(['1320.0', '232.0', '844.0']\u001b[0m\n\u001b[0m                            ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
-     ]
-    }
-   ],
-   "source": [
-    "get_user_articles(20)[0]) == set(['1320.0', '232.0', '844.0']"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 72,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2019-09-19T08:18:35.684987Z",
-     "start_time": "2019-09-19T08:18:35.645079Z"
+     "end_time": "2019-09-19T07:14:28.639078Z",
+     "start_time": "2019-09-19T07:14:28.609812Z"
     }
    },
    "outputs": [
     {
      "ename": "AssertionError",
-     "evalue": "",
+     "evalue": "Oops! Your the get_article_names function doesn't work quite how we expect.",
      "output_type": "error",
      "traceback": [
-      "\u001b[0;31m------------------------------------------------\u001b[0m",
-      "\u001b[0;31mAssertionError\u001b[0m Traceback (most recent call last)",
-      "\u001b[0;32m<ipython-input-72-ad3a12a1f6e0>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_article_names\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1024\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1176\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1305\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1314\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1422\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1427\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'using deep learning to reconstruct high-resolution audio'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'build a python app on the streaming analytics service'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'gosales transactions for naive bayes model'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'healthcare python streaming application demo'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'use r dataframes & ibm watson natural language understanding'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'use xgboost, scikit-learn & ibm watson machine learning apis'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"Oops! Your the get_article_names function doesn't work quite how we expect.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_article_names\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1320\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m232\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m844\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'housing (2015): united states demographic measures'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m'self-service data preparation with ibm data refinery'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m'use the cloudant-spark connector in python notebook'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"Oops! Your the get_article_names function doesn't work quite how we expect.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_user_articles\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m20\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'1320.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'232.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'844.0'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_user_articles\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m20\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'housing (2015): united states demographic measures'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'self-service data preparation with ibm data refinery'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m'use the cloudant-spark connector in python notebook'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_user_articles\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'1024.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1176.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1305.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1314.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1422.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'1427.0'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;31mAssertionError\u001b[0m: "
+      "\u001b[0;31m--------------------------------------------------\u001b[0m",
+      "\u001b[0;31mAssertionError\u001b[0m   Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-795-ad3a12a1f6e0>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;31m## change from str input to int input to assert\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;31m# Test your functions here - No need to change this code - just run this cell\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_article_names\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1024\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1176\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1305\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1314\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1422\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1427\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'using deep learning to reconstruct high-resolution audio'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'build a python app on the streaming analytics service'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'gosales transactions for naive bayes model'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'healthcare python streaming application demo'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'use r dataframes & ibm watson natural language understanding'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'use xgboost, scikit-learn & ibm watson machine learning apis'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"Oops! Your the get_article_names function doesn't work quite how we expect.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      5\u001b[0m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_article_names\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1320\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m232\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m844\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'housing (2015): united states demographic measures'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m'self-service data preparation with ibm data refinery'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m'use the cloudant-spark connector in python notebook'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"Oops! Your the get_article_names function doesn't work quite how we expect.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0;32massert\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mget_user_articles\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m20\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'1320.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'232.0'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'844.0'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mAssertionError\u001b[0m: Oops! Your the get_article_names function doesn't work quite how we expect."
      ]
     }
    ],
@@ -3121,8 +3047,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.571254Z",
-     "start_time": "2019-09-19T08:00:58.555Z"
+     "end_time": "2019-09-19T07:14:28.643362Z",
+     "start_time": "2019-09-19T07:14:24.747Z"
     }
    },
    "outputs": [],
@@ -3155,8 +3081,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.573016Z",
-     "start_time": "2019-09-19T08:00:58.559Z"
+     "end_time": "2019-09-19T07:14:28.646610Z",
+     "start_time": "2019-09-19T07:14:24.751Z"
     }
    },
    "outputs": [],
@@ -3218,8 +3144,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.574672Z",
-     "start_time": "2019-09-19T08:00:58.563Z"
+     "end_time": "2019-09-19T07:14:28.649110Z",
+     "start_time": "2019-09-19T07:14:24.754Z"
     }
    },
    "outputs": [],
@@ -3245,8 +3171,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.577467Z",
-     "start_time": "2019-09-19T08:00:58.567Z"
+     "end_time": "2019-09-19T07:14:28.652039Z",
+     "start_time": "2019-09-19T07:14:24.758Z"
     }
    },
    "outputs": [],
@@ -3262,8 +3188,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.581796Z",
-     "start_time": "2019-09-19T08:00:58.571Z"
+     "end_time": "2019-09-19T07:14:28.655246Z",
+     "start_time": "2019-09-19T07:14:24.761Z"
     }
    },
    "outputs": [],
@@ -3293,8 +3219,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.583508Z",
-     "start_time": "2019-09-19T08:00:58.574Z"
+     "end_time": "2019-09-19T07:14:28.657688Z",
+     "start_time": "2019-09-19T07:14:24.767Z"
     }
    },
    "outputs": [],
@@ -3312,8 +3238,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.585128Z",
-     "start_time": "2019-09-19T08:00:58.578Z"
+     "end_time": "2019-09-19T07:14:28.661448Z",
+     "start_time": "2019-09-19T07:14:24.770Z"
     }
    },
    "outputs": [],
@@ -3341,8 +3267,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.586717Z",
-     "start_time": "2019-09-19T08:00:58.581Z"
+     "end_time": "2019-09-19T07:14:28.664644Z",
+     "start_time": "2019-09-19T07:14:24.774Z"
     }
    },
    "outputs": [],
@@ -3376,8 +3302,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.591694Z",
-     "start_time": "2019-09-19T08:00:58.585Z"
+     "end_time": "2019-09-19T07:14:28.669209Z",
+     "start_time": "2019-09-19T07:14:24.778Z"
     }
    },
    "outputs": [],
@@ -3405,8 +3331,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.593311Z",
-     "start_time": "2019-09-19T08:00:58.589Z"
+     "end_time": "2019-09-19T07:14:28.672156Z",
+     "start_time": "2019-09-19T07:14:24.782Z"
     }
    },
    "outputs": [],
@@ -3420,8 +3346,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.594882Z",
-     "start_time": "2019-09-19T08:00:58.592Z"
+     "end_time": "2019-09-19T07:14:28.675699Z",
+     "start_time": "2019-09-19T07:14:24.786Z"
     }
    },
    "outputs": [],
@@ -3442,8 +3368,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.596411Z",
-     "start_time": "2019-09-19T08:00:58.596Z"
+     "end_time": "2019-09-19T07:14:28.680524Z",
+     "start_time": "2019-09-19T07:14:24.790Z"
     }
    },
    "outputs": [],
@@ -3467,8 +3393,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.597953Z",
-     "start_time": "2019-09-19T08:00:58.599Z"
+     "end_time": "2019-09-19T07:14:28.684547Z",
+     "start_time": "2019-09-19T07:14:24.795Z"
     }
    },
    "outputs": [],
@@ -3516,8 +3442,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.599560Z",
-     "start_time": "2019-09-19T08:00:58.603Z"
+     "end_time": "2019-09-19T07:14:28.687074Z",
+     "start_time": "2019-09-19T07:14:24.799Z"
     }
    },
    "outputs": [],
@@ -3552,8 +3478,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.601249Z",
-     "start_time": "2019-09-19T08:00:58.606Z"
+     "end_time": "2019-09-19T07:14:28.689809Z",
+     "start_time": "2019-09-19T07:14:24.802Z"
     }
    },
    "outputs": [],
@@ -3589,8 +3515,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.604008Z",
-     "start_time": "2019-09-19T08:00:58.609Z"
+     "end_time": "2019-09-19T07:14:28.692665Z",
+     "start_time": "2019-09-19T07:14:24.806Z"
     }
    },
    "outputs": [],
@@ -3604,8 +3530,8 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2019-09-19T08:01:04.605606Z",
-     "start_time": "2019-09-19T08:00:58.613Z"
+     "end_time": "2019-09-19T07:14:28.696714Z",
+     "start_time": "2019-09-19T07:14:24.809Z"
     }
    },
    "outputs": [],
