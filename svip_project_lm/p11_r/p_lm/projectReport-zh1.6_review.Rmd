@@ -206,6 +206,8 @@ summary(pls2n$EmploymentStatusDuration)
 ##排除na数据
 ggplot(aes(x = TotalCreditLinespast7years), data = subset(pls2n, !is.na(TotalCreditLinespast7years))) + geom_histogram(stat = 'count', binwidth = 1) + scale_x_continuous(limits = c(0, 84), breaks = seq(0, 845, 5)) + xlab('7 Year Load Times') + ylab('数量统计') + ggtitle('7年内贷款次数') + theme(text=element_text(family="Hei"))
 
+mytheme <- theme(text=element_text(family="Hei"))
+
 summary(pls2n$TotalCreditLinespast7years) 
 #binwith为啥不生效
 
