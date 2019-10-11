@@ -1,0 +1,530 @@
+---
+output:
+  
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+# R Project Report ： ProsperLoan公司运营及风险分析
+
+#### v2 update note
+
+非常感谢老师的建议,由于加了1周的其他课程测试任务,才提交变更.对于所需修改的内容,将会在本部分逐条说明,其中提出修改的图形的代码修改行也会在这里标明,辛苦老师再次审阅:
+
+1. 代码长度问题，已经明白了可以在，处断开代码。现在是把Rstudio中左侧的长度做限制，大概要写到头了就考虑换行。请问下，有没有在Rstudio中能不能显示80字符的一条竖线（虚线）作为提示？我找了半天也没找到。
+2. 补充项目信息集的描述：本次项目选择的数据集是ProsperLoan公司的数据。
+  - 数据量80+M，参数有81个，是项目中最大的数据集。
+  - 选择数据集的原因是想探索一下带宽的审批和信用的评级的数据，发现之间的联系。
+  - 看看Prosper公司在运营中是怎么将每一个贷款人的数据数字化并做出判断的。
+3. 这也是数据的一个重要价值，不由人参与即可对客户进行细分（信用不同）并对不同细分进行针对服务。
+4. 单变量的分析改进：
+  - 增加了新的分析指标Ratio/Income
+  - 所有指标的分析进行了更新
+  - 请参见PartA
+  - 所有项增加了summary的输出
+5. 增加所有图形Title：已经完成。
+6. 感谢关于排除一个分类的展示的反馈，已经完成。更新在绘图3中已经排除Not Displayed分类。
+7. Occupation那张图重新找了对应关系，使用jitter和alpha后，比较容易看出各个职业的收入分配（图没出来之前没有想到是这样的）
+8. 为未来工作提供了至少一个提议或问题：
+  - 根据分析提出以下几个建议：
+  - a，在职业分类中去掉default的选择1分类，并做一些分类的调整。目前情况导致这个数据不能提供有效数据。
+  - b，检查0收入和not employ两个数据维度的对应情况，前者很多，后者很少，需要分析为什么
+  - c，从目前分类来看高等级的信用和低等级的信用都给公司带来了很多收益。但是从业务区分来讲，如果是双峰可能会更加适合业务的开展（不同侧重点），此处建议：
+    - 1, 调整信用计算和其他数据的关系（比如增加带宽次数为正向指标）
+    - 2，认真分析0收入和低收入的特点，从借款额初步看，也可以是比较优势的客户，需要认真分析（甚至拆分产品）
+    - 3，丢弃带宽与收入比例或者调整。目前状况下此数据有很大误导。
+    
+========================================================
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, packages}
+# 加载你最终使用的所有组件
+# 在这个代码块的分析中。
+
+# 注意，在这个代码块中，将参数 "echo" 设为假。
+# This prevents the code from displaying in the knitted HTML output.这可以避免代码混入 HTML 输出显示。
+# 应当在文件中，对所有代码块设为 echo=FALSE 。
+
+library(ggplot2)
+
+#library(rstudioapi) # 设置目录使用
+library(dplyr)
+library(gridExtra)
+```
+
+```{r setwd, message=FALSE, warning=FALSE, echo=FALSE}
+# 设定工作目录，在生成Knit时会报错，将RMD和需要的文件放在一个目录中就可以了，之后运行RMD，用getwd（）在console中进行检查。
+# setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+# 加载数据
+#pl <- read.csv('prosperLoanData_tidycn.csv') # properloan
+#pls <- select(pl, ListingKey, ListingCreationDate, CreditGrade, LoanStatus, Term, BorrowerAPR, ListingCategory, Occupation, EmploymentStatusDuration, IsBorrowerHomeowner, TotalCreditLinespast7years, DelinquenciesLast7Years, DebtToIncomeRatio, IncomeRange, LoanOriginalAmount) #properloan selected
+#head(pls)
+#write.csv(pls, 'prosperLoanData_s.csv', row.names=FALSE)
+#pls2 <- read.csv('prosperLoanData_s.csv')
+#str(pls2$CreditGrade)
+pls2n <- read.csv('prosperLoanData_s.csv', na.strings=c("", "NA")) # 将文件中的空字符转换成NA，方便R进行处理
+#summary(pls2n)
+pls2o <- na.omit(pls2n)
+
+#str(pls2n$CreditGrade)
+#使用str进行检查，判断如何处理缺失值，如上面两个例子
+# https://stackoverflow.com/questions/12763890/exclude-blank-and-na-in-r
+```
+
+## (v2-updated)Part1A - 单变量绘图选择
+
+#### CreditGrade
+分析发现: 
+1. 信用评价呈现的分布比较平均
+2. 众数为信用评分C级
+3. 其中HR和NC为Posper公司内部分级，通用信用指标中无此分类。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+#date
+#ggplot(aes(x = ListingCreationDate), data = pls2) + geom_histogram(stat = 'count', binwidth = 10)
+# 此处可以得出图形但速度很慢且坐标比较奇怪，待请教
+
+#credit
+##使用na.进行排除，不理想。参见上面在read.csv读入时候进行转换
+#pls3 <- na.omit(pls2)
+#pls4 <- na.omit(pls2$CreditGrade)
+#如果用na.omit则会只把做了处理的表存为变量
+##带有na数据
+#ggplot(aes(x = CreditGrade), y = ..count.., data = pls2n) + geom_histogram(stat = 'count')
+##排除na数据
+#levels(pls2n$CreditGrade)
+# HR和NC并没有公开的说明可能是公司内部的一些定义
+# http://mortgage-x.com/library/credit_grade.htm
+# 同时没有AA有A+，应该是最高的评级
+
+ggplot(aes(x = CreditGrade), data = subset(pls2n, !is.na(CreditGrade))) + geom_histogram(stat = 'count') + xlab('CreditGrade') + ylab('Counts') + labs(title="Credit Level") #可以和pls2对比，看下Null和NA的区别
+#关于subset的使用还要再学习
+#labs(title="Plot of length \n by dose", x ="Dose (mg)", y = "Teeth length")
+#labs可以设定title，x，y，简单的使用xlab和ylab
+#也可以使用ggtitle设定整体名字
+#改样式需要使用theme，后续研究
+####检验
+#na.fail(pls2n)
+#sum(is.na(pls2n))
+#sum(is.na(pls2n$CreditGrade))
+#sum(is.na(pls2n$BorrowerAPR))
+summary(pls2n$CreditGrade)
+#head(subset(pls2n, !is.na(CreditGrade)))
+
+#LoanStatus / 无明显意义丢弃
+##带有na数据
+#ggplot(aes(x = LoanStatus), data = pls2n) + geom_histogram(stat = 'count')
+##排除na数据
+#ggplot(aes(x = LoanStatus), data = subset(pls2n, !is.na(LoanStatus))) + geom_histogram(stat = 'count')
+
+#Term / 无明显意义丢弃
+##带有na数据
+#ggplot(aes(x = Term), data = pls2n) + geom_histogram(stat = 'count')
+#需要加轴的代码
+##排除na数据
+#ggplot(aes(x = Term), data = subset(pls2n, !is.na(Term))) + geom_histogram(stat = 'count')
+```
+
+####BorrowerAPR
+分析发现：
+1. 呈现的状态为离散正态分布。
+1. 中位数为0.20976。
+1. 从图中可以看出：贷款利率相差很大，主要有几个档次为主要选择。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#BorrowerAPR
+##带有na数据
+
+# ggplot(aes(x = BorrowerAPR), data = pls2n) + geom_histogram(stat = 'count', binwidth = 0.001) + scale_x_continuous(limits = c(0.00635, 0.51229), breaks = seq(0.00635, 0.51229, 0.05)) + scale_y_continuous(limits = c(0, 500)) # 包含所有数据
+ggplot(aes(x = BorrowerAPR), data = subset(pls2n, !is.na(BorrowerAPR))) + geom_histogram(stat = 'count', binwidth = 0.001) + scale_x_continuous(limits = c(0.05635, 0.40635), breaks = seq(0.05635, 0.40635, 0.05)) + scale_y_continuous(limits = c(0, 340)) + xlab('Interest by Year') + ylab('Statistic Counts') + ggtitle('Interest by Year')#包含可见数据
+summary(pls2n$BorrowerAPR)                                            # + facet_wrap(~gender)
+#max(pls2n$BorrowerAPR)
+#max如何使用
+#bin并没有生效，需要后续研究。#需要加轴的代码.
+##排除na数据
+```
+
+####LoanOriginalAmount
+分析发现：
+1. 大部分贷款低于25000美元。
+1. 数量最多的发生在3000 - 4000美元。
+1. 当贷款额超过10k后，每5k是一个较大聚合（10k、15k、20k）说明在可能这些贷款额是一个评估的等级。
+1. 在5k以前贷款的额度比较多，在5k之后，增长是0.5k，期间的数值基本没有了。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(aes(x = LoanOriginalAmount), data = subset(pls2n, !is.na(LoanOriginalAmount))) + geom_histogram(binwidth = 100) + scale_x_continuous(breaks = seq(0, 30000, 2000)) + xlab('Init Loan Data') + ylab('Statistic Count') + ggtitle('Init Loan Data')#包含可见数据
+summary(pls2n$BorrowerAPR)                                            # + facet_wrap(~gender)
+#max(pls2n$BorrowerAPR)
+#max如何使用
+#bin并没有生效，需要后续研究。#需要加轴的代码.
+##排除na数据
+```
+
+####ListingCategory
+分析发现：
+1. 1类为最多分类，且数量巨大。为Debt Consolidation 此分类可能是默认分类。从字面解释没有分类意义。
+1. 20种分类中数量相差非常多，可能需要调整。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#ListingCategory
+##带有na数据
+#ggplot(aes(x = ListingCategory), data = pls2n) + geom_histogram(stat = 'count')
+#需要加轴的代码
+##排除na数据
+ggplot(aes(x = ListingCategory), data = subset(pls2n, !is.na(ListingCategory))) + geom_histogram(stat = 'count') + scale_x_continuous( breaks = seq(0, 20, 1)) + xlab('Loan People Type') + ylab('Statistic Count') + ggtitle('Loan People Type')
+#后续进行排序
+summary(pls2n$ListingCategory)
+```
+
+####EmploymentStatusDuration
+分析发现：
+1. 展现了比较规范的偏斜分布数据。
+2. 0的值很多，开始考虑可能和默认值有关。
+1. 但如果我是贷款人，填写受雇用时长的时候，应该会非常谨慎并尽量表现得积极。所以这个趋势应该就是贷款公司客户的特点的可能性较多。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#EmploymentStatusDuration
+##带有na数据
+#ggplot(aes(x = EmploymentStatusDuration), data = pls2n) + geom_histogram(stat = 'count')
+##排除na数据
+ggplot(aes(x = EmploymentStatusDuration), data = subset(pls2n, !is.na(EmploymentStatusDuration))) + geom_histogram(stat = 'count') + xlab('Hired Time') + ylab('Statistic Count') + ggtitle('Hired Time')
+summary(pls2n$EmploymentStatusDuration)
+```
+
+####TotalCreditLinespast7years
+分析发现：
+1. 图形为典型的正态分布。
+1. Mean = 26.75，Median = 25.00。
+1. 贷款的次数还是相当多的，这是一个好的现象。因为这个数据说明了贷款人会多次带宽，能够给公司带来持续的利益。
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#TotalCreditLinespast7years
+##带有na数据
+#ggplot(aes(x = TotalCreditLinespast7years), data = pls2n) + geom_histogram(stat = 'count')
+##排除na数据
+ggplot(aes(x = TotalCreditLinespast7years), data = subset(pls2n, !is.na(TotalCreditLinespast7years))) + geom_histogram(stat = 'count', binwidth = 1) + scale_x_continuous(limits = c(0, 84), breaks = seq(0, 845, 5)) + xlab('7 Year Load Times') + ylab('数量统计') + ggtitle('7年内贷款次数') + theme(text=element_text(family="Hei"))
+
+mytheme <- theme(text=element_text(family="Hei"))
+
+summary(pls2n$TotalCreditLinespast7years) 
+#binwith为啥不生效
+
+#DelinquenciesLast7Years（数据不明显，丢弃）
+##带有na数据
+#ggplot(aes(x = DelinquenciesLast7Years), data = pls2n) + geom_histogram(stat = 'count')
+##排除na数据(数值型的不用排除)
+#ggplot(aes(x = DelinquenciesLast7Years), data = subset(pls2n, !is.na(DelinquenciesLast7Years))) + geom_histogram(stat = 'count')
+```
+
+#### v2add - DebtToIncomeRatio
+分析发现：
+1. 数据中最多比例为10.01，研究了数据集。应该和0收入和低收入的比例有关。
+1. 所以此处贷款比例中位数是0.22比平均数更有意义。
+1. 但是反思这种情况下本参数对于0收入和低收入的计算没有很大意义。
+1. 可以考虑完全将有一定工作收入和没有收入的两类人群拆开，业务也会更有针对性。
+1. 为了图形展示，对数量小于5的count和比例大于1的进行了排除。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#DebtToIncomeRatio
+##带有na数据
+#ggplot(aes(x = DebtToIncomeRatio), data = pls2n) + geom_point(stat = 'count')
+##排除na数据
+ggplot(aes(x = DebtToIncomeRatio), 
+       data = subset(pls2n, !is.na(DebtToIncomeRatio))) + geom_point(stat = 'count') + 
+  scale_y_continuous(limits = c(5, 4000)) +
+  scale_x_continuous(limits = c(0, 1)) +
+  xlab('Debt与Income比例') + ylab('数量统计') + ggtitle('Debt与Income比例') + theme(text=element_text(family="Hei"))
+#ggplot参数在，后面换行，+的话是在+后面换行
+summary(pls2n$DebtToIncomeRatio)
+#使用point图，为什么histgram没有图形，需要限制99%的值，有一些会非常大（outlier）。使用IncomeRange，此参数后续研究，
+```
+
+####IncomeRange
+分析发现：
+1. 收入数据为明显的正态分布。
+1. 这里的not employed和0收入数据的比例不相符，需要额外研究下客户数据发现原因。
+1. 感觉分类有些少，区分度不够。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#IncomeRange
+##带有na数据
+ggplot(aes(x = IncomeRange), data = pls2n) + geom_histogram(stat = 'count') + xlab('收入范围') + ylab('数量统计') + ggtitle('收入范围') + theme(text=element_text(family="Hei"))
+summary(pls2n$IncomeRange)
+##排除na数据(没有na值)
+#ggplot(aes(x = IncomeRange), data = subset(pls2n, !is.na(IncomeRange))) + geom_histogram(stat = 'count')
+
+#temp
+#ggplot(aes(x = friend_count, y = ..count../sum(..count..)), data = subset(pf, !is.na(gender))) + geom_freqpoly(aes(color = gender), binwidth=10) + scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) +  xlab('好友数量') + ylab('Percentage of users with that friend count')
+```
+
+
+## Part1B - 单变量分析
+
+#### 你的数据集结构是什么？
+- 原始数据有81个参数，选择了其中的14个数据，在进行单变量可视化分析的时候有少量排除掉了。结果参见上面一节的说明和图像输出。
+- properloan观察。全部113937个数据（第1行是head），在一个80+M的csv中，比较理想。虽然数据量稍大了些，但是经过观察，数据中的变量很多（81个），按照项目要求，选择选择10-15个变量。首先进行数据清理可能会缩减较大尺寸。
+- 数据使用的是pls2n，为了处理速度将所选变量的数据存为了csv文件。共有113937个观察，15个变量。并为了处理方便，将空字符变换为了NA。
+- 在上到3维分析之后，发现必须处理掉NA数据才能比较直观，又把NA全部处理掉生成了数据集pls2o
+```{r}
+str(pls2n)
+```
+- 根据前一节数据的可视化发现：
+    - 收入数据、7年内的借款次数为正态分布。
+    - 受雇佣的时间为偏斜分布。
+    - 带宽类别中，推测默认为1，为Debt Consolidation,从字面解释没有分类意义，可能是默认值。
+    - 贷款年化利率呈现的状态为正态分布，中位数为0.20976。最大最小值相差较大。
+    - 信用等级评价的分布比较平均，代表中间信用评分的C级最多，其中HR和NC为Posper公司内部分级，通用中无此分类。
+
+#### 你的数据集内感兴趣的主要特性有哪些？
+选择这个数据集是对贷款的政策有比较好奇。从数据中可以看到两个方面。首先是ProsperLoan的运行情况。本数据中的贷款的数据很多。从数据的分布可以看出很多属于正态分布，是比较健康的。另外一点，对于贷款人信用的如何评级及贷款的利率等运营决策是否会因贷款人不同而变化，如果有，是怎么变化的比较好奇，这部分将在后两部分进行分析。
+
+
+
+#### 你认为数据集内哪些其他特征可以帮助你探索兴趣特点？
+初步选择的参数如下，在分析过程中又有一些由于数据和能力问题被放弃了。选择的列表和原因如下：
+1. ListingKey 主键
+2. （LoanData） 业务视角数据
+    1. ListingCreationDate 贷款日期 OK 提取年/月
+    2. CreditGrade 信用等级 OK 虽然缺失较大，但是重要指标，保留，经过观察，和loanstatus有关联，增加指标。
+    3. LoanStatus 借款状态
+    4. Term 贷款期（月）
+    5. BorrowerAPR 年华利率 利率相差较大
+    6. ListingCategory 行业，数字标识，对应如下：
+The category of the listing that the borrower selected when posting their listing: 0 - Not Available, 1 - Debt Consolidation, 2 - Home Improvement, 3 - Business, 4 - Personal Loan, 5 - Student Use, 6 - Auto, 7- Other, 8 - Baby&Adoption, 9 - Boat, 10 - Cosmetic Procedure, 11 - Engagement Ring, 12 - Green Loans, 13 - Household Expenses, 14 - Large Purchases, 15 - Medical/Dental, 16 - Motorcycle, 17 - RV, 18 - Taxes, 19 - Vacation, 20 - Wedding Loans 。
+此处对比Occupation是固定分类，两者有联系，选择这个数据而不是Occupation。
+    7. Occupation 在职情况
+3. （Borrower）借款人视角数据
+    1. EmploymentStatusDuration 借款人在职时间 数据较全（考虑到房产的情况，增加1个指标）
+    2. IsBorrowerHomeowner 借款人是否有房产
+    3. TotalCreditLinespast7Years 7年内借款次数 数据较全
+    4. DelinquenciesLast7Years 7年内欠款次数 数据较全
+    5. DebtToIncomeRetio 债务与收入比例 数据较全
+    6. IncomeRange 收入范围 数据较全
+    7. （ProsperPaymentsLessThanOneMonthLate 一月内还清带宽标识）区分性较小
+    8. （PercentFunded 贷款比例）基本都是1，区分性小
+    9. （Recommandations 推荐人）区分性小
+
+#### 根据数据集内已有变量，你是否创建了任何新变量？
+没有创建新的变量。
+
+#### 在已经探究的特性中，是否存在任何异常分布？你是否对数据进行一些操作，如清洁、调整或改变数据的形式？如果是，你为什么会这样做？
+在统计时发现is.na无法正常过滤，经过检查大部分的空值是空字符而不是NA。调整了读入csv的命令，经过测试，问题解决：
+
+> pls2n <- read.csv('prosperLoanData_s.csv', na.strings=c("", "NA")) 
+
+另外在一些异常值的问题上，按照百分比进行了限制了Data = pls2n的显示效果，没有选择写入到文件中的方法。
+
+## Part2A - 双变量绘图选择
+
+#### CreditGrade - LoanStatus
+可以看出，A和AA的完成比例最高。而最后两个信用档则比例非常低。以上数据说明了评级还是比较准确的（也可能LoanStatus本身计算参数就含LoanStatus）。
+另：为了排斥facet中NA的影响，此处使用的是通过omit去掉所有NA值的pls2o数据，观察值为20225个。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# geom_freqpoly(aes(color = clarity), binwidth = 0.1) #binwidth是用在freqpoly这类画图中的，在geom中加aes(color = )直接增加一个纬度
+# 之后用+ facet_wrap(~cut) 再增加一个纬度就好了
+#levels(pls2o$CreditGrade)
+# cl1 使用facet(保留)
+ggplot(aes(x = LoanStatus), data = subset(pls2o, !is.na(LoanStatus) & LoanStatus == c('Chargedoff', 'Completed', 'Current', 'Defaulted'))) + geom_histogram(stat = 'count') + facet_wrap(~CreditGrade) + ggtitle('CreditGrade - LoanStatus')
+# cls 使用color 图像使用附值时不会显示，先调整好再完成
+#ggplot(aes(x = LoanStatus), data = subset(pls2o, !is.na(LoanStatus) & LoanStatus == c('Chargedoff', 'Completed', 'Current', 'Defaulted'))) + geom_line(stat = 'count', aes(color = CreditGrade))
+# 放弃，本来想来个颜色的。但由于数量不同显示没有意义，先要转换成比率才可以，后续研究。
+
+# facet_wrap 是一个纬度，facet_grid( p1 ~ p2)是两个纬度
+# 标示问题应该使用ggtitle进行处理，后续研究
+# facet无法过滤显示选项，如果要有选择的显示，除了一个排除NA的参数。就得从数据集下手了。
+#table(pls2n$LoanStatus)
+# table看单个表非常简洁明了
+```
+
+#### CreditGrade - BorrowerAPR
+根据图形所示，非常明显信用等级越高，年化利率就越低，分布十分理想。另外HR的分类特别的高，而且跨度超长，可能和定义有关，愿数据说明没有此部分细节。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(aes(x = BorrowerAPR), data = subset(pls2o, !is.na(LoanStatus))) + geom_freqpoly(stat = 'count', aes(color = CreditGrade)) + ggtitle('CreditGrade - BorrowerAPR')
+#为啥freqpoly没有画出点轨迹图，后续研究
+```
+
+#### CreditGrade - TotalCreditLinespast7years
+根据图形显示，低等级的评分的贷款数量明显大于高等级的数量。说明低等级信用贷款在数量上是十分重要的。并且贷款数量与信用等级相关性基本没有。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(aes(x = TotalCreditLinespast7years), data = subset(pls2o, !is.na(LoanStatus))) + geom_freqpoly(stat = 'count', aes(color = CreditGrade)) + ggtitle('CreditGrade - TotalCreditLinespast7years')
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+plot2a <- ggplot(aes(x = TotalCreditLinespast7years), data = subset(pls2o, !is.na(LoanStatus))) + geom_freqpoly(stat = 'count', aes(color = CreditGrade))
+plot2b <- ggplot(aes(x = DelinquenciesLast7Years), data = subset(pls2o, !is.na(LoanStatus))) + geom_freqpoly(stat = 'count', aes(color = CreditGrade)) + xlim(1, 10)
+```
+
+
+#### CreditGrade - DelinquenciesLast7Years
+根据图形显示（为了便于观察，对x做了限制），信用等级和超期还款有强相关性。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(aes(x = DelinquenciesLast7Years), data = subset(pls2o, !is.na(LoanStatus))) + geom_freqpoly(stat = 'count', aes(color = CreditGrade)) + xlim(1, 10) + ggtitle('CreditGrade - DelinquenciesLast7Years')
+#summary(pls2o$DelinquenciesLast7Years)
+```
+
+#### CreditGrade - DebtToIncomeRatio - his
+根据图形显示（为了便于观察，对x做了限制），借款人的偿还能力对信用等级并没有影响。贷款利率的众数是0.19。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+summary(pls2o$DebtToIncomeRatio)
+ggplot(aes(x = DebtToIncomeRatio), data = subset(pls2o, !is.na(LoanStatus))) + geom_histogram(stat = 'count', aes(color = CreditGrade), binwidth = 0.05) + scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.05)) + ggtitle('CreditGrade - DebtToIncomeRatio - 直方图')
+#当增加了scale之后，即使不加limits参数，也会覆盖xlim，所以要融入scale，或者每个都用scale标示
+#summary(pls2o$DelinquenciesLast7Years)
+#bar图，转换轴，同样ratio下？count无意义，引入别的变量
+#采用箱线图试试
+#ggplot(aes(x = CreditGrade, y = DebtToIncomeRatio), data = subset(pls2o, !is.na(LoanStatus))) + geom_boxplot() + scale_y_continuous(limits = c(0, 0.8), breaks = seq(0, 1, 0.05))
+#箱线图适合plot的统计，才返现居然没有贷款额参数，马上补了LoanOriginalAmount
+```
+
+#### CreditGrade - DebtToIncomeRatio -box
+对比上一个图，箱线图更容易显示出数据的对比。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#采用箱线图试试
+ggplot(aes(x = CreditGrade, y = DebtToIncomeRatio), data = subset(pls2o, !is.na(LoanStatus))) + geom_boxplot() + scale_y_continuous(limits = c(0, 0.8), breaks = seq(0, 1, 0.05)) + ggtitle('CreditGrade - DebtToIncomeRatio - 箱线图')
+#summary(pls2o$DebtToIncomeRatio)
+#箱线图适合plot的统计，才返现居然没有贷款额参数，马上补了LoanOriginalAmount
+```
+
+#### Occupation - IncomeRange
+根据图形显示观察Occupation和IncomeRange的关系。发现数据特别分散，实际意义不大。而且还有个Other分类聚集了大部分数据。
+
+```{r echo=FALSE, fig.height=20, fig.width=20, message=FALSE, warning=FALSE}
+#以上的方法是调整显示图形，但是当knit输出时候，会把图形放在文档中，图形很大的时候，字会看不清，尝试使用别的方法，如后面代码
+#theme(axis.text.x = element_text(size = 15, family = myFont, color = green, face = bold, vjust = 0.5, hjust = 0.5, angle = 45))
+table(pls2o$IncomeRange)
+
+#+ theme(axis.text.y = element_text(size = 15, color = 'green', face = 'bold', vjust = 0.5, hjust = 0.5, angle = 45))
+#ggplot(aes(x = IncomeRange), data = subset(pls2o, !is.na(IncomeRange))) + geom_histogram(stat = 'count') + facet_wrap(~ Occupation) + ggtitle('Occupation - IncomeRange')
+ggplot(aes(x = IncomeRange, y = Occupation), data = subset(pls2o, !is.na(IncomeRange))) + geom_point(alpha = 1/3, position = position_jitter(h = 0)) + ggtitle('Occupation - IncomeRange') + theme(axis.text.y = element_text(size = 18, face = 'bold')) + theme(axis.text.x = element_text(size = 18, face = 'bold'))
+#ggplot(aes(x = IncomeRange, y = Occupation), data = subset(pls2o, !is.na(IncomeRange))) + geom_point(stat = 'count') + ggtitle('Occupation - IncomeRange')
+#geom_point(aes(color = CreditGrade), alpha = 1/3, position = position_jitter(h = 0))
+#geom_point(aes(color = CreditGrade)
+#xlab('好友数量') + ylab('Percentage of users with that friend count')
+
+```
+
+#### LoanOriginalAmount - CreditGrade
+根据图形显示贷款评级越高平均贷款额就越高，两个参数相关。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#table(pls2o$LoanOriginalAmount)
+ggplot(aes(x = CreditGrade, y = LoanOriginalAmount), data = subset(pls2o, !is.na(LoanStatus))) + geom_boxplot() + ggtitle('LoanOriginalAmount - CreditGrade')#+ scale_y_continuous(limits = c(0, 0.8), breaks = seq(0, 1, 0.05))
+#ggplot(aes(x = IncomeRange), data = subset(pls2o, !is.na(IncomeRange))) + geom_histogram(stat = 'count') + facet_wrap(~ Occupation)
+#xlab('好友数量') + ylab('Percentage of users with that friend count')
+```
+
+
+## Part2B -  双变量分析
+
+#### 探讨你在这部分探究中观察到的一些关系。这些感兴趣的特性与数据集内其他特性有什么区别？
+本部分观察的重点是CreditGrade到底是和那些指标有关系。之后又好奇Proper收集的IncomeRange数据和Occupation之间有没有展示一些信息，这一部分由于数据比较分散，且有Other的默认选项，没有很大价值，推荐将一些分类合并，比如Traindsman，Teacher可以代表相关的两大类别。并降低Other的选项比例。
+
+#### 你是否观察到主要特性与其他特性之间的有趣关系？
+CreditGrade的评级还是非常有用的指标，对于LoanStatus的区分对应比较好。比较好玩的是，这个指标和贷款次数没有关系，只和贷款违约有关系。
+
+#### 你发现最强的关系是什么？
+通过图形判断。CreditGrade和以下指标具备相关性：DelinquenciesLast7Years，BorrowerAPR。
+
+
+
+## Part3A - 多变量绘图选择
+
+#### Loan - APR - CreditGrade
+根据图形显示PorsperLoan对高信用的用户青睐有加，更低的利率，更多的金额。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#table(pls2o$LoanOriginalAmount)
+ggplot(aes(x = BorrowerAPR, y = LoanOriginalAmount), data = subset(pls2o, !is.na(LoanStatus))) + geom_point(aes(color = CreditGrade), alpha = 1/3, position = position_jitter(h = 0)) + ggtitle('Loan - APR - CreditGrade')# + coord_trans(y = 'sqrt') #+ scale_y_continuous(limits = c(0, 0.8), breaks = seq(0, 1, 0.05))
+#ggplot(aes(x = age, y = friend_count), data = pf) + geom_point(alpha = 1/20, position = position_jitter(h = 0)) + xlim(13,90) + coord_trans(y = 'sqrt')
+#ggplot(aes(x = IncomeRange), data = subset(pls2o, !is.na(IncomeRange))) + geom_histogram(stat = 'count') + facet_wrap(~ Occupation)
+#xlab('好友数量') + ylab('Percentage of users with that friend count')
+```
+
+#### Loan - APR - Income
+根据图形显示PorsperLoan对IncomeRange倒是没什么特别关注。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#table(pls2o$LoanOriginalAmount)
+ggplot(aes(x = BorrowerAPR, y = LoanOriginalAmount), data = subset(pls2o, !is.na(LoanStatus))) + geom_point(aes(color = IncomeRange), alpha = 1/3, position = position_jitter(h = 0)) + ggtitle('Loan - APR - Income')# + coord_trans(y = 'sqrt') #+ scale_y_continuous(limits = c(0, 0.8), breaks = seq(0, 1, 0.05))
+#ggplot(aes(x = age, y = friend_count), data = pf) + geom_point(alpha = 1/20, position = position_jitter(h = 0)) + xlim(13,90) + coord_trans(y = 'sqrt')
+#ggplot(aes(x = IncomeRange), data = subset(pls2o, !is.na(IncomeRange))) + geom_histogram(stat = 'count') + facet_wrap(~ Occupation)
+#xlab('好友数量') + ylab('Percentage of users with that friend count')
+```
+
+#### Loan - APR - CreditGrade - Income
+用Facet增加第4纬度后，分离Income后还是可以看出虽然和额度关系不大，但和是否能够贷款审批关系比较重大。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#table(pls2o$LoanOriginalAmount)
+ggplot(aes(x = BorrowerAPR, y = LoanOriginalAmount), data = subset(pls2o, !is.na(LoanStatus))) + geom_point(aes(color = CreditGrade), alpha = 1/3, position = position_jitter(h = 0)) + facet_wrap(~ IncomeRange) + ggtitle('Loan - APR - CreditGrade - Income')# + coord_trans(y = 'sqrt') #+ scale_y_continuous(limits = c(0, 0.8), breaks = seq(0, 1, 0.05))
+#ggplot(aes(x = age, y = friend_count), data = pf) + geom_point(alpha = 1/20, position = position_jitter(h = 0)) + xlim(13,90) + coord_trans(y = 'sqrt')
+#ggplot(aes(x = IncomeRange), data = subset(pls2o, !is.na(IncomeRange))) + geom_histogram(stat = 'count') + facet_wrap(~ Occupation)
+#xlab('好友数量') + ylab('Percentage of users with that friend count')
+```
+
+## Part3B - 多变量分析
+
+####  探讨你在这部分探究中观察到的一些关系。通过观察感兴趣的特性，是否存在相互促进的特性？
+主要观测的是贷款额-利率的关系，因为这个和公司经营十分密切。又增加了信用纬度和收入纬度，这两方面涉及公司的风险控制。
+
+#### 这些特性之间是否存在有趣或惊人的联系呢？
+发现贷款额和信用正相关，利率和信用负相关。有趣的是收入制作为准入门槛，和额度及利率关系不大。
+
+#### 选项：你是否创建过数据集的任何模型？讨论你模型的优缺点。
+贷款的数据比钻石的价格数据更复杂，变量达到了81个，经过尝试，找到了一些相关的关系。其中最重要的指标是Credit，和许多其他指标都有关系。但是比较遗憾的是尝试了比较多的转换，未找到类似钻石线形关系的对应关系。
+
+## Part4 - 定稿图与总结
+
+#### 绘图一
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+plot1a <- ggplot(aes(x = TotalCreditLinespast7years), data = subset(pls2n, !is.na(TotalCreditLinespast7years))) + geom_histogram(stat = 'count', binwidth = 1) + scale_x_continuous(limits = c(0, 84), breaks = seq(0, 845, 5)) + ggtitle('7年内贷款次数')
+plot1b <- ggplot(aes(x = LoanOriginalAmount), data = subset(pls2n, !is.na(LoanOriginalAmount))) + geom_histogram() + scale_x_continuous(breaks = seq(0, 30000, 5000)) + ggtitle('贷款额统计') + theme(text=element_text(family="Hei"))
+#+ ggtitle("Plant growth with\ndifferent treatments") + theme(plot.title = element_text(lineheight=.8, face="bold"))
+# Title只是在每个plot上，grid.arrange无法定制title
+grid.arrange(plot1a, plot1b, ncol = 2, top = '绘图1：公司运营考察/n公司7年内业务次数 vs 单次贷款额统计') 
+#https://stackoverflow.com/questions/8615530/place-title-of-multiplot-panel-with-ggplot2
+#2种方式增加gridtitle
+#grid.text("title of this panel", vp = viewport(layout.pos.row = 1, layout.pos.col = 1:2))
+
+```
+
+#### 描述一
+绘图1为单一纬度的两个探索的聚合，左边是Prosper公司7年内发生借款的数量，符合正态分布。右侧是贷款额的统计（不是正态分布，但数据比较健康）。从这两个指标可以看出Posper公司的经营情况比较正常。
+
+#### 绘图二
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+plot2a <- ggplot(aes(x = TotalCreditLinespast7years), data = subset(pls2o, !is.na(LoanStatus))) + geom_freqpoly(stat = 'count', aes(color = CreditGrade)) + ggtitle('7年内贷款次数与信用评级') + theme(text=element_text(family="Hei"))
+plot2b <- ggplot(aes(x = DelinquenciesLast7Years), data = subset(pls2o, !is.na(LoanStatus))) + geom_freqpoly(stat = 'count', aes(color = CreditGrade)) + xlim(1, 10) + ggtitle('7年内超期还款次数与信用评级') + theme(text=element_text(family="Hei"))
+grid.arrange(plot2a, plot2b, ncol = 1, top = '绘图2：贷款人信用评级') + theme(text=element_text(family="Hei"))
+```
+
+#### 描述二
+绘图2为二纬度两个探索的聚合，上面是贷款次数和信用的关系，下面是违约还款和信用的关系。可以看出信用和违约还款次数有较强负相关，但和贷款次数关系不大。
+
+#### 绘图三
+```{r echo=FALSE, Plot_Three}
+ggplot(aes(x = BorrowerAPR, y = LoanOriginalAmount), data = subset(pls2o, IncomeRange != 'Not displayed')) + geom_point(aes(color = CreditGrade), alpha = 1/2, position = position_jitter(h = 0)) + facet_wrap(~ IncomeRange)  +  ggtitle('绘图3：贷款额与收入水平关系') + theme(text=element_text(family="Hei"))
+#subset_data = filter(data, IncomeRange != 'Not displayed')
+#+ scale_color_brewer(type = 'div')
+#ggplot(aes(x = BorrowerAPR, y = LoanOriginalAmount), data = subset(pls2o, !is.na(LoanStatus))) + geom_point(aes(color = CreditGrade), alpha = 1/2, position = position_jitter(h = 0)) + facet_wrap(~ IncomeRange)  + ggtitle('绘图3：贷款额与收入水平关系')#+ scale_color_brewer(type = 'div') 无filter
+```
+
+#### 描述三
+用Facet增加第4纬度后，分离Income后还是可以看出虽然和额度关系不大，但和是否能够贷款审批关系比较重大。从这个分析可以看出收入水平是是否可以贷款的准入条件，但是一旦满足门槛，关系就不那么大了。
+
+## Part5 - 反思
+项目大概做了5天，由于选择的是和课程钻石价格预测相差较大的数据，做的比较苦手。最终选择的是properloan。酒类的不是很感兴趣，而且数据量比较小。总统选举的不感兴趣。贷款的不错，其中paipaidi的都是excel数据，仔细看了一遍说明和数据文件。多个数据文件比较繁琐，而且格式不友好（有个表的中文都是乱码）还有个表的把期数作为primarykey无法理解。需要额外的工作比较多。
+
+在处理的过程中，感觉到数据分析不只是做清理、数据处理和可视化。有很大部分是对各个参数的理解，参数之间关系的估计和验证。和这些验证之后要达到目标的分析。这些可能才是探索性数据分析的难点。
+
+在处理过程中，有以下问题，情评审老师解答：
+1. 在最后一副图中，怎样把facet中的‘Not displayed’分类去掉，即有选择的进行facet展示？
