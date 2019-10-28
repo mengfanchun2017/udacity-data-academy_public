@@ -9,6 +9,7 @@ import matplotlib as plt
 
 # Read the data.
 data = np.asarray(pd.read_csv('l2_9_data.csv', header=None))
+## 注意文件名和原文件有差别
 # Assign the features to the variable X, and the labels to the variable y. 
 X = data[:,0:2]
 y = data[:,2]
@@ -68,8 +69,6 @@ def trainPerceptronAlgorithm(X, y, learn_rate = 0.01, num_epochs = 25):
         boundary_lines.append((-W[0]/W[1], -b/W[1]))
     return boundary_lines
 
-# 后续研究，问问题
-trainPerceptronAlgorithm(X, y)
-
-# 执行看没有问题X为x1，x2对应的点，y为分类0，1
-# 图出不来，还要继续加画图的代码
+# 输出line的组合，工作正常，但是可视化的代码其实是在后台
+# 这里明白原理在空间上可以看到图（需科学上网）
+print(trainPerceptronAlgorithm(X, y))
