@@ -1,1 +1,0 @@
-The code files for the book Building Machine Learning Systems with Python, Third edition, is present for all the chapters.
