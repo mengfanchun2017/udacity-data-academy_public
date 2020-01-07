@@ -1,6 +1,7 @@
 # ignore temp folders
 .DS_Store
 .ipynb_checkpoints
+__pycache__
 
 # use ! to mark retention
 # use doc/*.txt for files under folders
